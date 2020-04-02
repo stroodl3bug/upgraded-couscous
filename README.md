@@ -1,2 +1,2 @@
-# hassio
-[![Build Status](https://travis-ci.com/stroodl3bug/didactic-robot.svg?token=ok4YxHJMtPPsQsqwTPQY&branch=master)](https://travis-ci.com/stroodl3bug/didactic-robot)
+# Home Assistant
+[![Build Status](https://travis-ci.com/stroodl3bug/upgraded-couscous.svg?branch=master)](https://travis-ci.com/stroodl3bug/upgraded-couscous)
