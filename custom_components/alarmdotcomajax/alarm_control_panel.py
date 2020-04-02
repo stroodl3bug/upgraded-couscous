@@ -2,7 +2,7 @@
 import logging
 import re
 
-from .pyalarmdotcomajax import Alarmdotcom
+from pyalarmdotcomajax import Alarmdotcom
 import voluptuous as vol
 
 import homeassistant.components.alarm_control_panel as alarm
@@ -20,19 +20,29 @@ from homeassistant.const import (
     STATE_ALARM_ARMED_HOME,
     STATE_ALARM_DISARMED,
 )
-from homeassistant.helpers.aiohttp_client import async_get_clientsession
+from homeassistant.helpers.aiohttp_client import (
+    async_create_clientsession,
+    async_get_clientsession,
+)
 import homeassistant.helpers.config_validation as cv
 
 _LOGGER = logging.getLogger(__name__)
 
 DEFAULT_NAME = "Alarm.com"
+CONF_FORCE_BYPASS = "force_bypass"
+CONF_NO_ENTRY_DELAY = "no_entry_delay"
+CONF_SILENT_ARMING = "silent_arming"
+DOMAIN = "alarmdotcomajax"
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
         vol.Required(CONF_PASSWORD): cv.string,
         vol.Required(CONF_USERNAME): cv.string,
-        vol.Optional(CONF_CODE): cv.positive_int,
+        vol.Optional(CONF_CODE): cv.string,
         vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
+        vol.Optional(CONF_FORCE_BYPASS, default="false"): cv.string,
+        vol.Optional(CONF_NO_ENTRY_DELAY, default="false"): cv.string,
+        vol.Optional(CONF_SILENT_ARMING, default="false"): cv.string,
     }
 )
 
@@ -43,8 +53,24 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
     code = config.get(CONF_CODE)
     username = config.get(CONF_USERNAME)
     password = config.get(CONF_PASSWORD)
-
-    alarmdotcom = AlarmDotCom(hass, name, code, username, password)
+    force_bypass = config.get(CONF_FORCE_BYPASS)
+    no_entry_delay = config.get(CONF_NO_ENTRY_DELAY)
+    silent_arming = config.get(CONF_SILENT_ARMING)
+    use_new_websession = hass.data.get(DOMAIN)
+    if not use_new_websession:
+        hass.data[DOMAIN] = True
+        use_new_websession = False
+    alarmdotcom = AlarmDotCom(
+        hass,
+        name,
+        code,
+        username,
+        password,
+        force_bypass,
+        no_entry_delay,
+        silent_arming,
+        use_new_websession,
+    )
     await alarmdotcom.async_login()
     async_add_entities([alarmdotcom])
 
@@ -52,18 +78,42 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
 class AlarmDotCom(alarm.AlarmControlPanel):
     """Representation of an Alarm.com status."""
 
-    def __init__(self, hass, name, code, username, password):
+    def __init__(
+        self,
+        hass,
+        name,
+        code,
+        username,
+        password,
+        force_bypass,
+        no_entry_delay,
+        silent_arming,
+        use_new_websession,
+    ):
         """Initialize the Alarm.com status."""
 
         _LOGGER.debug("Setting up Alarm.com...")
-        self._hass = hass
         self._name = name
-        self._code = str(code) if code else None
-        self._username = username
-        self._password = password
-        self._websession = async_get_clientsession(self._hass)
+        self._code = code if code else None
+        if use_new_websession:
+            websession = async_create_clientsession(hass)
+            _LOGGER.debug("Using new websession.")
+        else:
+            websession = async_get_clientsession(hass)
+            _LOGGER.debug("Using hass websession.")
         self._state = None
-        self._alarm = Alarmdotcom(username, password, self._websession, hass.loop)
+        no_entry_delay = (
+            "stay" if no_entry_delay.lower() == "home" else no_entry_delay.lower()
+        )
+        force_bypass = (
+            "stay" if force_bypass.lower() == "home" else force_bypass.lower()
+        )
+        silent_arming = (
+            "stay" if silent_arming.lower() == "home" else silent_arming.lower()
+        )
+        self._alarm = Alarmdotcom(
+            username, password, websession, force_bypass, no_entry_delay, silent_arming,
+        )
 
     async def async_login(self):
         """Login to Alarm.com."""
@@ -115,9 +165,9 @@ class AlarmDotCom(alarm.AlarmControlPanel):
             await self._alarm.async_alarm_disarm()
 
     async def async_alarm_arm_home(self, code=None):
-        """Send arm home command."""
+        """Send arm home (alarm stay in adc) command."""
         if self._validate_code(code):
-            await self._alarm.async_alarm_arm_home()
+            await self._alarm.async_alarm_arm_stay()
 
     async def async_alarm_arm_away(self, code=None):
         """Send arm away command."""
