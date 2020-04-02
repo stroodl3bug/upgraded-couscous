@@ -2,9 +2,8 @@
 
 [![Build Status](https://travis-ci.com/stroodl3bug/upgraded-couscous.svg?branch=master)](https://travis-ci.com/stroodl3bug/upgraded-couscous)
 
-[![GitHub Activity][commits-shield]][commits]
-[![GitHub Last Commit][last-commit-shield]][commits]
+
+[![GitHub Activity](https://img.shields.io/github/commit-activity/m/stroodl3bug/upgraded-couscous)](https://github.com/stroodl3bug/upgraded-couscous/commits/master)
 
 
-[commits-shield]: https://github.com/stroodl3bug/upgraded-couscous/commits/master
-[commits]: https://github.com/stroodl3bug/upgraded-couscous/commits/master
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/stroodl3bug/upgraded-couscous)](https://github.com/stroodl3bug/upgraded-couscous/commits/master)
