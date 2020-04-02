@@ -1,0 +1,29 @@
+sensor:
+  - platform: template
+    sensors:
+
+        
+      microwave_amps:
+        friendly_name_template: "{{ states.switch.microwave.name}} Current"
+        value_template: '{{ states.switch.microwave.attributes["current_a"] | float }}'
+        unit_of_measurement: 'A'
+      microwave_watts:
+        friendly_name_template: "{{ states.switch.microwave.name}} Current Consumption"
+        value_template: '{{ states.switch.microwave.attributes["current_power_w"] | float }}'
+        unit_of_measurement: 'W'
+      microwave_total_kwh:
+        friendly_name_template: "{{ states.switch.microwave.name}} Total Consumption"
+        value_template: '{{ states.switch.microwave.attributes["total_energy_kwh"] | float }}'
+        unit_of_measurement: 'kWh'
+      microwave_volts:
+        friendly_name_template: "{{ states.switch.microwave.name}} Voltage"
+        value_template: '{{ states.switch.microwave.attributes["voltage"] | float }}'
+        unit_of_measurement: 'V'
+      microwave_today_kwh:
+        friendly_name_template: "{{ states.switch.microwave.name}} Today's Consumption"
+        value_template: '{{ states.switch.microwave.attributes["today_energy_kwh"] | float }}'
+        unit_of_measurement: 'kWh'        
+      dishwasher_status:
+        value_template: '{{ states.input_select.dishwasher_status.state}}'
+        friendly_name: 'Dishwasher Status'
+        

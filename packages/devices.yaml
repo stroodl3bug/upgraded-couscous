@@ -1,0 +1,129 @@
+# binary_sensor:
+#   - platform: template
+#     sensors:
+#       kk_moving:
+#       friendly_name: "KK Moving"
+#       value_template: >-
+#         {% if state_attr('device_tracker.life360_kk', 'place') == state_attr('device_tracker.life360_kk', 'address') %}
+#           off
+#         {% elif is_state_attr('device_tracker.life360_kk', 'driving', true) %}
+#           on
+#         {% elif is_state_attr('device_tracker.life360_kk', 'moving', true) %}
+#           on
+#         {% else %}
+#           off
+#         {% endif %}
+
+
+sensor:
+  - platform: template
+    sensors:
+      kk_battery:
+        friendly_name: "Battery"
+        unit_of_measurement: '%'
+        value_template: "{{states.device_tracker.life360_kk.attributes.battery }}"
+        icon_template: >-
+          mdi:battery{% if is_state_attr('device_tracker.life360_kk', 'battery_charging', true) %}-charging{% else %}{% endif %}{% if 0<(state_attr('device_tracker.life360_kk', 'battery') | float / 10 ) | round(0) * 10 < 100%}-{{ (state_attr('device_tracker.life360_kk', 'battery') | float / 10 ) | round(0) * 10 }}{% else %}{% if (state_attr('device_tracker.life360_kk', 'battery') | float / 10 ) | round(0) * 10 == 0%}-outline{%else%}{% if is_state_attr('device_tracker.life360_kk', 'battery_charging', true) %}-100{% endif %}{% endif %}{% endif %}
+
+      kk_wifi:
+        friendly_name: "WiFi"
+        value_template: >-
+          {% if is_state_attr('device_tracker.life360_kk', 'wifi_on', true) %}
+            on
+          {% else %}
+            off
+          {% endif %}
+        icon_template: >-
+          {% if is_state_attr('device_tracker.life360_kk', 'wifi_on', true) %}
+            mdi:wifi
+          {% else %}
+            mdi:wifi-off
+          {% endif %}    
+
+      kk_location:
+        friendly_name: "Location"
+        value_template: "{{states.device_tracker.life360_kk.attributes.address }}"
+       
+      kk_loc_since_time:
+        friendly_name: "At Location Since Time"
+        value_template: '{{as_timestamp(states.device_tracker.life360_kk.attributes.at_loc_since) | timestamp_custom("%H:%M")}}'
+
+      kk_loc_since_date:
+        friendly_name: "At Location Since Date"
+        value_template: '{{as_timestamp(states.device_tracker.life360_kk.attributes.at_loc_since) | timestamp_custom("%A %d %b %Y")}}'
+
+      hassio_last_boot:
+        friendly_name: "Last Boot"
+        value_template: '{{as_timestamp(states.sensor.last_boot.state) | timestamp_custom("%D %H:%M")}}'
+      
+      disk_use_total:
+        value_template: >
+          {{ (states('sensor.disk_free_home') | float + states('sensor.disk_use_home') | float) | round(1) }}
+        unit_of_measurement: "GiB"
+
+      hassio_uptime:
+        entity_id:
+          - sensor.time
+        value_template: >
+          {%- set dt = strptime(states('sensor.last_boot'),"%Y-%m-%dT%H:%M:%S%z") %}
+          {%- set time =  (now().timestamp() - dt.timestamp()) | int %}
+          {%- set minutes = ((time % 3600) // 60) %}
+          {%- set minutes = '{}min'.format(minutes) if minutes > 0 else '' %}
+          {%- set hours = ((time % 86400) // 3600) %}
+          {%- set hours = '{}hr '.format(hours) if hours > 0 else '' %}
+          {%- set days = (time // 86400) %}
+          {%- set days = '{}d '.format(days) if days > 0 else '' %}
+          {{ 'Less than 1 min' if time < 60 else days + hours + minutes }}
+        
+# DD-WRT SNMP System Uptime
+  - platform: snmp
+    name: AP C9 Uptime
+    host: !secret router_ip
+    community: !secret router_snmp_community
+    baseoid: 1.3.6.1.2.1.25.1.1.0
+    accept_errors: true
+    value_template: >-
+      {% set time = (value | int) | int %}
+      {% set minutes = ((time % 360000) / 6000) | int%}
+      {% set hours = ((time % 8640000) / 360000) | int %}
+      {% set days = (time / 8640000) | int %}
+        {%- if time < 60 -%}
+          Less then 1 min
+        {%- else -%}
+        {%- if days > 0 -%}
+          {{ days }}d
+        {%- endif -%}
+        {%- if hours > 0 -%}
+          {%- if days > 0 -%}
+            {{ ' ' }}
+          {%- endif -%}
+          {{ hours }}hr
+        {%- endif -%}
+        {%- if minutes > 0 -%}
+          {%- if days > 0 or hours > 0 -%}
+            {{ ' ' }}
+          {%- endif -%}
+          {{ minutes }}min
+        {%- endif -%}
+      {%- endif -%}
+
+# Archer C9 Ram free
+  - platform: snmp
+    name: AP C9 RAM Free
+    host: !secret router_ip
+    community: !secret router_snmp_community
+    baseoid: 1.3.6.1.4.1.2021.4.11.0
+    accept_errors: true
+    unit_of_measurement: 'MB'
+    value_template: '{{ value | multiply(0.001) | round(1) }}'
+ 
+  - platform: snmp
+    name: AP C9 CPU Load
+    host: !secret router_ip
+    community: !secret router_snmp_community
+    baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+    accept_errors: true
+    unit_of_measurement: '%'
+    # Dual CPU, so if value is 2, it means 100%, so multiply by 50
+    value_template: '{{ value | multiply(50) | round(1) }}'
+

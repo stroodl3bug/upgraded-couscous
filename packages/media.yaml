@@ -1,0 +1,17 @@
+media_player:
+  - platform: yamaha
+    host: !secret yamaha_familyroom_ip
+    name: Family Room (Yamaha)
+    
+  - platform: yamaha
+    host: !secret yamaha_basement_ip
+    name: Basement (Yamaha)    
+    
+#  - platform: samsungtv_custom
+# https://github.com/xchwarze/ha-samsungtv-custom  
+#    host: !secret samsung_tv_ip
+#    mac: !secret samsung_tv_mac
+#    port: !secret samsung_tv_port
+#    update_custom_ping_url: "http://192.168.0.187:9197/dmr"
+#    update_method: "ping"
+    

@@ -1,0 +1,77 @@
+sensor.epson_ink_level_black:
+  entity_picture: /local/black.png
+sensor.epson_ink_level_magenta:
+  entity_picture: /local/magenta.png
+sensor.epson_ink_level_yellow:
+  entity_picture: /local/yellow.png
+sensor.epson_ink_level_cyan:
+  entity_picture: /local/cyan.png
+sensor.washing_machine_status:
+  icon: mdi:washing-machine
+
+sensor.dishwasher_status:
+  icon: mdi:washing-machine
+binary_sensor.back_door:
+  device_class: door
+binary_sensor.front_door:
+  device_class: door
+binary_sensor.patio_door:
+  device_class: door
+binary_sensor.basement_window:
+  device_class: window
+binary_sensor.kids_room_window_1:
+  device_class: window
+binary_sensor.kids_room_window_2:
+  device_class: window
+binary_sensor.guest_room_window_1:
+  device_class: window
+binary_sensor.guest_room_window_2:
+  device_class: window
+binary_sensor.guest_room_window_3:
+  device_class: window
+binary_sensor.breakfast_window_1:
+  device_class: window
+binary_sensor.breakfast_window_2:
+  device_class: window
+binary_sensor.living_room_window_1:
+  device_class: window
+binary_sensor.living_room_window_2:
+  device_class: window
+binary_sensor.living_room_window_3:
+  device_class: window
+binary_sensor.dining_room_window_1:
+  device_class: window
+binary_sensor.dining_room_window_2:
+  device_class: window
+binary_sensor.dining_room_window_3:
+  device_class: window
+binary_sensor.dining_room_window_4:
+  device_class: window
+binary_sensor.family_room_window_1:
+  device_class: window
+binary_sensor.family_room_window_2:
+  device_class: window
+binary_sensor.blink_garage_inside_motion_detected:
+  device_class: motion
+  friendly_name: Garage 
+binary_sensor.blink_driveway_motion_detected:
+  device_class: motion
+  friendly_name: Driveway
+binary_sensor.blink_front_door_motion_detected:
+  device_class: motion
+  friendly_name: Front Door
+binary_sensor.front_door_motion:
+  device_class: motion
+  friendly_name: Doorbell
+sensor.lil_bee_temperature:
+  friendly_name: Family Room
+device_tracker.life360_kk:
+  friendly_name: KK
+sensor.cpu_temp:
+  unit_of_measurement: °C
+media_player.spotify:
+  source_list:
+  - Alexa
+  - Roku
+  - Macbook
+  - Basement

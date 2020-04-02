@@ -1,0 +1,39 @@
+# Example configuration.yaml entry
+sensor:
+  - platform: uptime
+#==============================
+#=== Installed hass.io version
+#==============================
+  - platform: version
+    name: Installed Version
+
+#================================
+#=== Latest Available HA Version
+#================================
+  - platform: version
+    name: Latest Available Version
+    beta: false
+    image: raspberrypi3
+    source: hassio
+
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /home
+      - type: disk_use
+        arg: /home
+      - type: disk_free
+        arg: /home
+      - type: memory_free
+      - type: memory_use_percent
+      - type: ipv4_address
+        arg: eth0
+      - type: last_boot
+      - type: processor_use
+
+  - platform: command_line
+    name: CPU Temp
+    command: "cat /sys/class/thermal/thermal_zone0/temp"
+    # If errors occur, make sure configuration file is encoded as UTF-8
+    unit_of_measurement: "°C"
+    value_template: '{{ value | multiply(0.001) | round(1) }}'

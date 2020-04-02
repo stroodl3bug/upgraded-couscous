@@ -1,0 +1,250 @@
+#############################################################################################################################################
+#                                                                                                                                           # 
+#                                                             VIEW 1 - SECURITY                                                             #
+#                                                                                                                                           #
+############################################################################################################################################# 
+
+id: security
+icon: mdi:shield-home
+name: Security
+panel: true
+cards:
+
+  - type: horizontal-stack
+    cards:
+
+
+   
+
+#################################################################
+#                                                               #
+#                  Security - Basement                          #
+#                                                               #
+#################################################################
+
+          - type: picture-elements
+            image: /local/background.jpg
+            elements:
+              - type: custom:text-element
+                text: "Doors"
+                style:
+                  color: orange
+                  font-family: Quicksand
+                  font-variant: small-caps
+                  font-weight: bold
+                  top: 9%
+                  left: 10%
+        
+              - style: 
+                  color: green
+                  top: 9%
+                  left: 50%
+                  font-family: Quicksand
+                  font-weight: bold
+                  text-transform: capitalize
+                  font-variant: small-caps
+                type: state-label
+                entity: sensor.door_count
+                prefix: 'All: '
+        
+              - style: 
+                  color: red
+                  top: 9%
+                  left: 90%
+                  font-family: Quicksand
+                  font-weight: bold
+                  text-transform: capitalize
+                  font-variant: small-caps
+                type: state-label
+                entity: sensor.open_door_count
+                prefix: 'Open: '
+
+
+
+
+  - type: vertical-stack
+    cards:
+      - type: entities
+        #title: Doors
+        show_header_toggle: false
+        entities:
+          - type: 'custom:text-divider-row'
+            text: Basement
+          - type: 'custom:bar-card'
+            title_position: 'off'
+            show_icon: true
+            icon_position: inside
+            align: center
+            padding: 3px
+            card_style: 
+              border-radius: 3px
+            columns: 3
+            entities:
+              - entity: binary_sensor.front_door
+                show_value: false
+                name: Front Door
+              - entity: binary_sensor.back_door
+                show_value: false
+              - entity: binary_sensor.basement_window
+                show_value: false
+
+
+              
+#################################################################
+#                                                               #
+#                 Security - Main Level                         #
+#                                                               #
+#################################################################   
+
+              - type: 'custom:text-divider-row'
+                text: Living Room
+              - type: 'custom:bar-card'
+                title_position: 'off'
+                show_icon: true
+                icon_position: inside
+                align: center
+                padding: 3px
+                card_style: 
+                  border-radius: 3px
+                columns: 3
+                entities:
+                  - entity: binary_sensor.living_room_window_1
+                    show_value: false
+                  - entity: binary_sensor.living_room_window_2
+                    show_value: false
+                  - entity: binary_sensor.living_room_window_3
+                    show_value: false
+
+          - type: picture-elements
+            image: /local/background.jpg
+            elements:
+              - type: custom:text-element
+                text: "Windows"
+                style:
+                  color: orange
+                  font-family: Quicksand
+                  font-variant: small-caps
+                  font-weight: bold
+                  top: 9%
+                  left: 10%
+
+              - style: 
+                  color: green
+                  top: 9%
+                  left: 50%
+                  font-family: Quicksand
+                  font-weight: bold
+                  text-transform: capitalize
+                  font-variant: small-caps
+                type: state-label
+                entity: sensor.window_count
+                prefix: 'All: '
+
+              - style: 
+                  color: red
+                  top: 9%
+                  left: 90%
+                  font-family: Quicksand
+                  font-weight: bold
+                  text-transform: capitalize
+                  font-variant: small-caps
+                type: state-label
+                entity: sensor.open_window_count
+                prefix: 'Open: '
+
+      - type: vertical-stack
+        cards:
+          - type: entities
+            #title: Doors
+            show_header_toggle: false
+            entities:
+              - type: 'custom:text-divider-row'
+                text: Dining Room
+              - type: 'custom:bar-card'
+                title_position: 'off'
+                show_icon: true
+                icon_position: inside
+                align: center
+                padding: 3px
+                card_style: 
+                  border-radius: 3px
+                columns: 4
+                entities:
+                  - entity: binary_sensor.dining_room_window_1
+                    show_value: false
+                  - entity: binary_sensor.dining_room_window_2
+                    show_value: false
+                  - entity: binary_sensor.dining_room_window_3
+                    show_value: false
+                  - entity: binary_sensor.dining_room_window_4
+                    show_value: false
+
+              - type: 'custom:text-divider-row'
+                text: Family Room and Kitchen
+              - type: 'custom:bar-card'
+                title_position: 'off'
+                show_icon: true
+                icon_position: inside
+                align: center
+                padding: 3px
+                card_style: 
+                  border-radius: 3px
+                columns: 4
+                entities:
+                  - entity: binary_sensor.breakfast_window_1
+                    show_value: false
+                  - entity: binary_sensor.breakfast_window_2
+                    show_value: false
+                  - entity: binary_sensor.family_room_window_1
+                    show_value: false
+                  - entity: binary_sensor.family_room_window_2
+                    show_value: false
+
+
+      - type: vertical-stack
+        cards:
+          - type: entities
+            #title: Doors
+            show_header_toggle: false
+            entities:
+    # #              - type: divider
+              - type: 'custom:text-divider-row'
+                text: Guest Room
+              - type: 'custom:bar-card'
+                title_position: 'off'
+                show_icon: true
+                icon_position: inside
+                align: center
+    
+                padding: 3px
+                card_style: 
+                  border-radius: 3px
+                columns: 3
+                entities:
+                  - entity: binary_sensor.guest_room_window_1
+                    show_value: false
+                  - entity: binary_sensor.guest_room_window_2
+                    show_value: false
+                  - entity: binary_sensor.guest_room_window_3
+                    show_value: false
+
+
+
+              - type: 'custom:text-divider-row'
+                text: Kid's Room
+              - type: 'custom:bar-card'
+                title_position: 'off'
+                show_icon: true
+                icon_position: inside
+                align: center
+                padding: 3px
+                card_style: 
+                  border-radius: 3px
+                columns: 2
+                entities:
+                  - entity: binary_sensor.kids_room_window_1
+                    show_value: false
+                  - entity: binary_sensor.kids_room_window_2
+                    show_value: false
+
+          

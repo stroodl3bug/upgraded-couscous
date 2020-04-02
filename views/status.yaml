@@ -1,0 +1,165 @@
+########################################################################################################################
+# View - Home
+########################################################################################################################
+id: 0
+title: Home
+icon: mdi:home-circle-outline
+panel: true
+
+
+cards:
+###################################################################################################
+  - type: horizontal-stack
+    cards:
+      - type: vertical-stack
+        cards:
+    
+          - type: horizontal-stack
+            cards:
+              - type: picture-elements
+                image: /local/card_back_trans.png
+                elements:
+                  - type: custom:text-element
+                    text: "Master"
+                    style:
+                      color: orange
+                      font-family: Quicksand
+                      font-variant: small-caps
+                      font-weight: bold
+                      top: 65%
+                      left: 50%
+                  - type: image
+                    entity: sensor.kk_location
+                    image: /local/kk_home.png
+                    state_image:
+                      "Home": /local/kk_home.png
+                      "Not Home": /local/kk_away.svg
+                    style:
+                     top: 35%
+                     left: 50%
+                     width: 50%
+                  - style:
+                      color: white
+                      top: 9%
+                      left: 8%
+                    type: state-icon
+                    entity: sensor.kk_battery
+    
+                  - style: 
+                      color: green
+                      top: 9%
+                      left: 88%
+                      font-family: Quicksand
+                      font-weight: bold
+                      text-transform: capitalize
+                      font-variant: small-caps
+                    type: state-label
+                    entity: sensor.kk_battery
+    
+                  - style:
+                      color: yellow
+                      top: 75%
+                      left: 50%
+                      font-family: Quicksand
+                      font-variant: small-caps
+                      font-weight: bold
+                    type: state-label
+                    entity: sensor.kk_location
+    
+                  - style:
+                      color: yellow
+                      top: 80%
+                      left: 50%
+                      font-family: Quicksand
+                      font-variant: small-caps
+                      font-weight: bold
+                    type: state-label
+                    entity: sensor.kk_loc_since_time
+                    prefix: 'since '
+                    
+                  - style:
+                      color: yellow
+                      top: 85%
+                      left: 50%
+                      font-family: Quicksand
+                      font-variant: small-caps
+                      font-weight: bold
+                    type: state-label
+                    prefix: ' on '
+                    entity: sensor.kk_loc_since_date                
+    
+    
+          - type: 'custom:vertical-stack-in-card'
+            cards:
+              - type: alarm-panel
+                entity: alarm_control_panel.alarm_com
+                name: Status
+    
+              - type: entities
+                #title: Motion Sensor
+                show_header_toggle: false
+                entities:
+                  - binary_sensor.motion_detector       
+
+      - type: vertical-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: custom:auto-entities
+                card:
+                  type: entities
+                filter:
+                  include:
+                    - domain: binary_sensor
+                      attributes:
+                       device_class: motion
+                sort:
+                  method: name
+                  ignore_case: true
+                  count: 5
+        
+              - type: custom:auto-entities
+                card:
+                  type: entities
+                filter:
+                  include:
+                    - domain: binary_sensor
+                      state: "on"
+                      attributes:
+                       device_class: window
+                sort:
+                  method: last_changed
+                  count: 100
+        
+              - type: custom:auto-entities
+                card:
+                  type: entities
+                filter:
+                  include:
+                    - domain: binary_sensor
+                      state: "off"
+                      attributes:
+                       device_class: door
+                    - domain: cover
+                      state: open
+                      attributes:
+                       device_class: garage
+                sort:
+                  method: last_changed
+                  count: 10
+        
+        
+      - type: vertical-stack
+        cards:
+          - type: custom:weather-card
+            entity: weather.dark_sky
+            current: true
+            details: true
+            forecast: true
+          - type: glance
+            entities:
+              - sensor.trash
+              - sensor.recycle
+        
+    
+

@@ -1,0 +1,261 @@
+#############################################################################################################################################
+#                                                                                                                                           # 
+#                                                          MAIN LEVEL VIEW                                                         #
+#                                                                                                                                           #
+#############################################################################################################################################
+
+id: 3
+icon: mdi:home-floor-1
+name: Main Level
+cards:
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: "#### Family Room"
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card   
+            template: lights
+            entity: light.family_room
+            name: Floor Lamp
+            icon: mdi:floor-lamp
+            
+          - type: custom:button-card   
+            template: lights
+            entity: switch.48674340a4cf12a6c81a
+            name: Table Lamp
+            icon: mdi:lamp
+
+          - type: "custom:button-card"
+            color_type: blank-card
+
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card   
+            template: windows-doors
+            entity: binary_sensor.family_room_window_1
+            name: 1
+
+          - type: custom:button-card   
+            template: windows-doors
+            entity: binary_sensor.family_room_window_2
+            name: 2
+
+          - type: custom:button-card   
+            template: windows-doors
+            entity: binary_sensor.patio_door
+            name: Patio
+
+            
+
+      - type: custom:mini-graph-card
+        entities: 
+          - sensor.lil_bee_temperature    
+        height: 65
+        line_width: 2
+        font_size: 70
+        hours_to_show: 168
+        points_per_hour: 1
+        show:
+          #extrema: true
+          fill: true
+          #graph: bar
+        color_thresholds:
+          - value: 76
+            color: "#e74c3c"
+          - value: 70
+            color: "#1db954"
+          - value: 65
+            color: "#3498db" 
+
+  - type: vertical-stack
+    cards:
+
+      - type: markdown
+        content: "#### Living Room"
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card   
+            template: lights
+            entity: switch.48674340a4cf12a697c1
+            name: Table Lamp
+            icon: mdi:lamp
+
+          - type: custom:button-card   
+            template: windows-doors
+            entity: binary_sensor.living_room_window_1
+            name: 1
+
+          - type: "custom:button-card"
+            color_type: blank-card
+
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card   
+            template: windows-doors
+            entity: binary_sensor.living_room_window_2
+            name: 2
+
+          - type: custom:button-card   
+            template: windows-doors
+            entity: binary_sensor.living_room_window_3
+            name: 3
+
+          - type: "custom:button-card"
+            color_type: blank-card
+
+      - type: custom:mini-graph-card
+        entities: 
+          - sensor.thermostat_temperature
+        name: Living Room
+        height: 65
+        line_width: 2
+        font_size: 70
+        hours_to_show: 168
+        points_per_hour: 1
+        show:
+          #extrema: true
+          fill: true
+          #graph: bar
+        color_thresholds:
+          - value: 76
+            color: "#e74c3c"
+          - value: 70
+            color: "#1db954"
+          - value: 65
+            color: "#3498db" 
+      - type: custom:mini-graph-card
+        entities: 
+          - sensor.thermostat_humidity 
+        name: Humidity  
+        height: 65
+        line_width: 2
+        font_size: 70
+        hours_to_show: 168
+        points_per_hour: 1
+        show:
+          #extrema: true
+          fill: true
+          #graph: bar
+        color_thresholds:
+          - value: 28
+            color: "#e74c3c"
+          - value: 15
+            color: "#1db954"
+          - value: 0
+            color: "#3498db" 
+
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: "#### Dining Room"
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card   
+            template: windows-doors
+            entity: binary_sensor.dining_room_window_1
+            name: 1
+
+          - type: custom:button-card   
+            template: windows-doors
+            entity: binary_sensor.dining_room_window_2
+            name: 2
+
+          - type: "custom:button-card"
+            color_type: blank-card
+
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card   
+            template: windows-doors
+            entity: binary_sensor.dining_room_window_3
+            name: 3
+            
+          - type: custom:button-card   
+            template: windows-doors
+            entity: binary_sensor.dining_room_window_4
+            name: 4
+
+          - type: "custom:button-card"
+            color_type: blank-card
+
+
+  - type: vertical-stack
+    cards:
+
+      - type: markdown
+        content: "#### Kitchen"
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card   
+            template: lights
+            entity: light.breakfast_light_1
+            name: Breakfast Light (L)
+            icon: mdi:ceiling-light
+
+          - type: custom:button-card   
+            template: lights
+            entity: light.breakfast_light_2
+            name: Breakfast Light (R)
+            icon: mdi:ceiling-light
+
+          - type: custom:button-card   
+            template: lights
+            entity: light.kitchen
+            name: Floor Lamp
+            icon: mdi:floor-lamp
+
+
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card   
+            template: lights
+            entity: media_player.echo_dot
+            name: Echo Dot
+            icon: mdi:amazon-alexa
+
+          - type: custom:button-card   
+            template: windows-doors
+            entity: binary_sensor.breakfast_window_1
+            name: 1
+
+          - type: custom:button-card   
+            template: windows-doors
+            entity:  binary_sensor.breakfast_window_2
+            name: 2
+
+      - type: horizontal-stack
+        cards:
+
+          - type: "custom:button-card"
+            color_type: blank-card
+        
+          - type: custom:button-card   
+            template: lights
+            entity: switch.0707814884f3eb61dab6
+            name: Wallflower
+            icon: mdi:air-filter
+
+          - type: "custom:button-card"
+            color_type: blank-card
+     
+
+
+
+
+
+
+
+
+
+
+    
+            
+            
+

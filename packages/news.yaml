@@ -1,0 +1,47 @@
+##Uses https://siftrss.com/ to pull relavant fields from RSS feeds##
+
+sensor:
+  - platform: feedparser
+    name: fs-ft
+    feed_url: 'https://siftrss.com/f/jpQ5GXyPyD'
+    date_format: '%a, %b %d %I:%M %p'
+    inclusions:
+      - title
+      - link
+      - pubDate
+
+  - platform: feedparser
+    name: tech-news
+    feed_url: 'https://siftrss.com/f/9a3brnQM7Z'
+    date_format: '%a, %b %d %I:%M %p'
+    inclusions:
+      - title
+      - link
+      - pubDate  
+
+  - platform: feedparser
+    name: bbc-top-news
+    feed_url: 'http://feeds.bbci.co.uk/news/rss.xml'
+    date_format: '%a, %b %d %I:%M %p'
+    inclusions:
+      - title
+      - link
+      - pubDate  
+
+  - platform: feedparser
+    name: reddit-home-automation
+    feed_url: 'https://www.reddit.com/r/homeautomation/.rss?format=xml'
+    date_format: '%a, %b %d %I:%M %p'
+    inclusions:
+      - title
+      - link
+      - pubDate 
+
+  - platform: feedparser
+    name: reuters-top-news
+    feed_url: 'http://feeds.reuters.com/reuters/topNews'
+    date_format: '%a, %b %d %I:%M %p'
+    inclusions:
+      - title
+      - link
+      - pubDate

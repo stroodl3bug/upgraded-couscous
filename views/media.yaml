@@ -1,0 +1,123 @@
+title: Media
+id: 6
+icon: mdi:music-circle-outline
+panel: true
+cards:
+  - type: horizontal-stack
+    cards:
+
+      - type: vertical-stack
+        cards:
+          - type: entities
+            entities:
+            - entity: media_player.spotify_1235664265
+              type: custom:mini-media-player
+              artwork: full-cover
+              idle_view: when_idle
+              volume_stateless: true
+              progress: true
+              hide:
+                power_state: true
+                name: true
+                power: true
+                icon: true
+                source: true
+              shortcuts:
+                columns: 4 # Max buttons per row
+                buttons:
+          # Start predefined source
+                  - icon: mdi:amazon
+                    type: source
+                    id:  Echo Dot
+                  - icon: mdi:disc-player
+                    type: source
+                    id: Roku 3
+                  - icon: mdi:record-player
+                    type: source
+                    id: Basement 
+                  - icon: mdi:laptop-mac
+                    type: source
+                    id: Macbook
+
+      - type: vertical-stack
+        cards:
+          - type: 'custom:spotify-card'
+            client_id: !secret client_id_spotify
+            limit: 10
+            transfer_playback: true
+
+
+             
+      - type: vertical-stack
+        cards:
+
+          - type: entities
+            entities:
+            - entity: media_player.family_room_yamaha
+              type: custom:mini-media-player
+              name: Family Room
+#              artwork: cover
+              background: "/local/yamaha-receiver.png"
+              idle_view: when_idle
+#              icon: mdi:music-circle
+#              volume_stateless: true
+              hide:
+                icon: true
+                volume: true
+                power_state: false
+                source: true
+                controls: true 
+            - entity: media_player.basement_yamaha
+              type: custom:mini-media-player
+              name: Basement
+              artwork: cover
+              background: "/local/yamaha-receiver.png"
+              source: icon
+#              icon: mdi:music-circle
+#              volume_stateless: true
+              idle_view: when_idle
+              hide:
+                icon: true
+                volume: true
+                power_state: false              
+                controls: true 
+            - entity: media_player.echo_dot
+              type: custom:mini-media-player
+              name: Echo Dot
+              idle_view: when_idle
+              icon: mdi:amazon
+              background: "/local/echo.jpg"
+              hide:
+                power_state: false 
+                source: true
+                controls: true 
+            - entity: media_player.basement_speaker
+              type: custom:mini-media-player
+              name: Google Mini
+              idle_view: when_idle
+              icon: mdi:google-home
+              background: "/local/google-mini.jpg"          
+              hide:
+                power_state: false           
+    
+            - entity: media_player.samsung_tv_remote
+              type: custom:mini-media-player
+              name: Family Room TV
+              artwork: cover
+              icon: mdi:television-box
+              source: icon
+              idle_view: when_idle
+              hide:
+                volume: true               
+                power_state: false
+            - entity: media_player.fire_stick
+              type: custom:mini-media-player
+              name: Upstairs TV
+              icon: mdi:television-box
+              artwork: cover
+              source: icon
+              idle_view: when_idle
+              hide:
+                power_state: false              
+                volume: true 
+

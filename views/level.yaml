@@ -1,0 +1,109 @@
+
+
+########################################################################################################################
+# View - Home
+########################################################################################################################
+id: 8
+title: Level
+icon: mdi:home-circle-outline
+panel: true
+
+cards:
+###################################################################################################
+  - type: vertical-stack
+    cards:
+
+      - type: horizontal-stack
+        cards:
+
+          - type: vertical-stack
+            cards:
+
+
+              - type: custom:auto-entities
+                card:
+                  type: entities
+                filter:
+                  include:
+                    - area: Upstairs
+                  exclude:
+                    - entity_id: "*zwave*"
+                sort:
+                  method: name
+                  ignore_case: true
+                  count: 200
+    
+              - type: custom:auto-entities
+                card:
+                  type: entities
+                filter:
+                  include:
+                    - entity_id: "*zwave*"
+                sort:
+                  method: name
+                  ignore_case: true
+                  count: 200
+
+          - type: vertical-stack
+            cards:
+                  
+              - type: custom:auto-entities
+                card:
+                  type: entities
+                filter:
+                  include:
+                    - area: Kitchen
+                sort:
+                  method: name
+                  ignore_case: true
+                  count: 200              
+                  
+              - type: custom:auto-entities
+                card:
+                  type: entities
+                filter:
+                  include:
+                    - area: Family Room
+                sort:
+                  method: name
+                  ignore_case: true
+                  count: 200              
+                  
+              - type: custom:auto-entities
+                card:
+                  type: entities
+                filter:
+                  include:
+                    - area: Living Room
+                sort:
+                  method: name
+                  ignore_case: true
+                  count: 200                            
+
+          - type: vertical-stack
+            cards:
+              - type: custom:auto-entities
+                card:
+                  type: entities
+                filter:
+                  include:
+                    - area: Basement
+                  exclude:
+                    - entity_id: "*zwave*"
+                sort:
+                  method: name
+                  ignore_case: true
+                  count: 200             
+                  
+              - type: custom:auto-entities
+                card:
+                  type: entities
+                filter:
+                  include:
+                    - name: "*Wallflower*"
+                sort:
+                  method: name
+                  ignore_case: true
+                  count: 200                      
+              
+              

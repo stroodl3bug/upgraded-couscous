@@ -1,0 +1,176 @@
+
+homeassistant:
+  name: Home 
+  temperature_unit: F
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+#  elevation: !secret home_elevation
+
+  unit_system: imperial
+#  time_zone: !secret time_zone
+  packages: !include_dir_named packages
+  customize: !include customize.yaml
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+# Example configuration.yaml entry
+api:
+# enable the recorder integration (optional)
+recorder:
+
+frontend:
+  themes: !include_dir_merge_named themes/
+# Example configuration.yaml entry
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Text to speech
+lovelace:
+  mode: yaml
+tts:
+  - platform: google_translate
+alexa_media:
+  accounts:
+    - email: !secret amazon_user
+      password: !secret amazon_password
+      url: amazon.com
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+hacs:
+  token: !secret hacs_token
+
+hue:
+  bridges:
+    - host: !secret hue_ip  
+tuya:
+  username: !secret tuya_user
+  password: !secret tuya_pass
+  country_code: !secret tuya_country
+
+roku:
+- host: !secret roku_ip
+
+alarm_control_panel:
+#  platform: alarmdotcom
+  platform: alarmdotcomajax
+  username: !secret alarm_user
+  password: !secret alarm_pass
+
+
+# Example configuration.yaml entry
+input_number:
+  pantry_expiration:
+    name: Pantry Expiration Days
+    initial: 90
+    min: 30
+    max: 120
+    step: 1
+
+
+remote:
+  - platform: harmony
+    name: Harmony
+    host: !secret harmony_ip
+
+
+sensor:  
+#   - platform: airthings_wave
+#     mac: "98:07:2D:4A:97:5C"
+# #    name: 'Basement Airthings Wave'
+#     scan_interval: 120
+# Example configuration.yaml entry
+
+###Github
+  - platform: github
+    access_token: !secret githubtoken
+    repositories:
+      - path: !secret github_path
+      
+      
+###Travis CI
+  - platform: travisci
+    api_key: !secret travisci_token
+    repository:
+      - hassio
+    monitored_conditions:
+      - last_build_id
+      - last_build_duration
+      - last_build_finished_at
+      - last_build_started_at
+      - last_build_state
+      - state
+      
+###Gitlab CI
+#  - platform: gitlab_ci
+#    gitlab_id: !secret gitlab_id
+#    token: !secret gitlab_token
+
+
+
+
+pi_hole:
+  host: !secret pi_hole_ip
+
+
+
+logger:
+  default: critical
+#  logs:
+#    homeassistant.components.travisci: debug
+#    homeassistant.components.alarmdotcom: debug   
+
+# Example configuration.yaml entry
+speedtestdotnet:
+  scan_interval:
+    minutes: 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+rachio:
+  api_key: !secret rachio_key
+
+http:
+  base_url: !secret baseurl
+
+# Example configuration.yaml entry
+device_tracker:
+  - platform: bluetooth_le_tracker
+  
+# Example configuration.yaml entry
+cover:
+  - platform: myq
+    username: !secret myq_username
+    password: !secret myq_password
+# spotcast:
+#   username: !secret spotify_username
+#   password: !secret spotify_password
+
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_password
+# Example configuration.yaml entry
+zone:
+  # This will override the default home zone
+  - name: Home
+    latitude: !secret home_latitude
+    longitude: !secret home_longitude
+    radius: 100
+    icon: mdi:account-multiple
+
+# panel_iframe:
+#   unraid:
+#     title: 'unRAID'
+#     url: !secret unraid
+#     icon: 'mdi:alpha-u-box-outline'
+
+clean_up_snapshots_service:
+  host: !secret hassio_url_ip
+  token: !secret backup_longlivedtoken
+  number_of_snapshots_to_keep: 10
+

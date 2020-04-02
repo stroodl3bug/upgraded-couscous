@@ -1,0 +1,245 @@
+#############################################################################################################################################
+#                                                                                                                                           # 
+#                                                          PRINTER VIEW                                                         #
+#                                                                                                                                           #
+#############################################################################################################################################
+
+## Tab Status
+title: Printer
+id: 5
+icon: mdi:settings
+panel: true
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: glance
+            title: Component Count
+            columns: 5
+            entities:     
+              - entity: sensor.switch_count
+                name: Switches
+                icon: mdi:light-switch                    
+              - entity: sensor.light_count
+                name: Lights
+                icon: mdi:lightbulb
+              - entity: sensor.camera_count
+                name: Cameras
+                icon: mdi:video-wireless-outline
+              - entity: sensor.zwave_count
+                name: Zwave
+                icon: mdi:z-wave
+              - entity: sensor.automation_count
+                name: Automations
+                icon: mdi:robot         
+              - entity: sensor.media_player_count
+                name: Media Players
+                icon: mdi:record-player                                       
+              - entity: sensor.binary_sensor_count
+                name: Binary
+                icon: mdi:unfold-more-horizontal
+              - entity: sensor.sensor_count
+                name: Sensors
+                icon: mdi:resistor
+              - entity: sensor.door_count
+                name: Doors
+                icon: mdi:door
+              - entity: sensor.window_count
+                name: Windows
+                icon: mdi:window-closed
+
+
+          - type: entities
+            title: Printer Status
+            show_header_toggle: false
+            entities:
+              - entity: sensor.epson_ink_level_black
+                name: Epson Black
+              - entity: sensor.epson_ink_level_magenta
+                name: Epson Magenta
+              - entity: sensor.epson_ink_level_yellow
+                name: Epson Yellow
+              - entity: sensor.epson_ink_level_cyan 
+                name: Epson Cyan       
+
+
+          - type: glance
+            title: UnRAID
+            columns: 3
+            entities:
+              - entity: sensor.glances_cpu_used_2
+                name: CPU
+#                icon: mdi:cpu-64-bit
+              - entity: sensor.glances_containers_active_2
+                name: Containers
+#                icon: mdi:docker
+              - entity: sensor.glances_core_0_temp     
+                name: Temperature
+#                icon: mdi:thermometer
+
+      - type: vertical-stack
+        cards:
+
+          - type: glance
+            title: DD-WRT
+            columns: 3
+            entities:
+              - entity: sensor.ap_c9_cpu_load
+                name: CPU
+                icon: mdi:cpu-64-bit
+              - entity: sensor.ap_c9_ram_free
+                name: Memory Free
+                icon: mdi:memory
+              - entity: sensor.ap_c9_uptime                
+                name: Uptime
+                icon: mdi:timelapse
+
+          - type: custom:mini-graph-card
+            entities: 
+              - sensor.cpu_temp
+            name: Temperature
+            color_thresholds:
+                  - value: 50
+                    color: "#3498db"
+                  - value: 70
+                    color: "#f39c12"
+                  - value: 100
+                    color: "#E45E65"
+            height: 15
+            line_width: 2
+            font_size: 70
+            hours_to_show: 168
+            points_per_hour: 1
+            show:
+              extrema: true
+              fill: true
+
+                
+          - type: entities
+            title: PiHole Stats
+            show_header_toggle: false
+            entities:     
+              - entity: sensor.pi_hole_ads_blocked_today
+                name: Ads Blocked Today
+              - entity: sensor.pi_hole_ads_percentage_blocked_today
+                name: Ads % Blocked Today
+              - entity: sensor.pi_hole_dns_queries_today
+                name: DNS Queries Today
+              - entity: sensor.pi_hole_domains_blocked
+                name: Blocked Domains
+              - entity: sensor.pi_hole_seen_clients
+                name: Clients
+
+                
+      
+
+
+
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: entities
+                title: Hassio Status
+                show_header_toggle: false
+                entities:
+                  - entity: sensor.installed_version
+                    name: Installed
+                  - entity: sensor.latest_available_version
+                    name: Latest Available
+                  - entity: sensor.hassio_last_boot
+                    namw: Up Since
+    
+
+          - type: vertical-stack
+            cards:
+              - type: custom:bar-card
+                entity: sensor.memory_use_percent
+                title: RAM
+                title_position: inside
+                align: split
+                show_icon: true
+                icon_position: inside
+                icon: mdi:memory
+                
+              - type: custom:bar-card
+                entity: sensor.processor_use
+                title: CPU
+                title_position: inside
+                align: split
+                show_icon: true
+                icon_position: inside
+                icon: mdi:cpu-64-bit
+    
+              - type: custom:bar-card
+                entity: sensor.disk_use_percent_home
+                title: DISK
+                title_position: inside
+                align: split
+                show_icon: true
+                icon_position: inside
+                icon: mdi:harddisk               
+
+      - type: vertical-stack
+        cards:
+
+          - type: iframe
+            url: !secret speedtest-graphana-url
+            aspect_ratio: 75%
+
+        #   - type: horizontal-stack
+        #     cards:    
+
+
+
+            
+            #   - type: custom:mini-graph-card
+            #     name: Speed Test
+            #     more_info: true
+            #     line_color:
+            #       - green
+            #       - orange
+            #     hour24: true
+            #     animate: true
+            #     decimals: 1
+            #     show:
+            #       name: true
+            #       icon: true
+            #       state: true
+            #       graph: true
+            #       fill: true
+            #       points: false
+            #       legend: true
+            #       extrema: false
+            #       labels: true
+            #     entities:
+            #       - entity: sensor.speedtest_download
+            #         name: Download
+            #       - entity: sensor.speedtest_upload
+            #         name: Upload
+            #   - type: custom:mini-graph-card
+            #     name: Ping
+            #     more_info: true
+            #     line_color: purple
+            #     hour24: true
+            #     animate: true
+            #     decimals: 1
+            #     show:
+            #       name: true
+            #       icon: true
+            #       state: true
+            #       graph: true
+            #       fill: true
+            #       points: true
+            #       legend: true
+            #       extrema: true
+            #       labels: true
+            #     entities:
+            #       - sensor.speedtest_ping   
+
+
+                  
+                  
+
+ 

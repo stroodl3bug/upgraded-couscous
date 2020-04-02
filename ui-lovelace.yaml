@@ -1,0 +1,270 @@
+title: Home
+
+resources:
+  - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
+    type: js
+  - url: /community_plugin/text-divider-row/text-divider-row.js
+    type: module
+  - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
+    type: module
+  - url: /community_plugin/bar-card/bar-card.js
+    type: js
+  - url: /community_plugin/weather-card/weather-card.js
+    type: module    
+  - url: /community_plugin/spotify-card/spotify-card.js
+    type: module
+  - url: /community_plugin/mini-media-player/mini-media-player-bundle.js
+    type: module
+  - url: /community_plugin/lovelace-card-tools/card-tools.js
+    type: js
+  - url: /community_plugin/lovelace-card-mod/card-mod.js
+    type: js
+  - url: /community_plugin/lovelace-layout-card/layout-card.js
+    type: js
+  - url: 'https://fonts.googleapis.com/css?family=Quicksand:300,400'
+    type: css
+  - url: /community_plugin/text-element/text-element.js
+    type: js 
+  - url: /community_plugin/button-card/button-card.js
+    type: module
+  - url: /community_plugin/config-template-card/config-template-card.js
+    type: module
+  - url: /local/community/lovelace-auto-entities/auto-entities.js
+    type: module
+  - url: /community_plugin/lovelace-multiple-entity-row/multiple-entity-row.js
+    type: module
+  - url: /hacsfiles/list-card/list-card.js
+    type: module
+  - url: /hacsfiles/custom-header/custom-header.js
+    type: module
+  - url: /community_plugin/sidebar-card/sidebar-card.js
+    type: module
+  - url: /hacsfiles/lovelace-card-preloader/lovelace-card-preloader.js
+    type: module
+
+preload:
+  - alarm-panel    
+# sidebar:
+# #  title: "stroodlebug"
+# #  clock: true
+#   digitalClock: true
+#   digitalClockWithSeconds: false
+#   sidebarMenu:
+#     - action: navigate
+#       navigation_path: "/lovelace/0"
+#       name: "Home"
+#       active: true
+#     - action: navigate
+#       navigation_path: "/lovelace/1"
+#       name: "Cameras"
+#     - action: navigate
+#       navigation_path: "/lovelace/2"
+#       name: "Basement"
+#     - action: navigate
+#       navigation_path: "/lovelace/3"
+#       name: "Main Level"      
+#     - action: navigate
+#       navigation_path: "/lovelace/4"
+#       name: "Upstairs"
+#     - action: navigate
+#       navigation_path: "/lovelace/5"
+#       name: "System"
+#     - action: navigate
+#       navigation_path: "/lovelace/6"
+#       name: "Media"
+#     - action: navigate
+#       navigation_path: "/lovelace/7"
+#       name: "News"
+#     - action: navigate
+#       navigation_path: "/lovelace/8"
+#       name: "Auto"
+      
+#   style: |
+#     :host {
+#         --sidebar-background: #000;
+#         --sidebar-text-color: #ff9900;
+#         --face-color: #ff9900;
+#         --face-border-color: #FFF;
+#         --clock-hands-color: #000;
+#         --clock-seconds-hand-color: #FF4B3E;
+#         --clock-middle-background: #FFF;
+#         --clock-middle-border: #000;
+#     }  
+#   width:
+#     mobile: 0
+#     tablet: 25
+#     desktop: 20
+
+      
+custom_header:
+  compact_mode: true
+  hide_help: true
+  hide_config: true
+  hide_unused: true
+  chevrons: true
+  indicator_top: true
+  tab_indicator_color: orange
+  
+
+#############################################################################################################################################
+#                                                                                                                                           # 
+#                                                               VIEW 0 - HOME                                                               #
+#                                                                                                                                           #
+#############################################################################################################################################  
+
+
+background: center / cover no-repeat url("/local/blackbackground.jpg") fixed
+button_card_templates:
+
+
+  cover:
+    layout: icon_label
+    color: auto
+    aspect_ratio: 1/1
+    show_state: false
+    show_name: true
+    show_label: false
+    show_last_changed: true
+    styles:
+      grid:
+        - grid-template-rows: 42px auto 42px
+        - grid-template-columns: 42px auto
+      card:
+        - border-radius: 15px
+        - margin: 5px 5px 0px 0px
+        - padding: 0px 0px
+      icon:
+        - height: 30px
+        - width: 30px
+      name:
+        - justify-self: start
+        - padding: 0px 10px
+        - font-size: 13px
+        - font-family: Helvetica
+        - text-transform: capitalize
+        - font-weight: bold
+        - align-self: end
+      label:
+        - font-size: 10px
+        - font-weight: normal
+
+      lock:
+        - align-items: flex-end
+    state:
+      - value: "open"
+        styles:
+          card:
+            - --paper-card-background-color: rgba(40, 40, 40)
+            - box-shadow: 0px 0px 10px 3px var(--button-card-light-color)
+          name:
+            - color: white
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+  windows-doors:
+    layout: icon_label
+    color: auto
+    aspect_ratio: 1/1
+    show_state: false
+    show_name: true
+    show_label: false
+    show_last_changed: true
+    styles:
+      grid:
+        - grid-template-rows: 42px auto 42px
+        - grid-template-columns: 42px auto
+      card:
+        - border-radius: 15px
+        - margin: 5px 5px 0px 0px
+        - padding: 0px 0px
+      icon:
+        - height: 30px
+        - width: 30px
+      name:
+        - justify-self: start
+        - padding: 0px 10px
+        - font-size: 13px
+        - font-family: Helvetica
+        - text-transform: capitalize
+        - font-weight: bold
+        - align-self: end
+      lock:
+        - align-items: flex-end
+      label:
+        - font-size: 10px
+        - font-weight: normal
+
+    state:
+      - value: "on"
+        styles:
+          card:
+            - --paper-card-background-color: rgba(40, 40, 40)
+            - box-shadow: 0px 0px 10px 3px var(--button-card-light-color)
+          name:
+            - color: white
+  lights:
+    layout: icon_label
+    icon: mdi:fire
+    color: auto
+    aspect_ratio: 1/1
+    show_state: false
+    show_name: true
+    show_label: false
+    show_last_changed: true
+    styles:
+      grid:
+        - grid-template-rows: 42px auto 42px
+        - grid-template-columns: 42px auto
+      card:
+        - border-radius: 15px
+        - margin: 5px 5px 0px 0px
+        - padding: 0px 0px
+      icon:
+        - height: 42px
+        - width: 42px
+      name:
+        - justify-self: start
+        - padding: 0px 10px
+        - font-size: 13px
+        - font-family: Helvetica
+        - text-transform: capitalize
+        - font-weight: bold
+        - align-self: end
+      label:
+        - font-size: 10px
+        - font-weight: normal
+      lock:
+        - align-items: flex-end
+    size: 100%
+    state:
+      - value: "on"
+        styles:
+          card:
+            - --paper-card-background-color: rgba(30, 30, 30)
+            - box-shadow: 0px 0px 20px 3px var(--button-card-light-color)
+          name:
+            - color: white
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+
+
+
+
+views:
+  - !include '/config/views/status.yaml'
+#  - !include '/config/views/security.yaml'
+  - !include '/config/views/cameras.yaml'
+  - !include '/config/views/basement.yaml'
+  - !include '/config/views/mainlevel.yaml'
+  - !include '/config/views/upstairs.yaml'
+  - !include '/config/views/devices.yaml'
+  - !include '/config/views/media.yaml'
+  - !include '/config/views/level.yaml'
+  - !include '/config/views/news.yaml'
+
+
+
+              

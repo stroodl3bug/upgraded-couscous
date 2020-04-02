@@ -1,0 +1,56 @@
+#############################################################################################################################################
+#                                                                                                                                           # 
+#                                                          CAMERAS VIEW                                                         #
+#                                                                                                                                           #
+#############################################################################################################################################
+
+id: 1
+icon: mdi:video
+name: Home
+cards:
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: picture-glance
+            title: Doorbell
+            entities:
+              - binary_sensor.blink_front_door_camera_armed
+              - sensor.front_door_battery
+            camera_image: camera.front_door_2
+          - type: picture-glance
+            title: Front Door
+            entities: 
+              - sensor.blink_front_door_battery
+              - sensor.blink_front_door_wifi_signal
+              - sensor.blink_front_door_temperature
+            camera_image: camera.blink_front_door
+
+      - type: horizontal-stack
+        cards:
+          - type: picture-glance
+            title: Driveway 
+            entities:
+              - sensor.blink_driveway_battery
+              - sensor.blink_driveway_wifi_signal
+              - sensor.blink_driveway_temperature
+            camera_image: camera.blink_driveway
+        
+          - type: picture-glance
+            title: Garage
+            entities: 
+              - sensor.blink_garage_inside_battery
+              - sensor.blink_garage_inside_wifi_signal
+              - sensor.blink_garage_inside_temperature
+            camera_image: camera.blink_garage_inside
+ 
+  - type: vertical-stack
+    cards:
+      - title: Pantry Expiration
+        type: shopping-list
+      - type: entities
+        entities:
+          - input_number.pantry_expiration
+           
+
+            

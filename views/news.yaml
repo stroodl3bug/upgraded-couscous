@@ -1,0 +1,161 @@
+title: News
+id: 7
+icon: mdi:biohazard
+panel: true
+cards:
+
+
+  - type: horizontal-stack
+    cards:
+      - type: vertical-stack
+        cards:
+    
+          - type: entities
+            entities:
+              - type: 'custom:multiple-entity-row'
+                entity: sensor.worldwide_confirmed
+                show_state: false
+                icon: 'mdi:biohazard'
+                name: World
+                style: |
+                  :host {
+                    --paper-item-icon-color: cyan;
+                  }
+                entities:
+                  - entity: sensor.worldwide_confirmed
+                    name: Confirmed
+                    unit: false
+                  - entity: sensor.worldwide_current
+                    name: Current
+                    unit: false
+                  - entity: sensor.worldwide_deaths
+                    name: Deaths
+                    unit: false
+                  - entity: sensor.worldwide_recovered
+                    name: Recovered
+                    unit: false
+#                secondary_info: last-changed
+
+          - type: entities
+            entities:
+              - type: 'custom:multiple-entity-row'
+                entity: sensor.us_confirmed
+                show_state: false
+                icon: 'mdi:biohazard'
+                name: US
+                style: |
+                  :host {
+                    --paper-item-icon-color: cyan;
+                  }
+                entities:
+                  - entity: sensor.us_confirmed
+                    name: Confirmed
+                    unit: false
+                  - entity: sensor.us_current
+                    name: Current
+                    unit: false
+                  - entity: sensor.us_deaths
+                    name: Deaths
+                    unit: false
+                  - entity: sensor.us_recovered
+                    name: Recovered
+                    unit: false
+#                secondary_info: last-changed
+
+
+          - type: custom:list-card
+            entity: sensor.bbc_top_news
+            title: 'BBC'
+            feed_attribute: entries
+            row_limit: 8
+            columns:
+            #   - title: ''
+            #     type: image
+            #     add_link: link
+            #     field: image
+              - title: ''
+                field: title
+                add_link: link
+    #            style:
+    #              - white-space: nowrap
+    #          - title: Description
+    #            field: description 
+
+          - type: custom:list-card
+            entity: sensor.reuters_top_news
+            title: 'Reuters'
+            feed_attribute: entries
+            row_limit: 8
+            columns:
+            #   - title: ''
+            #     type: image
+            #     add_link: link
+            #     field: image
+              - title: ''
+                field: title
+                add_link: link
+    #            style:
+    #              - white-space: nowrap
+    #          - title: Description
+    #            field: description 
+
+      - type: vertical-stack
+        cards:
+
+          - type: custom:list-card
+            entity: sensor.reddit_home_automation
+            title: 'Home Automation'
+            feed_attribute: entries
+            row_limit: 8
+            columns:
+            #   - title: ''
+            #     type: image
+            #     add_link: link
+            #     field: image
+              - title: ''
+                field: title
+                add_link: link
+    #            style:
+    #              - white-space: nowrap
+    #          - title: Description
+    #            field: description            
+
+          - type: custom:list-card
+            entity: sensor.tech_news
+            title: ''
+            feed_attribute: entries
+            row_limit: 8
+            columns:
+            #   - title: ''
+            #     type: image
+            #     add_link: link
+            #     field: image
+              - title: 'Tech News'
+                field: title
+                add_link: link
+    #            style:
+    #              - white-space: nowrap
+    #          - title: Description
+    #            field: description 
+    
+          - type: custom:list-card
+            entity: sensor.fs_ft
+            title: ''
+            feed_attribute: entries
+            row_limit: 8
+            columns:
+            #   - title: ''
+            #     type: image
+            #     add_link: link
+            #     field: image
+              - title: 'For Sale/For Trade'
+                field: title
+                add_link: link
+    #            style:
+    #              - white-space: nowrap
+    #          - title: Description
+    #            field: description                        
+
+            
+   
+            
