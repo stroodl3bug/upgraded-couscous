@@ -68,10 +68,10 @@ cards:
             title: UnRAID
             columns: 3
             entities:
-              - entity: sensor.glances_cpu_used_2
+              - entity: sensor.glances_cpu_used
                 name: CPU
 #                icon: mdi:cpu-64-bit
-              - entity: sensor.glances_containers_active_2
+              - entity: sensor.glances_containers_active
                 name: Containers
 #                icon: mdi:docker
               - entity: sensor.glances_core_0_temp     
