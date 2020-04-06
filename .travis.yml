@@ -7,5 +7,6 @@ before_install:
 install:
   - pip3 install homeassistant
   - pip3 install colorlog
+  - pip3 install --upgrade pip
 script:
   - hass -c . --script check_config --info all
