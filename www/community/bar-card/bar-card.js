@@ -1,4 +1,4 @@
-console.info(`%cBAR-CARD\n%cVersion: 3.0.2`, 'color: #4788d4; font-weight: bold;', '');
+console.info(`%cBAR-CARD\n%cVersion: 3.0.3`, 'color: #4788d4; font-weight: bold;', '');
 class BarCard extends HTMLElement {
     constructor() {
         super();
@@ -627,8 +627,8 @@ class BarCard extends HTMLElement {
             barElement.style.setProperty('--bar-charge-percent', `${this._computePercent(entityState, minValue, maxValue, index, entity)}%`);
         }
         else {
-            barElement.style.setProperty('--bar-percent', `100%`);
-            barElement.style.setProperty('--bar-charge-percent', `100%`);
+            barElement.style.setProperty('--bar-percent', `0%`);
+            barElement.style.setProperty('--bar-charge-percent', `0%`);
         }
     }
     _updateAnimation(entityState, configDuration, configStop, id, entity, index) {
@@ -805,7 +805,7 @@ class BarCard extends HTMLElement {
             measurement = '';
             if (config.positions.icon !== 'off')
                 root.getElementById('iconBar_' + id).style.setProperty('--icon-color', 'var(--disabled-text-color)');
-            barColor = 'var(--bar-card-disabled-color, var(--switch-unchecked-button-color))';
+            barColor = `var(--bar-card-disabled-color, ${this._computeBarColor(config, entityState)})`;
         }
         else {
             if (config.positions.icon !== 'off')
