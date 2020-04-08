@@ -19,29 +19,29 @@ ZWave | 6
 Media Players | 14
 
 
-#Custom Components
+# Custom Components
 
-# [Generate readme](https://github.com/custom-components/readme)
+[Generate readme](https://github.com/custom-components/readme)
 
-# [Alarm.com](https://www.github.com/uvjustin/alarmdotcomajax)
+[Alarm.com](https://www.github.com/uvjustin/alarmdotcomajax)
 
-# [Xbox One](https://github.com/ericleb010/hassio-addons/tree/master/xboxone)
+[Xbox One](https://github.com/ericleb010/hassio-addons/tree/master/xboxone)
 
-# [Clean up your snapshots](https://github.com/tmonck/clean_up_snapshots)
+[Clean up your snapshots](https://github.com/tmonck/clean_up_snapshots)
 
-# [HACS (Home Assistant Community Store)](https://hacs.xyz/docs/configuration/start)
+[HACS (Home Assistant Community Store)](https://hacs.xyz/docs/configuration/start)
 
-# [Raspberry Pi Power Supply Checker](https://github.com/custom-components/sensor.rpi_power/blob/master/README.md)
+[Raspberry Pi Power Supply Checker](https://github.com/custom-components/sensor.rpi_power/blob/master/README.md)
 
-# [Garbage Collection](https://github.com/bruxy70/Garbage-Collection/)
+[Garbage Collection](https://github.com/bruxy70/Garbage-Collection/)
 
-# [Alexa Media Player](https://github.com/custom-components/alexa_media_player/wiki)
+[Alexa Media Player](https://github.com/custom-components/alexa_media_player/wiki)
 
-# [Airthings Wave](https://github.com/custom-components/sensor.airthings_wave/)
+[Airthings Wave](https://github.com/custom-components/sensor.airthings_wave/)
 
-# [Camera combined](https://github.com/custom-components/combined)
+[Camera combined](https://github.com/custom-components/combined)
 
-# [Feedparser](https://github.com/custom-components/feedparser/blob/master/README.md)
+[Feedparser](https://github.com/custom-components/feedparser/blob/master/README.md)
 
 
 ***
