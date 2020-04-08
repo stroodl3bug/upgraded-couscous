@@ -29,6 +29,9 @@ frontend:
 # Text to speech
 lovelace:
   mode: yaml
+  
+readme:
+
 tts:
   - platform: google_translate
 alexa_media:
