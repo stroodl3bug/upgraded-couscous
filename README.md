@@ -7,7 +7,7 @@
 [![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-0.107.7%20(Latest)-brightgreen)](https://github.com/home-assistant/home-assistant/releases/latest)
 
 
-# Statistics:
+**Statistics:**
 
 Description | Count
 -- | --
