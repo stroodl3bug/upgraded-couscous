@@ -12,14 +12,21 @@
 Description | Count
 -- | --
 Entities | 314
+Alarm Panel | 2
 Sensors | 180
 Binary sensors | 38
 Cameras | 5
-ZWave | 6
+ZWave Devices | 6
 Media Players | 14
+Device Trackers  | 2
+Persons | 8
+Switches | 28
+Lights | 10
+Remotes | 2
+Groups | 3
 
+**Custom Components:**
 
-# Custom Components
 
 [Generate readme](https://github.com/custom-components/readme)
 
