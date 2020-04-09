@@ -1,0 +1,30 @@
+########################################################################################################################
+# View - Home
+########################################################################################################################
+id: 9
+title: Issues
+icon: mdi:paper-roll-outline
+panel: true
+
+cards:
+###################################################################################################
+  - type: vertical-stack
+    cards:
+
+      - type: horizontal-stack
+        cards:
+
+          - type: vertical-stack
+            cards:
+
+
+              - type: custom:auto-entities
+                card:
+                  type: entities
+                  title: Unavailable Entities
+                  show_header_toggle: false
+                filter:
+                  include:
+                    - state: unavailable
+                  exclude:
+                    - entity_id: input_select*
