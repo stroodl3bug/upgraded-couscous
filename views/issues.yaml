@@ -8,23 +8,30 @@ panel: true
 
 cards:
 ###################################################################################################
-  - type: vertical-stack
+  - type: horizontal-stack
     cards:
-
+      - type: vertical-stack
+        cards:
+          - type: custom:auto-entities
+            card:
+              type: entities
+              title: Unavailable Entities
+              show_header_toggle: false
+            filter:
+              include:
+                - state: unavailable
+              exclude:
+                - entity_id: input_select*
       - type: horizontal-stack
         cards:
+          - type: custom:auto-entities
+            card:
+              type: entities
+              title: Unknown Entities
+              show_header_toggle: false
+            filter:
+              include:
+                - state: unknown
+              exclude:
+                - entity_id: input_select*
 
-          - type: vertical-stack
-            cards:
-
-
-              - type: custom:auto-entities
-                card:
-                  type: entities
-                  title: Unavailable Entities
-                  show_header_toggle: false
-                filter:
-                  include:
-                    - state: unavailable
-                  exclude:
-                    - entity_id: input_select*
