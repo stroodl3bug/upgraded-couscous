@@ -1,43 +1,43 @@
 title: Home
 
 resources:
-  - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
+  - url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
     type: js
-  - url: /community_plugin/text-divider-row/text-divider-row.js
+  - url: /hacsfiles/text-divider-row/text-divider-row.js
     type: module
-  - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
+  - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
     type: module
-  - url: /community_plugin/bar-card/bar-card.js
+  - url: /hacsfiles/bar-card/bar-card.js
     type: js
-  - url: /community_plugin/weather-card/weather-card.js
+  - url: /hacsfiles/weather-card/weather-card.js
     type: module    
-  - url: /community_plugin/spotify-card/spotify-card.js
+  - url: /hacsfiles/spotify-card/spotify-card.js
     type: module
-  - url: /community_plugin/mini-media-player/mini-media-player-bundle.js
+  - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
     type: module
-  - url: /community_plugin/lovelace-card-tools/card-tools.js
+  - url: /hacsfiles/lovelace-card-tools/card-tools.js
     type: js
-  - url: /community_plugin/lovelace-card-mod/card-mod.js
+  - url: /hacsfiles/lovelace-card-mod/card-mod.js
     type: js
-  - url: /community_plugin/lovelace-layout-card/layout-card.js
+  - url: /hacsfiles/lovelace-layout-card/layout-card.js
     type: js
   - url: 'https://fonts.googleapis.com/css?family=Quicksand:300,400'
     type: css
-  - url: /community_plugin/text-element/text-element.js
+  - url: /hacsfiles/text-element/text-element.js
     type: js 
-  - url: /community_plugin/button-card/button-card.js
+  - url: /hacsfiles/button-card/button-card.js
     type: module
-  - url: /community_plugin/config-template-card/config-template-card.js
+  - url: /hacsfiles/config-template-card/config-template-card.js
     type: module
   - url: /local/community/lovelace-auto-entities/auto-entities.js
     type: module
-  - url: /community_plugin/lovelace-multiple-entity-row/multiple-entity-row.js
+  - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
     type: module
   - url: /hacsfiles/list-card/list-card.js
     type: module
   - url: /hacsfiles/custom-header/custom-header.js
     type: module
-  - url: /community_plugin/sidebar-card/sidebar-card.js
+  - url: /hacsfiles/sidebar-card/sidebar-card.js
     type: module
   - url: /hacsfiles/lovelace-card-preloader/lovelace-card-preloader.js
     type: module
