@@ -12,7 +12,8 @@ tts
 hooks
 HEAD
 node-red
-
+node-red-backup
+templates
 
 #Scripts
 *.sh
@@ -32,6 +33,7 @@ token*.txt
 harmony_harmony.conf
 pyozw.sqlite
 .shopping_list.json
+*.conf
 
 #Others
 *.mp3
