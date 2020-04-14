@@ -22,6 +22,13 @@ cards:
                 - state: unavailable
               exclude:
                 - entity_id: input_select*
+
+          - title: Pantry Expiration
+            type: shopping-list
+          - type: entities
+            entities:
+              - input_number.pantry_expiration
+
       - type: horizontal-stack
         cards:
           - type: custom:auto-entities

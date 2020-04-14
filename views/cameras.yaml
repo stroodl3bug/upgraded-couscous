@@ -12,6 +12,7 @@ cards:
     cards:
       - type: horizontal-stack
         cards:
+
           - type: picture-glance
             title: Doorbell
             entities:
@@ -28,6 +29,7 @@ cards:
 
       - type: horizontal-stack
         cards:
+    
           - type: picture-glance
             title: Driveway 
             entities:
@@ -43,14 +45,8 @@ cards:
               - sensor.blink_garage_inside_wifi_signal
               - sensor.blink_garage_inside_temperature
             camera_image: camera.blink_garage_inside
- 
-  - type: vertical-stack
-    cards:
-      - title: Pantry Expiration
-        type: shopping-list
-      - type: entities
-        entities:
-          - input_number.pantry_expiration
+
+
            
 
             
