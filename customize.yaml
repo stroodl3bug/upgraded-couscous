@@ -1,11 +1,22 @@
-sensor.epson_ink_level_black:
+# sensor.epson_ink_level_black:
+#   entity_picture: /local/black.png
+# sensor.epson_ink_level_magenta:
+#   entity_picture: /local/magenta.png
+# sensor.epson_ink_level_yellow:
+#   entity_picture: /local/yellow.png
+# sensor.epson_ink_level_cyan:
+#   entity_picture: /local/cyan.png
+  
+
+sensor.epson_xp_4100_series_black_ink:
   entity_picture: /local/black.png
-sensor.epson_ink_level_magenta:
+sensor.epson_xp_4100_series_magenta_ink:
   entity_picture: /local/magenta.png
-sensor.epson_ink_level_yellow:
+sensor.epson_xp_4100_series_yellow_ink:
   entity_picture: /local/yellow.png
-sensor.epson_ink_level_cyan:
-  entity_picture: /local/cyan.png
+sensor.epson_xp_4100_series_cyan_ink:
+  entity_picture: /local/cyan.png  
+  
 sensor.washing_machine_status:
   icon: mdi:washing-machine
 
