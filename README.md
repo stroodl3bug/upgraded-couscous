@@ -11,13 +11,13 @@
 
 Description | Count
 -- | --
-Entities | 308
+Entities | 309
 Alarm Panel | 2
-Sensors | 179
+Sensors | 181
 Binary sensors | 39
 Cameras | 5
 ZWave Devices | 6
-Media Players | 12
+Media Players | 10
 Device Trackers  | 2
 Persons | 8
 Switches | 25
@@ -39,6 +39,8 @@ Groups | 3
 [HACS (Home Assistant Community Store)](https://hacs.xyz/docs/configuration/start)
 
 [Raspberry Pi Power Supply Checker](https://github.com/custom-components/sensor.rpi_power/blob/master/README.md)
+
+[Wyze Sense Component](https://github.com/kevinvincent/wyzesense)
 
 [Garbage Collection](https://github.com/bruxy70/Garbage-Collection/)
 
