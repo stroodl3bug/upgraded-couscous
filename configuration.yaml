@@ -50,10 +50,6 @@ hacs:
 hue:
   bridges:
     - host: !secret hue_ip  
-tuya:
-  username: !secret tuya_user
-  password: !secret tuya_pass
-  country_code: !secret tuya_country
 
 roku:
 - host: !secret roku_ip
@@ -172,6 +168,12 @@ zone:
 #     title: 'unRAID'
 #     url: !secret unraid
 #     icon: 'mdi:alpha-u-box-outline'
+
+panel_iframe:
+  tasmoadmin:
+    title: TasmoAdmin
+    icon: mdi:lightbulb-on
+    url: !secret tasmoadmin_url
 
 clean_up_snapshots_service:
   host: !secret hassio_url_ip
