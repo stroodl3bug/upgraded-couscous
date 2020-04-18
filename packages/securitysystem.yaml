@@ -65,7 +65,7 @@ binary_sensor:
 ###UPSTAIRS LEVEL ######    
 #############################################################################################
       kids_room_window_1:
-        friendly_name: "Kid's Room Window 1"
+        friendly_name: "Kids Room Window 1"
         value_template: >-
           {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Second Bedroom Window 1 is Open', ignorecase=TRUE) %}
             True
@@ -79,7 +79,7 @@ binary_sensor:
             mdi:window-closed
           {% endif %}          
       kids_room_window_2:
-        friendly_name: "Kid's Room Window 2"
+        friendly_name: "Kids Room Window 2"
         value_template: >-
           {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Second Bedroom Window 2 is Open', ignorecase=TRUE) %}
             True
