@@ -93,7 +93,7 @@ binary_sensor:
             mdi:window-closed
           {% endif %}    
       guest_room_window_1:
-        friendly_name: "Guest Bedroom 1"
+        friendly_name: "Guest Bedroom Window 1"
         value_template: >-
           {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Third Bedroom Window 1 is Open', ignorecase=TRUE) %}
             True
@@ -107,7 +107,7 @@ binary_sensor:
             mdi:window-closed
           {% endif %}          
       guest_room_window_2:
-        friendly_name: "Guest Bedroom 2"
+        friendly_name: "Guest Bedroom Window 2"
         value_template: >-
           {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Third Bedroom Window 2 is Open', ignorecase=TRUE) %}
             True
@@ -121,7 +121,7 @@ binary_sensor:
             mdi:window-closed
           {% endif %}    
       guest_room_window_3:
-        friendly_name: "Guest Bedroom 3"
+        friendly_name: "Guest Bedroom Window 3"
         value_template: >-
           {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Third Bedroom Window 3 is Open', ignorecase=TRUE) %}
             True
