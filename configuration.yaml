@@ -71,11 +71,6 @@ input_number:
     step: 1
 
 
-remote:
-  - platform: harmony
-    name: Harmony
-    host: !secret harmony_ip
-
 
 sensor:  
 #   - platform: airthings_wave
