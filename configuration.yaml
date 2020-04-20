@@ -150,6 +150,15 @@ spotify:
   client_id: !secret spotify_client_id
   client_secret: !secret spotify_client_password
 # Example configuration.yaml entry
+
+
+# Example configuration.yaml entry
+withings:
+  client_id: !secret withingsid
+  client_secret: !secret withingssecret
+  profiles:
+    -  stroodl3bug
+
 zone:
   # This will override the default home zone
   - name: Home
