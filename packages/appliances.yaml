@@ -7,7 +7,7 @@ input_select:
       - Running
       - Drying
       - Clean
-    initial: Dirty
+    initial: Clean
     
   washing_machine_status:
     name: Washing Machine Status
