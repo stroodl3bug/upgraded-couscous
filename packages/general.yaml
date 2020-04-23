@@ -1,0 +1,27 @@
+input_select:
+  basement_status:
+    name: Basement Status
+    options:
+      - Empty
+      - Movie
+      - Occupied
+      - Guest
+    initial: Empty
+    
+  family_room_status:
+    name: Family Room Status
+    options:
+      - Empty
+      - Movie
+      - Occupied
+      - Guest
+    initial: Empty
+
+  upstairs_status:
+    name: Upstairs Status
+    options:
+      - Empty
+      - Movie
+      - Occupied
+      - Guest
+    initial: Empty    
