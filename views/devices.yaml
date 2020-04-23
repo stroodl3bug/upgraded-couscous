@@ -54,8 +54,6 @@ cards:
             title: Printer Status
             show_header_toggle: false
             entities:
-              - entity: sensor.epson_xp_4100_series_uptime
-                name: Uptime
               - entity: sensor.epson_xp_4100_series_black_ink
                 name: Epson Black
               - entity: sensor.epson_xp_4100_series_magenta_ink
