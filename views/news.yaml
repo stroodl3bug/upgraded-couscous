@@ -13,7 +13,7 @@ cards:
           - type: entities
             entities:
               - type: 'custom:multiple-entity-row'
-                entity: sensor.worldwide_confirmed
+                entity: sensor.worldwide_coronavirus_confirmed
                 show_state: false
                 icon: 'mdi:biohazard'
                 name: World
@@ -22,16 +22,16 @@ cards:
                     --paper-item-icon-color: cyan;
                   }
                 entities:
-                  - entity: sensor.worldwide_confirmed
+                  - entity: sensor.worldwide_coronavirus_confirmed
                     name: Confirmed
                     unit: false
-                  - entity: sensor.worldwide_current
+                  - entity: sensor.worldwide_coronavirus_current
                     name: Current
                     unit: false
-                  - entity: sensor.worldwide_deaths
+                  - entity: sensor.worldwide_coronavirus_deaths
                     name: Deaths
                     unit: false
-                  - entity: sensor.worldwide_recovered
+                  - entity: sensor.worldwide_coronavirus_recovered
                     name: Recovered
                     unit: false
 #                secondary_info: last-changed
@@ -39,7 +39,7 @@ cards:
           - type: entities
             entities:
               - type: 'custom:multiple-entity-row'
-                entity: sensor.us_confirmed
+                entity: sensor.us_coronavirus_confirmed
                 show_state: false
                 icon: 'mdi:biohazard'
                 name: US
@@ -48,16 +48,16 @@ cards:
                     --paper-item-icon-color: cyan;
                   }
                 entities:
-                  - entity: sensor.us_confirmed
+                  - entity: sensor.us_coronavirus_confirmed
                     name: Confirmed
                     unit: false
-                  - entity: sensor.us_current
+                  - entity: sensor.us_coronavirus_current
                     name: Current
                     unit: false
-                  - entity: sensor.us_deaths
+                  - entity: sensor.us_coronavirus_deaths
                     name: Deaths
                     unit: false
-                  - entity: sensor.us_recovered
+                  - entity: sensor.us_coronavirus_recovered
                     name: Recovered
                     unit: false
 #                secondary_info: last-changed

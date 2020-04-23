@@ -42,6 +42,7 @@ resources:
   - url: /hacsfiles/lovelace-card-preloader/lovelace-card-preloader.js
     type: module
 
+
 preload:
   - alarm-panel    
 # sidebar:
