@@ -15,6 +15,10 @@
 #         {% endif %}
 
 
+binary_sensor:
+  - platform: wyzesense
+    device: "/dev/hidraw0"
+
 sensor:
   - platform: template
     sensors:
