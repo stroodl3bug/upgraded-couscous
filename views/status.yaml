@@ -152,7 +152,7 @@ cards:
       - type: vertical-stack
         cards:
           - type: custom:weather-card
-            entity: weather.dark_sky
+            entity: weather.thermostat
             current: true
             details: true
             forecast: true

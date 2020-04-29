@@ -1,8 +1,25 @@
-weather:
+# weather:
+#   - platform: darksky
+#     api_key: !secret darksky_api
+#     mode: daily
+
+sensor:
   - platform: darksky
     api_key: !secret darksky_api
-    mode: daily
-
-
-
+    forecast:
+      - 0
+      - 1
+    monitored_conditions:
+      - summary
+      - icon
+      - temperature
+      - apparent_temperature
+      - wind_speed
+      - cloud_cover
+      - humidity
+      - temperature_high
+      - temperature_low
+      - alerts
+    scan_interval:
+      minutes: 1
 
