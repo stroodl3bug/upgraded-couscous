@@ -160,6 +160,7 @@ cards:
             entities:
               - sensor.trash
               - sensor.recycle
-        
+          - type: thermostat
+            entity: climate.thermostat
     
 
