@@ -1,0 +1,11 @@
+light:
+  - platform: template
+    lights:
+      movie_mode_virtual:
+        friendly_name: "Movie Mode Virtual Switch"
+        turn_on:
+          service: light.turn_on
+          entity_id: light.movie_mode_virtual
+        turn_off:
+          service: light.turn_off
+          entity_id: light.movie_mode_virtual
