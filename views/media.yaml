@@ -31,7 +31,7 @@ cards:
                     id:  Echo Dot
                   - icon: mdi:disc-player
                     type: source
-                    id: Roku 3
+                    id: Roku
                   - icon: mdi:record-player
                     type: source
                     id: Basement 
