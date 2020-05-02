@@ -1,7 +1,7 @@
 
 input_select:
   dishwasher_status:
-    name: Dishwasher Status
+    name: Dishwasher
     options:
       - Dirty
       - Running
@@ -10,7 +10,7 @@ input_select:
     initial: Clean
     
   washing_machine_status:
-    name: Washing Machine Status
+    name: Washing Machine
     options:
       - Running
       - Idle

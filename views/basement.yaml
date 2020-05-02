@@ -131,7 +131,7 @@ cards:
                 entities:
                   - entity: binary_sensor.basement_occupancy
                     name: Inside
-                  - entity: binary_sensor.ring_front_door_motion
+                  - entity: binary_sensor.front_door_motion
                     name: Front Door
                   - entity: binary_sensor.blink_driveway_motion_detected
                     name: Driveway
