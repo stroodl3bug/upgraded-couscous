@@ -47,6 +47,10 @@ cards:
             transfer_playback: true
 
 
+      - type: custom:upcoming-media-card
+        entity: sensor.plex_recently_added
+        title: Recently Downloaded
+
              
       - type: vertical-stack
         cards:
