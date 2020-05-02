@@ -11,7 +11,7 @@ sensor:
 #=== Latest Available HA Version
 #================================
   - platform: version
-    name: Latest Available Version
+    name: Latest Version
     beta: false
     image: raspberrypi3
     source: hassio

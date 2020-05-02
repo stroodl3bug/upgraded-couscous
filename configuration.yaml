@@ -99,13 +99,6 @@ sensor:
       - last_build_state
       - state
       
-###Gitlab CI
-#  - platform: gitlab_ci
-#    gitlab_id: !secret gitlab_id
-#    token: !secret gitlab_token
-
-
-
 
 pi_hole:
   host: !secret pi_hole_ip
