@@ -22,6 +22,7 @@ templates
 secrets.yaml
 .xbox-token.json
 .spotify-token-cache
+.spotifyplaylist-token-cache
 *.token
 *.pickle
 *.xml
