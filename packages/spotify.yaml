@@ -7,3 +7,9 @@ media_player:
         8XHVaz2BeLGt*5#8AAc@B3D!j: 'Echo'
         ad8e8429-d68e-5d29-90a6-c5e170c8277c: 'Roku'
         ce48673008590c4ad1b6453a25a7279f992ac9fa: 'Basement'
+
+sensor:
+  - platform: spotify-playlist-sensor
+    client_id: !secret client_id_spotify_playlist
+    client_secret: !secret client_secret_spotify_playlist
+    number_of_playlists: 8

@@ -26,30 +26,41 @@ cards:
                 columns: 4 # Max buttons per row
                 buttons:
           # Start predefined source
-                  - icon: mdi:amazon
+                  - icon: mdi:amazon-alexa
                     type: source
-                    id:  Echo Dot
+                    id:  EchoDot
                   - icon: mdi:disc-player
                     type: source
-                    id: Roku
-                  - icon: mdi:record-player
+                    id: Roku 3
+                  - icon: mdi:home-floor-b
                     type: source
                     id: Basement 
-                  - icon: mdi:laptop-mac
+                  - icon: mdi:cellphone-iphone
                     type: source
-                    id: Macbook
+                    id: iPhone
+
+# EchoDot, iPhone, Roku 3, Basement
 
       - type: vertical-stack
         cards:
-          - type: 'custom:spotify-card'
-            client_id: !secret client_id_spotify
-            limit: 10
-            transfer_playback: true
+        #   - type: 'custom:spotify-card'
+        #     client_id: !secret client_id_spotify
+        #     limit: 10
+        #     transfer_playback: true
+
+          - type: "custom:spotify-playlist-card"
+            sensor: sensor.spotifyplaylist  
+            playback_method: spotify
+            speaker_entity: "media_player.spotify_1235664265"
+            show_playlist_titles: true
+            shuffle: true
+            columns: 4
 
 
-      - type: custom:upcoming-media-card
-        entity: sensor.plex_recently_added
-        title: Recently Downloaded
+# #Upcoming Media Card
+#           - type: custom:upcoming-media-card
+#             entity: sensor.plex_recently_added
+#             title: Upcoming
 
              
       - type: vertical-stack
