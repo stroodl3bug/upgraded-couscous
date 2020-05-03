@@ -146,7 +146,7 @@ cards:
                 entities:
                   - entity: sensor.installed_version
                     name: Installed
-                  - entity: sensor.latest_available_version
+                  - entity: sensor.latest_version
                     name: Latest Available
                   - entity: sensor.hassio_last_boot
                     namw: Up Since
@@ -181,12 +181,14 @@ cards:
                 icon_position: inside
                 icon: mdi:harddisk               
 
+
       - type: vertical-stack
         cards:
 
-          - type: iframe
-            url: !secret speedtest-graphana-url
-            aspect_ratio: 75%
+
+        #   - type: iframe
+        #     url: !secret speedtest-graphana-url
+        #     aspect_ratio: 75%
 
         #   - type: horizontal-stack
         #     cards:    
@@ -194,49 +196,49 @@ cards:
 
 
             
-            #   - type: custom:mini-graph-card
-            #     name: Speed Test
-            #     more_info: true
-            #     line_color:
-            #       - green
-            #       - orange
-            #     hour24: true
-            #     animate: true
-            #     decimals: 1
-            #     show:
-            #       name: true
-            #       icon: true
-            #       state: true
-            #       graph: true
-            #       fill: true
-            #       points: false
-            #       legend: true
-            #       extrema: false
-            #       labels: true
-            #     entities:
-            #       - entity: sensor.speedtest_download
-            #         name: Download
-            #       - entity: sensor.speedtest_upload
-            #         name: Upload
-            #   - type: custom:mini-graph-card
-            #     name: Ping
-            #     more_info: true
-            #     line_color: purple
-            #     hour24: true
-            #     animate: true
-            #     decimals: 1
-            #     show:
-            #       name: true
-            #       icon: true
-            #       state: true
-            #       graph: true
-            #       fill: true
-            #       points: true
-            #       legend: true
-            #       extrema: true
-            #       labels: true
-            #     entities:
-            #       - sensor.speedtest_ping   
+          - type: custom:mini-graph-card
+            name: Speed Test
+            more_info: true
+            line_color:
+              - green
+              - orange
+            hour24: true
+            animate: true
+            decimals: 1
+            show:
+              name: true
+              icon: true
+              state: true
+              graph: true
+              fill: true
+              points: false
+              legend: true
+              extrema: false
+              labels: true
+            entities:
+              - entity: sensor.speedtest_download
+                name: Download
+              - entity: sensor.speedtest_upload
+                name: Upload
+          - type: custom:mini-graph-card
+            name: Ping
+            more_info: true
+            line_color: purple
+            hour24: true
+            animate: true
+            decimals: 1
+            show:
+              name: true
+              icon: true
+              state: true
+              graph: true
+              fill: true
+              points: true
+              legend: true
+              extrema: true
+              labels: true
+            entities:
+              - sensor.speedtest_ping   
 
 
                   
