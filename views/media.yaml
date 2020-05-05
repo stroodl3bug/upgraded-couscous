@@ -58,9 +58,11 @@ cards:
 
 
 # #Upcoming Media Card
-#           - type: custom:upcoming-media-card
-#             entity: sensor.plex_recently_added
-#             title: Upcoming
+          - type: custom:upcoming-media-card
+            entity: sensor.trakt_upcoming_calendar
+            title: Upcoming
+            image_style: fanart
+            max: 10
 
              
       - type: vertical-stack

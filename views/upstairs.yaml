@@ -23,7 +23,7 @@ cards:
             
               - type: custom:button-card   
                 template: lights
-                entity:  light.master_bedroom_l_level
+                entity:  light.master_bedroom
                 name: Lights
                 icon: mdi:ceiling-light
                 
@@ -47,7 +47,7 @@ cards:
 
               - type: custom:button-card   
                 template: lights
-                entity: light.guest_bedroom_li_level
+                entity: light.guest_bedroom
                 name: Lights
                 icon: mdi:ceiling-light
 
