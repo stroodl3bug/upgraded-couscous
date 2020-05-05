@@ -3,7 +3,7 @@
 sensor:
   - platform: feedparser
     name: fs-ft
-    feed_url: 'https://siftrss.com/f/jpQ5GXyPyD'
+    feed_url: !secret rss_fsft
     date_format: '%a, %b %d %I:%M %p'
     inclusions:
       - title
@@ -12,7 +12,7 @@ sensor:
 
   - platform: feedparser
     name: tech-news
-    feed_url: 'https://siftrss.com/f/9a3brnQM7Z'
+    feed_url: !secret rss_technews
     date_format: '%a, %b %d %I:%M %p'
     inclusions:
       - title
@@ -21,7 +21,7 @@ sensor:
 
   - platform: feedparser
     name: bbc-top-news
-    feed_url: 'http://feeds.bbci.co.uk/news/rss.xml'
+    feed_url: !secret rss_bbcnews
     date_format: '%a, %b %d %I:%M %p'
     inclusions:
       - title
@@ -30,7 +30,7 @@ sensor:
 
   - platform: feedparser
     name: reddit-home-automation
-    feed_url: 'https://www.reddit.com/r/homeautomation/.rss?format=xml'
+    feed_url: !secret rss_reddit
     date_format: '%a, %b %d %I:%M %p'
     inclusions:
       - title
@@ -39,9 +39,21 @@ sensor:
 
   - platform: feedparser
     name: reuters-top-news
-    feed_url: 'http://feeds.reuters.com/reuters/topNews'
+    feed_url: !secret rss_reuters
     date_format: '%a, %b %d %I:%M %p'
     inclusions:
       - title
       - link
       - pubDate
+
+  - platform: feedparser
+    name: Watchlist
+    feed_url: !secret rss_trakt_ondeck
+    date_format: '%a, %b %d %I:%M %p'
+    inclusions:
+      - title
+      - link
+      - summary
+      - pubDate
+      - summary
+      - media:thumbnail
