@@ -1,18 +1,20 @@
-blink:
-  username: !secret blink_user
-  password: !secret blink_pass  
-  scan_interval: 300
+## Disabled Blink temporarily
 
-sensor:
-  - platform: blink
-    monitored_conditions:
-      - battery
-      - temperature
-      - wifi_strength
+# blink:
+#   username: !secret blink_user
+#   password: !secret blink_pass  
+#   scan_interval: 300
+
+# sensor:
+#   - platform: blink
+#     monitored_conditions:
+#       - battery
+#       - temperature
+#       - wifi_strength
      
-binary_sensor:
-  - platform: blink
-    monitored_conditions:
-      - motion_enabled
-      - motion_detected
+# binary_sensor:
+#   - platform: blink
+#     monitored_conditions:
+#       - motion_enabled
+#       - motion_detected
       
