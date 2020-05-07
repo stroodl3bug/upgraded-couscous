@@ -16,7 +16,7 @@ cards:
           - type: picture-glance
             title: Doorbell
             entities:
-              - binary_sensor.blink_front_door_camera_armed
+#              - binary_sensor.blink_front_door_camera_armed
               - sensor.front_door_battery
             camera_image: camera.front_door_2
           - type: picture-glance
