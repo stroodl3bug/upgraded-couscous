@@ -20,19 +20,19 @@ media_player:
 #    update_custom_ping_url: "http://192.168.0.187:9197/dmr"
 #    update_method: "ping"
     
-sensor:
-  - platform: plex_recently_added
-    name: Movies
-    token: !secret plex_token
-    host: !secret plex_ip
-    port: 32400
-    section_types:
-    - movie
+# sensor:
+#   - platform: plex_recently_added
+#     name: Movies
+#     token: !secret plex_token
+#     host: !secret plex_ip
+#     port: 32400
+#     section_types:
+#     - movie
     
-  - platform: plex_recently_added
-    name: TV Shows
-    token: !secret plex_token
-    host: !secret plex_ip
-    port: 32400
-    section_types:
-    - show    
+#   - platform: plex_recently_added
+#     name: TV Shows
+#     token: !secret plex_token
+#     host: !secret plex_ip
+#     port: 32400
+#     section_types:
+#     - show    

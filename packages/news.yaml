@@ -50,10 +50,8 @@ sensor:
     name: Watchlist
     feed_url: !secret rss_trakt_ondeck
     date_format: '%a, %b %d %I:%M %p'
-    inclusions:
-      - title
-      - link
-      - summary
-      - pubDate
-      - summary
-      - media:thumbnail
+    # inclusions:
+    #   - title
+    #   - link
+    #   - summary
+    #   - image
