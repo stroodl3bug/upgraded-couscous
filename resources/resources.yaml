@@ -1,0 +1,45 @@
+resources:
+  - url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
+    type: js
+  - url: /hacsfiles/text-divider-row/text-divider-row.js
+    type: module
+  - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+    type: module
+  - url: /hacsfiles/bar-card/bar-card.js
+    type: module
+  - url: /hacsfiles/weather-card/weather-card.js
+    type: module    
+  - url: /hacsfiles/spotify-card/spotify-card.js
+    type: module
+  - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
+    type: module
+  - url: /hacsfiles/lovelace-card-tools/card-tools.js
+    type: js
+  - url: /hacsfiles/lovelace-card-mod/card-mod.js
+    type: js
+  - url: /hacsfiles/lovelace-layout-card/layout-card.js
+    type: js
+  - url: 'https://fonts.googleapis.com/css?family=Quicksand:300,400'
+    type: css
+  - url: /hacsfiles/text-element/text-element.js
+    type: js 
+  - url: /hacsfiles/button-card/button-card.js
+    type: module
+  - url: /hacsfiles/config-template-card/config-template-card.js
+    type: module
+  - url: /local/community/lovelace-auto-entities/auto-entities.js
+    type: module
+  - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
+    type: module
+  - url: /hacsfiles/list-card/list-card.js
+    type: module
+  - url: /hacsfiles/custom-header/custom-header.js
+    type: module
+  - url: /hacsfiles/sidebar-card/sidebar-card.js
+    type: module
+  - url: /hacsfiles/lovelace-card-preloader/lovelace-card-preloader.js
+    type: module
+  - url: /hacsfiles/upcoming-media-card/upcoming-media-card.js
+    type: module
+  - url: /hacsfiles/spotify-playlist-card/spotify-playlist-card.js
+    type: js   

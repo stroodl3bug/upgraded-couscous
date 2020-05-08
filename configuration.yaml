@@ -30,6 +30,7 @@ frontend:
 # Text to speech
 lovelace:
   mode: yaml
+  resources: !include_dir_named resources
   
 readme:
 
