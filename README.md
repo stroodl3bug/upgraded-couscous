@@ -1,25 +1,24 @@
 
 ## Home Assistant
 
-
 [![Build Status](https://travis-ci.com/stroodl3bug/upgraded-couscous.svg?branch=master)](https://travis-ci.com/stroodl3bug/upgraded-couscous)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/stroodl3bug/upgraded-couscous)](https://github.com/stroodl3bug/upgraded-couscous/commits/master)
 [![GitHub Activity](https://img.shields.io/github/commit-activity/m/stroodl3bug/upgraded-couscous)](https://github.com/stroodl3bug/upgraded-couscous/commits/master)
-[![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-0.109.0%20(Latest)-brightgreen)](https://github.com/home-assistant/home-assistant/releases/latest)
+[![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-0.109.6%20(Latest)-brightgreen)](https://github.com/home-assistant/home-assistant/releases/latest)
 
 
 **Statistics:**
 
 Description | Count
 -- | --
-Entities | 407
+Entities | 408
 Alarm Panel | 2
-Sensors | 263
-Binary sensors | 42
+Sensors | 272
+Binary sensors | 33
 Cameras | 5
 ZWave Devices | 8
 Media Players | 13
-Device Trackers  | 2
+Device Trackers  | 1
 Persons | 0
 Switches | 43
 Lights | 10
@@ -35,6 +34,8 @@ Groups | 3
 
 [Xbox One](https://github.com/ericleb010/hassio-addons/tree/master/xboxone)
 
+[Node-RED](https://github.com/zachowj/node-red)
+
 [Clean up your snapshots](https://github.com/tmonck/clean_up_snapshots)
 
 [HACS (Home Assistant Community Store)](https://hacs.xyz/docs/configuration/start)
@@ -43,9 +44,13 @@ Groups | 3
 
 [Wyze Sense Component](https://github.com/kevinvincent/wyzesense)
 
+[Plex Recently Added](https://github.com/custom-components/sensor.plex_recently_added)
+
 [Garbage Collection](https://github.com/bruxy70/Garbage-Collection/)
 
 [Alexa Media Player](https://github.com/custom-components/alexa_media_player/wiki)
+
+[Spotify Playlist Sensor](https://github.com/dnguyen800/spotify-playlist-sensor)
 
 [Airthings Wave](https://github.com/custom-components/sensor.airthings_wave/)
 
