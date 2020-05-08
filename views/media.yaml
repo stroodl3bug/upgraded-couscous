@@ -19,10 +19,10 @@ cards:
             line1_color: '#787148'
             line2_text: '$rating'
             line2_color: '#606469'
-            line3_text: '$empty'
+            line3_text: '$genres'
             line3_color: '#606469'            
-            line4_text: '$genres [$runtime hrs]'
-            line4_color: '#787148'            
+            line4_text: '[$runtime]'
+            line4_color: '#606469'            
             title_size: small
             line1_size: small
             line2_size: small
