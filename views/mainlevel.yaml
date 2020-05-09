@@ -22,7 +22,7 @@ cards:
             
           - type: custom:button-card   
             template: lights
-            entity: switch.48674340a4cf12a6c81a
+            entity: switch.tasmota_1
             name: Table Lamp
             icon: mdi:lamp
 
@@ -79,7 +79,7 @@ cards:
 
           - type: custom:button-card   
             template: lights
-            entity: switch.48674340a4cf12a697c1
+            entity: switch.tasmota_2
             name: Table Lamp
             icon: mdi:lamp
 

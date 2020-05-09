@@ -91,11 +91,6 @@ cards:
         #     limit: 10
         #     transfer_playback: true
 
-
-
-
-
-
           - type: entities
             entities:
             - entity: media_player.family_room_yamaha
