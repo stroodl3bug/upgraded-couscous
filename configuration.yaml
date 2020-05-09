@@ -1,4 +1,5 @@
-
+config: #show config wrench as default_config removed to hide map & history
+logbook: #show logbook as default_config removed to hide map & history
 homeassistant:
   name: Home 
   temperature_unit: F
@@ -13,7 +14,7 @@ homeassistant:
   whitelist_external_dirs:
     - '/tmp/'
 # Configure a default setup of Home Assistant (frontend, api, etc)
-default_config:
+#default_config:
 # Example configuration.yaml entry
 api:
 # enable the recorder integration (optional)
