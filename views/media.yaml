@@ -82,7 +82,7 @@ cards:
             speaker_entity: "media_player.spotify_1235664265"
             show_playlist_titles: true
             shuffle: true
-            columns: 4
+            columns: 5
 
 
 
