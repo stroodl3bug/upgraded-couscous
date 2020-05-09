@@ -42,6 +42,13 @@ alexa_media:
       password: !secret amazon_password
       url: amazon.com
 
+
+spotify:
+  client_id: !secret client_id_spotify
+  client_secret: !secret client_secret_spotify
+
+
+
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
@@ -137,14 +144,6 @@ cover:
   - platform: myq
     username: !secret myq_username
     password: !secret myq_password
-# spotcast:
-#   username: !secret spotify_username
-#   password: !secret spotify_password
-
-spotify:
-  client_id: !secret spotify_client_id
-  client_secret: !secret spotify_client_password
-# Example configuration.yaml entry
 
 
 # Example configuration.yaml entry
@@ -174,6 +173,12 @@ panel_iframe:
     icon: mdi:lightbulb-on
     url: !secret tasmoadmin_url
 
+panel_custom:
+  - name: zwavegraph2
+    sidebar_title: Z-Wave Graph
+    sidebar_icon: mdi:access-point-network
+    url_path: zwave
+    
 clean_up_snapshots_service:
   host: !secret hassio_url_ip
   token: !secret backup_longlivedtoken
