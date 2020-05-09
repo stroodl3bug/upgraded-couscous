@@ -50,19 +50,73 @@ cards:
                 icon: mdi:window-closed
 
 
-          - type: entities
-            title: Printer Status
-            show_header_toggle: false
-            entities:
-              - entity: sensor.epson_xp_4100_series_black_ink
-                name: Epson Black
-              - entity: sensor.epson_xp_4100_series_magenta_ink
-                name: Epson Magenta
-              - entity: sensor.epson_xp_4100_series_yellow_ink
-                name: Epson Yellow
-              - entity: sensor.epson_xp_4100_series_cyan_ink 
-                name: Epson Cyan       
+          - type: vertical-stack
+            cards:
+              - type: custom:bar-card
+                title: Epson XP-4100
+                columns: 4
+                direction: up
+                height: 150px
+                padding: 2px
+                width: 100%
+                positions:
+                  icon: 'off'
+                  name: 'outside'
+                  value: 'inside'
+                min: 0
+                max: 100
+                unit_of_measurement: '%'
+                entities:
+                  - color: MediumTurquoise
+                    entity: sensor.epson_xp_4100_series_cyan_ink
+                    name: Cyan
+                  - color: MediumOrchid
+                    entity: sensor.epson_xp_4100_series_magenta_ink
+                    name: Magenta
+                  - color: Gold
+                    entity: sensor.epson_xp_4100_series_yellow_ink
+                    name: Yellow
+                  - color: Black
+                    entity: sensor.epson_xp_4100_series_black_ink
+                    name: Black
+                    
 
+          - type: vertical-stack
+            cards:
+              - type: custom:bar-card
+                title: Epson XP-340
+                columns: 4
+                direction: up
+                height: 150px
+                padding: 2px
+                width: 100%
+                positions:
+                  icon: 'off'
+                  name: 'outside'
+                  value: 'inside'
+                min: 0
+                max: 100
+                unit_of_measurement: '%'
+                entities:
+                  - color: MediumTurquoise
+                    entity: sensor.epson_xp_340_series_cyan_ink
+                    name: Cyan
+                  - color: MediumOrchid
+                    entity: sensor.epson_xp_340_series_magenta_ink
+                    name: Magenta
+                  - color: Gold
+                    entity: sensor.epson_xp_340_series_yellow_ink
+                    name: Yellow
+                  - color: Black
+                    entity: sensor.epson_xp_340_series_black_ink
+                    name: Black
+
+
+
+
+
+      - type: vertical-stack
+        cards:
 
           - type: glance
             title: UnRAID
@@ -78,9 +132,6 @@ cards:
                 name: Temperature
 #                icon: mdi:thermometer
 
-      - type: vertical-stack
-        cards:
-
           - type: glance
             title: DD-WRT
             columns: 3
@@ -95,25 +146,7 @@ cards:
                 name: Uptime
                 icon: mdi:timelapse
 
-          - type: custom:mini-graph-card
-            entities: 
-              - sensor.cpu_temp
-            name: Temperature
-            color_thresholds:
-                  - value: 50
-                    color: "#3498db"
-                  - value: 70
-                    color: "#f39c12"
-                  - value: 100
-                    color: "#E45E65"
-            height: 15
-            line_width: 2
-            font_size: 70
-            hours_to_show: 168
-            points_per_hour: 1
-            show:
-              extrema: true
-              fill: true
+
 
                 
           - type: entities
@@ -181,6 +214,25 @@ cards:
                 icon_position: inside
                 icon: mdi:harddisk               
 
+          - type: custom:mini-graph-card
+            entities: 
+              - sensor.cpu_temp
+            name: Temperature
+            color_thresholds:
+                  - value: 50
+                    color: "#3498db"
+                  - value: 70
+                    color: "#f39c12"
+                  - value: 100
+                    color: "#E45E65"
+            height: 15
+            line_width: 2
+            font_size: 70
+            hours_to_show: 168
+            points_per_hour: 1
+            show:
+              extrema: true
+              fill: true
 
       - type: vertical-stack
         cards:
@@ -241,7 +293,5 @@ cards:
               - sensor.speedtest_ping   
 
 
-                  
-                  
 
  
