@@ -90,15 +90,15 @@ sensor:
 ###Travis CI
   - platform: travisci
     api_key: !secret travisci_token
-    repository:
-      - upgraded-couscous
-    monitored_conditions:
-      - last_build_id
-      - last_build_duration
-      - last_build_finished_at
-      - last_build_started_at
-      - last_build_state
-      - state
+    # repository:
+    #   - upgraded-couscous
+    # monitored_conditions:
+    #   - last_build_id
+    #   - last_build_duration
+    #   - last_build_finished_at
+    #   - last_build_started_at
+    #   - last_build_state
+    #   - state
       
 
 pi_hole:
