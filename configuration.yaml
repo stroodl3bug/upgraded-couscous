@@ -1,5 +1,6 @@
 config: #show config wrench as default_config removed to hide map & history
 logbook: #show logbook as default_config removed to hide map & history
+history: #add history back to see graphs :(
 homeassistant:
   name: Home 
   temperature_unit: F
