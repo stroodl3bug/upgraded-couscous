@@ -8,6 +8,7 @@ homeassistant:
   longitude: !secret home_longitude
 #  elevation: !secret home_elevation
 
+  internal_url: !secret baseurl
   unit_system: imperial
 #  time_zone: !secret time_zone
   packages: !include_dir_named packages
@@ -116,9 +117,9 @@ pi_hole:
 
 
 logger:
-  default: warning
-  logs:
-    homeassistant.components.darksky: debug
+  default: debug
+#  logs:
+#    homeassistant.components.darksky: debug
 #    homeassistant.components.alarmdotcom: debug   
 
 # Example configuration.yaml entry
@@ -134,8 +135,9 @@ speedtestdotnet:
 rachio:
   api_key: !secret rachio_key
 
-http:
-  base_url: !secret baseurl
+#http:
+#  base_url: !secret baseurl
+#   internal_url: !secret baseurl
 
 # Example configuration.yaml entry
 device_tracker:
