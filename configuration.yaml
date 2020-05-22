@@ -26,9 +26,6 @@ frontend:
   themes: !include_dir_merge_named themes/
 # Example configuration.yaml entry
 
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
 
 # Text to speech
 lovelace:
@@ -135,9 +132,6 @@ speedtestdotnet:
 rachio:
   api_key: !secret rachio_key
 
-#http:
-#  base_url: !secret baseurl
-#   internal_url: !secret baseurl
 
 # Example configuration.yaml entry
 device_tracker:
