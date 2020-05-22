@@ -187,4 +187,3 @@ clean_up_snapshots_service:
   host: !secret hassio_url_ip
   token: !secret backup_longlivedtoken
   number_of_snapshots_to_keep: 10
-
