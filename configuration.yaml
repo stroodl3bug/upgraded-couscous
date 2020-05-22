@@ -7,8 +7,8 @@ homeassistant:
   latitude: !secret home_latitude
   longitude: !secret home_longitude
 #  elevation: !secret home_elevation
-
   internal_url: !secret baseurl
+  external_url: !secret baseurl
   unit_system: imperial
 #  time_zone: !secret time_zone
   packages: !include_dir_named packages
