@@ -1,5 +1,6 @@
 title: Home
 
+
 preload:
   - alarm-panel   
 # sidebar:
@@ -54,14 +55,15 @@ preload:
 #     desktop: 20
 
       
-custom_header:
-  compact_mode: true
-  hide_help: true
-  hide_config: true
-  hide_unused: true
-  chevrons: true
-  indicator_top: true
-  tab_indicator_color: orange
+# custom_header:
+#   compact_mode: true
+#   hide_help: true
+#   hide_config: true
+#   hide_unused: true
+#   chevrons: true
+#   indicator_top: true
+#   tab_indicator_color: orange
+
   
 
 #############################################################################################################################################
