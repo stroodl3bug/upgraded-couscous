@@ -84,15 +84,21 @@ cards:
             icon: mdi:lamp
 
           - type: custom:button-card   
-            template: windows-doors
-            entity: binary_sensor.living_room_window_1
-            name: 1
-
+            template: lights
+            entity: switch.tasmota_3
+            name: Small Lamp
+            icon: mdi:lamp
+            
           - type: "custom:button-card"
             color_type: blank-card
 
       - type: horizontal-stack
         cards:
+
+          - type: custom:button-card   
+            template: windows-doors
+            entity: binary_sensor.living_room_window_1
+            name: 1
 
           - type: custom:button-card   
             template: windows-doors
@@ -103,9 +109,6 @@ cards:
             template: windows-doors
             entity: binary_sensor.living_room_window_3
             name: 3
-
-          - type: "custom:button-card"
-            color_type: blank-card
 
       - type: custom:mini-graph-card
         entities: 
