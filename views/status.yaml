@@ -152,11 +152,8 @@ cards:
         
       - type: vertical-stack
         cards:
-          - type: custom:weather-card
-            entity: weather.thermostat
-            current: true
-            details: true
-            forecast: true
+          - type: weather-forecast
+            entity: weather.thermostat            
           - type: glance
             entities:
               - sensor.trash
