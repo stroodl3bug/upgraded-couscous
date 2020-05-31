@@ -96,15 +96,14 @@ cards:
             - entity: media_player.family_room_yamaha
               type: custom:mini-media-player
               name: Family Room
-#              artwork: cover
               background: "/local/yamaha-receiver.png"
               idle_view: when_idle
 #              icon: mdi:music-circle
-#              volume_stateless: true
+              artwork: cover
               hide:
                 icon: true
-                volume: true
                 power_state: false
+                volume: true
                 source: true
                 controls: true 
             - entity: media_player.basement_yamaha
@@ -114,7 +113,7 @@ cards:
               background: "/local/yamaha-receiver.png"
               source: icon
 #              icon: mdi:music-circle
-#              volume_stateless: true
+              volume_stateless: true
               idle_view: when_idle
               hide:
                 icon: true
