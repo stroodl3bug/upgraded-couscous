@@ -43,3 +43,26 @@
     type: module
   - url: /hacsfiles/spotify-playlist-card/spotify-playlist-card.js
     type: js   
+  - url: /local/stack-in-card/stack-in-card.js
+    type: module
+  
+
+      
+# custom_header:
+#   compact_mode: true
+#   hide_help: true
+#   hide_config: true
+#   hide_unused: true
+#   chevrons: true
+#   indicator_top: true
+#   tab_indicator_color: orange
+
+  
+
+
+
+
+
+
+
+

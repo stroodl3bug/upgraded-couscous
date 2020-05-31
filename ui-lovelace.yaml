@@ -1,81 +1,18 @@
-title: Home
-
-
-preload:
-  - alarm-panel   
-# sidebar:
-# #  title: "stroodlebug"
-# #  clock: true
-#   digitalClock: true
-#   digitalClockWithSeconds: false
-#   sidebarMenu:
-#     - action: navigate
-#       navigation_path: "/lovelace/0"
-#       name: "Home"
-#       active: true
-#     - action: navigate
-#       navigation_path: "/lovelace/1"
-#       name: "Cameras"
-#     - action: navigate
-#       navigation_path: "/lovelace/2"
-#       name: "Basement"
-#     - action: navigate
-#       navigation_path: "/lovelace/3"
-#       name: "Main Level"      
-#     - action: navigate
-#       navigation_path: "/lovelace/4"
-#       name: "Upstairs"
-#     - action: navigate
-#       navigation_path: "/lovelace/5"
-#       name: "System"
-#     - action: navigate
-#       navigation_path: "/lovelace/6"
-#       name: "Media"
-#     - action: navigate
-#       navigation_path: "/lovelace/7"
-#       name: "News"
-#     - action: navigate
-#       navigation_path: "/lovelace/8"
-#       name: "Auto"
-      
-#   style: |
-#     :host {
-#         --sidebar-background: #000;
-#         --sidebar-text-color: #ff9900;
-#         --face-color: #ff9900;
-#         --face-border-color: #FFF;
-#         --clock-hands-color: #000;
-#         --clock-seconds-hand-color: #FF4B3E;
-#         --clock-middle-background: #FFF;
-#         --clock-middle-border: #000;
-#     }  
-#   width:
-#     mobile: 0
-#     tablet: 25
-#     desktop: 20
-
-      
-# custom_header:
-#   compact_mode: true
-#   hide_help: true
-#   hide_config: true
-#   hide_unused: true
-#   chevrons: true
-#   indicator_top: true
-#   tab_indicator_color: orange
-
-  
-
-#############################################################################################################################################
-#                                                                                                                                           # 
-#                                                               VIEW 0 - HOME                                                               #
-#                                                                                                                                           #
-#############################################################################################################################################  
+views:
+  - !include '/config/views/status.yaml'
+  - !include '/config/views/cameras.yaml'
+  - !include '/config/views/basement.yaml'
+  - !include '/config/views/mainlevel.yaml'
+  - !include '/config/views/upstairs.yaml'
+  - !include '/config/views/devices.yaml'
+  - !include '/config/views/media.yaml'
+  - !include '/config/views/level.yaml'
+  - !include '/config/views/news.yaml'
+  - !include '/config/views/issues.yaml'
 
 
 background: center / cover no-repeat url("/local/blackgrey.jpg") fixed
 button_card_templates:
-
 
   cover:
     layout: icon_label
@@ -209,22 +146,4 @@ button_card_templates:
       action: toggle
     hold_action:
       action: more-info
-
-
-
-
-views:
-  - !include '/config/views/status.yaml'
-#  - !include '/config/views/security.yaml'
-  - !include '/config/views/cameras.yaml'
-  - !include '/config/views/basement.yaml'
-  - !include '/config/views/mainlevel.yaml'
-  - !include '/config/views/upstairs.yaml'
-  - !include '/config/views/devices.yaml'
-  - !include '/config/views/media.yaml'
-  - !include '/config/views/level.yaml'
-  - !include '/config/views/news.yaml'
-  - !include '/config/views/issues.yaml'
-
-
               

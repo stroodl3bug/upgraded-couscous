@@ -5,7 +5,8 @@ id: 0
 title: Home
 icon: mdi:home-circle-outline
 panel: true
-
+preload:
+  - alarm-panel 
 
 cards:
 ###################################################################################################
@@ -89,7 +90,7 @@ cards:
                     entity: sensor.kk_loc_since_date                
     
     
-          - type: 'custom:vertical-stack-in-card'
+          - type: vertical-stack
             cards:
               - type: alarm-panel
                 entity: alarm_control_panel.alarm_com
