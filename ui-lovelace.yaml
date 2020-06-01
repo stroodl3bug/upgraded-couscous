@@ -10,6 +10,37 @@ views:
   - !include '/config/views/news.yaml'
   - !include '/config/views/issues.yaml'
 
+custom_header:
+  split_mode: true
+  footer_mode: true
+  button_text:
+    menu: '{{ dayNameShort }}. {{ monthNameShort }}. {{ dayNum }} {{ year4d }}'
+  header_text: >-
+    <style>
+    #flipper {color:#999;}
+    #flip {height:24px;overflow:hidden;}
+    #flip > div > div {color:#fff;height:24px;margin-bottom:24px;display:inline-block;}
+    #flip div:first-child {animation: show 10s linear infinite;}
+    @keyframes show {
+    0% {margin-top:-144px;}
+    5% {margin-top:-96px;}
+    33% {margin-top:-96px;}
+    38% {margin-top:-48px;}
+    66% {margin-top:-48px;}
+    76% {margin-top:0px;}
+    100% {margin-top:0px;}}
+    #flipper p {position:fixed;color:#999; }
+    </style>
+    <div id=flipper><div id=flip><div><div>
+    Trash day is {{states('sensor.trash')}}</div></div><div><div>
+    The weather today is {{states('sensor.dark_sky_summary')}}</div></div><div><div>
+    The Alarm is {{states('alarm_control_panel.alarm_com')}}</div></div><div><div>
+    Trash day is {{states('sensor.trash')}}</div></div><div><div>
+
+
+
+          
+
 
 background: center / cover no-repeat url("/local/blackgrey.jpg") fixed
 button_card_templates:
