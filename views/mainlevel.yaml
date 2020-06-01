@@ -241,7 +241,7 @@ cards:
         
           - type: custom:button-card   
             template: lights
-            entity: switch.0707814884f3eb61dab6
+            entity: switch.tasmota_5
             name: Wallflower
             icon: mdi:air-filter
 
