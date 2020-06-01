@@ -16,9 +16,9 @@ node-red-backup
 templates
 
 #Pictures
-www/*.jpg
-www/*.png
-www/*.svg
+/www/*.jpg
+/www/*.png
+/www/*.svg
 
 #Scripts
 *.sh
