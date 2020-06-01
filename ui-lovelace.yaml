@@ -13,8 +13,6 @@ views:
 custom_header:
   split_mode: true
   footer_mode: true
-  button_text:
-    menu: '{{ dayNameShort }}. {{ monthNameShort }}. {{ dayNum }} {{ year4d }}'
   header_text: >-
     <style>
     #flipper {color:#999;}
@@ -33,8 +31,8 @@ custom_header:
     </style>
     <div id=flipper><div id=flip><div><div>
     Trash day is {{states('sensor.trash')}}</div></div><div><div>
-    The weather today is {{states('sensor.dark_sky_summary')}}</div></div><div><div>
-    The Alarm is {{states('alarm_control_panel.alarm_com')}}</div></div><div><div>
+    House is {% if is_state("alarm_control_panel.alarm_com", "disarmed") -%} Disarmed {%- elif is_state("alarm_control_panel.alarm_com", "armed_home") -%}  Armed (Stay) {%- elif is_state("alarm_control_panel.alarm_com", "armed_away") -%} Armed (Away) {%- endif %}</div></div><div><div>
+    Currently playing {{state_attr('media_player.spotify_1235664265', 'media_title')}} by {{state_attr('media_player.spotify_1235664265', 'media_artist')}} on {{state_attr('media_player.spotify_1235664265', 'source')}}</div></div><div><div>
     Trash day is {{states('sensor.trash')}}</div></div><div><div>
 
 
