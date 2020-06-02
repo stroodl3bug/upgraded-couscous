@@ -10,15 +10,13 @@ name: Home
 cards:
   - type: vertical-stack
     cards:
-      - type: horizontal-stack
-        cards:
 
           - type: picture-glance
             title: Doorbell
             entities:
-#              - binary_sensor.blink_front_door_camera_armed
               - sensor.front_door_battery
             camera_image: camera.front_door_2
+
           - type: picture-glance
             title: Front Door
             entities: 
@@ -27,8 +25,8 @@ cards:
               - sensor.blink_front_door_temperature
             camera_image: camera.blink_front_door
 
-      - type: horizontal-stack
-        cards:
+  - type: vertical-stack
+    cards:
     
           - type: picture-glance
             title: Driveway 
