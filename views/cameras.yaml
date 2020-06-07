@@ -6,7 +6,8 @@
 
 id: 1
 icon: mdi:video
-name: Home
+name: Cameras
+title: Cameras
 cards:
   - type: vertical-stack
     cards:
