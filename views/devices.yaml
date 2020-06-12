@@ -28,9 +28,9 @@ cards:
                     icon: mdi:thumb-up
                   - entity: sensor.latest_version
                     name: Latest Available
-                  - entity: sensor.hassio_last_boot
-                    name: Last Boot
-                    icon: mdi:clock
+                  - entity: sensor.hassio_uptime
+                    name: Uptime
+                    icon: mdi:timelapse
 
                   - type: custom:bar-card
                     entities: 

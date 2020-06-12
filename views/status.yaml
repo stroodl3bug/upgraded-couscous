@@ -138,7 +138,7 @@ cards:
                 filter:
                   include:
                     - domain: binary_sensor
-                      state: "off"
+                      state: "on"
                       attributes:
                        device_class: door
                     - domain: cover
