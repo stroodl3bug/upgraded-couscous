@@ -71,6 +71,9 @@ binary_sensor.blink_driveway_motion_detected:
 binary_sensor.blink_front_door_motion_detected:
   device_class: motion
   friendly_name: Front Door
+binary_sensor.blink_side_motion_detected:
+  device_class: motion
+  friendly_name: Side
 binary_sensor.front_door_motion:
   device_class: motion
   friendly_name: Doorbell

@@ -117,7 +117,7 @@ cards:
                 sort:
                   method: name
                   ignore_case: true
-                  count: 5
+                  count: 10
         
               - type: custom:auto-entities
                 card:

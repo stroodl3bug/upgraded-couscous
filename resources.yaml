@@ -16,7 +16,7 @@
   - url: /hacsfiles/lovelace-card-tools/card-tools.js
     type: js
   - url: /hacsfiles/lovelace-card-mod/card-mod.js
-    type: js
+    type: module
   - url: /hacsfiles/lovelace-layout-card/layout-card.js
     type: js
   - url: 'https://fonts.googleapis.com/css?family=Quicksand:300,400'
