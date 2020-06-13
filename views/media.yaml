@@ -84,6 +84,15 @@ cards:
         #     limit: 10
         #     transfer_playback: true
 
+          - type: "custom:spotify-playlist-card"
+            sensor: sensor.spotifyplaylist  
+            playback_method: spotify
+            speaker_entity: "media_player.spotify_1235664265"
+            show_playlist_titles: true
+            shuffle: true
+            columns: 5
+
+
           - type: entities
             entities:
             - entity: media_player.family_room_yamaha
@@ -154,24 +163,15 @@ cards:
                 volume: true 
 
 
-          - type: "custom:spotify-playlist-card"
-            sensor: sensor.spotifyplaylist  
-            playback_method: spotify
-            speaker_entity: "media_player.spotify_1235664265"
-            show_playlist_titles: true
-            shuffle: true
-            columns: 5
 
             
                 
       - type: vertical-stack
         cards:
-
-
 # #Upcoming Media Card
           - type: custom:upcoming-media-card
             entity: sensor.tvlist
-#            title: Upcoming
+    #            title: Upcoming
             image_style: fanart
             max: 5
             line1_text: '$episode'
@@ -191,8 +191,7 @@ cards:
                 ha-card  {
                   margin-top: 15px;
                   padding-left: 15px;
-                  height: 500px;
+                  height: 300px;
                 }
-
 
 
