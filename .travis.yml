@@ -5,8 +5,8 @@ before_install:
   - mv travis_secrets.yaml secrets.yaml
   - sudo apt-get install -y libudev-dev
 install:
-#  - pip3 install homeassistant
-  - pip3 install homeassistant==0.110.1
+  - pip3 install homeassistant
+#  - pip3 install homeassistant==0.111.1
   - pip3 install colorlog
   - pip3 install --upgrade pip
   - pip3 install beautifulsoup4
