@@ -12,3 +12,4 @@ install:
   - pip3 install beautifulsoup4
 script:
   - hass -c . --script check_config --info all
+
