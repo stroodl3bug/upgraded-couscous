@@ -62,7 +62,17 @@ cards:
                 entity: switch.tasmota_6
                 name: Floor Lamp
                 icon: mdi:floor-lamp
-                
+                style: |
+                  ha-card {
+                    margin: 10px;
+                    box-shadow: 
+                      {% if is_state('sun.sun', 'above_horizon') %}
+                        -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
+                      {% elif is_state('sun.sun', 'below_horizon') %}
+                        -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
+                      {% endif %}                 
+                  }
+
               - type: "custom:button-card"
                 color_type: blank-card
     
@@ -114,5 +124,25 @@ cards:
     
               - type: "custom:button-card"
                 color_type: blank-card
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "#### Laundry Room"
+          - type: entities
+#            title: UnRAID
+            show_header_toggle: false
+            entities:
+              - type: custom:hui-glance-card
+                columns: 2
+                entities:
+                  - entity: sensor.washing_machine_status
+                    name: Washing Machine
+                    icon: mdi:washing-machine
+                  - entity: sensor.washing_machine_status
+                    name: Washing Machine
+                    icon: mdi:washing-machine
+                
+
 
             
