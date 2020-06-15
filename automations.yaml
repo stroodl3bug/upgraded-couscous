@@ -1,13 +1,4 @@
-- id: '1564951685360'
-  alias: Set Theme to Slate
-  trigger:
-  - event: start
-    platform: homeassistant
-  condition: []
-  action:
-  - data:
-      name: slate
-    service: frontend.set_theme
+
 - id: Lights
   alias: Light Control
   trigger:
