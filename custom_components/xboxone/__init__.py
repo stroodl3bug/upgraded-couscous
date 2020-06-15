@@ -1,1 +1,1 @@
-"""Xbox one smartglass - media player integration"""
+# Required as part of the custom component HA 0.92

@@ -209,7 +209,7 @@ cards:
 
           - type: custom:button-card   
             template: lights
-            entity: light.kitchen_lamp
+            entity: switch.tasmota_8
             name: Floor Lamp
             icon: mdi:floor-lamp
 

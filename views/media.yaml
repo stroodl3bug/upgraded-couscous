@@ -28,12 +28,12 @@ cards:
             line2_size: small
             line3_size: small
             line4_size: small
-            style: |
-                ha-card  {
-                  margin-top: 15px;
-                  padding-left: 15px;
-                  height: 500px;
-                }
+            # style: |
+            #     ha-card  {
+            #       margin-top: 15px;
+            #       padding-left: 15px;
+            #       height: 1000px;
+            #     }
     
 
 
@@ -95,6 +95,7 @@ cards:
 
           - type: entities
             entities:
+
             - entity: media_player.family_room_yamaha
               type: custom:mini-media-player
               name: Family Room
@@ -187,11 +188,11 @@ cards:
             line2_size: small
             line3_size: small
             line4_size: small
-            style: |
-                ha-card  {
-                  margin-top: 15px;
-                  padding-left: 15px;
-                  height: 300px;
-                }
+            # style: |
+            #     ha-card  {
+            #       margin-top: 15px;
+            #       padding-left: 15px;
+            #       height: 1000px;
+            #     }
 
 
