@@ -4,14 +4,14 @@
 [![Build Status](https://travis-ci.com/stroodl3bug/upgraded-couscous.svg?branch=master)](https://travis-ci.com/stroodl3bug/upgraded-couscous)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/stroodl3bug/upgraded-couscous)](https://github.com/stroodl3bug/upgraded-couscous/commits/master)
 [![GitHub Activity](https://img.shields.io/github/commit-activity/m/stroodl3bug/upgraded-couscous)](https://github.com/stroodl3bug/upgraded-couscous/commits/master)
-[![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-0.111.1%20(Latest)-brightgreen)](https://github.com/home-assistant/home-assistant/releases/latest)
+[![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-0.111.2%20(Latest)-brightgreen)](https://github.com/home-assistant/home-assistant/releases/latest)
 
 
 **Statistics:**
 
 Description | Count
 -- | --
-Entities | 412
+Entities | 410
 Alarm Panel | 2
 Sensors | 273
 Binary sensors | 45
@@ -21,7 +21,7 @@ Media Players | 10
 Device Trackers  | 1
 Persons | 0
 Switches | 38
-Lights | 11
+Lights | 10
 Remotes | 2
 Groups | 3
 
@@ -32,7 +32,7 @@ Groups | 3
 
 [Alarm.com](https://www.github.com/uvjustin/alarmdotcomajax)
 
-[Xbox One Smartglass - Media player integration](https://github.com/OpenXbox/xboxone-home-assistant)
+[Xbox One](https://github.com/ericleb010/hassio-addons/tree/master/xboxone)
 
 [Node-RED](https://github.com/zachowj/node-red)
 
