@@ -75,24 +75,6 @@ cards:
                     type: source
                     id: iPhone
 
-
-
-
-
-        #   - type: 'custom:spotify-card'
-        #     client_id: !secret client_id_spotify
-        #     limit: 10
-        #     transfer_playback: true
-
-          - type: "custom:spotify-playlist-card"
-            sensor: sensor.spotifyplaylist  
-            playback_method: spotify
-            speaker_entity: "media_player.spotify_1235664265"
-            show_playlist_titles: true
-            shuffle: true
-            columns: 5
-
-
           - type: entities
             entities:
 
@@ -162,6 +144,26 @@ cards:
               hide:
                 power_state: false              
                 volume: true 
+
+
+
+
+        #   - type: 'custom:spotify-card'
+        #     client_id: !secret client_id_spotify
+        #     limit: 10
+        #     transfer_playback: true
+      - type: vertical-stack
+        cards:
+
+          - type: "custom:spotify-playlist-card"
+            sensor: sensor.spotifyplaylist  
+            playback_method: spotify
+            speaker_entity: "media_player.spotify_1235664265"
+            show_playlist_titles: true
+            shuffle: false
+            columns: 6
+
+
 
 
 

@@ -7,8 +7,16 @@ media_player:
         ad8e8429-d68e-5d29-90a6-c5e170c8277c: 'Roku'
         ce48673008590c4ad1b6453a25a7279f992ac9fa: 'Basement'
 
+
+  - platform: spotify_metafy
+    users:
+    spotify_entity_id: media_player.spotify_1235664265
+    destination: Family Room Roku
+    playlists:
+    - uri: spotify:playlist:1sr8gOmSXcWBU4MOql6KCa
+    
 sensor:
   - platform: spotify-playlist-sensor
     client_id: !secret client_id_spotify_playlist
     client_secret: !secret client_secret_spotify_playlist
-    number_of_playlists: 8
+    number_of_playlists: 10
