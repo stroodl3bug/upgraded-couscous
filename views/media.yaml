@@ -14,7 +14,7 @@ cards:
             entity: sensor.movielist
 #            title: Upcoming
             image_style: fanart
-            max: 5
+            max: 6
             line1_text: '$studio'
             line1_color: '#787148'
             line2_text: '$rating'
@@ -161,7 +161,7 @@ cards:
             speaker_entity: "media_player.spotify_1235664265"
             show_playlist_titles: true
             shuffle: false
-            columns: 6
+            columns: 3
 
 
 
@@ -176,7 +176,7 @@ cards:
             entity: sensor.tvlist
     #            title: Upcoming
             image_style: fanart
-            max: 5
+            max: 6
             line1_text: '$episode'
             line1_color: '#787148'
             line2_text: '$rating'

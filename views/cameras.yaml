@@ -21,7 +21,6 @@ cards:
           - type: picture-glance
             title: Front Door
             entities: 
-              - sensor.blink_front_door_battery
               - sensor.blink_front_door_wifi_signal
               - sensor.blink_front_door_temperature
             camera_image: camera.blink_front_door
@@ -32,7 +31,6 @@ cards:
           - type: picture-glance
             title: Driveway 
             entities:
-              - sensor.blink_driveway_battery
               - sensor.blink_driveway_wifi_signal
               - sensor.blink_driveway_temperature
             camera_image: camera.blink_driveway
@@ -40,7 +38,6 @@ cards:
           - type: picture-glance
             title: Garage
             entities: 
-              - sensor.blink_garage_inside_battery
               - sensor.blink_garage_inside_wifi_signal
               - sensor.blink_garage_inside_temperature
             camera_image: camera.blink_garage_inside
