@@ -31,7 +31,12 @@ cards:
                   - entity: sensor.hassio_uptime
                     name: Uptime
                     icon: mdi:timelapse
-
+                  - entity: sensor.db_size
+                    name: Database
+                    icon: mdi:database
+                  - entity: sensor.upgraded_couscous
+                    name: GIT
+                    
                   - type: custom:bar-card
                     entities: 
                       - sensor.hassio_cpu
