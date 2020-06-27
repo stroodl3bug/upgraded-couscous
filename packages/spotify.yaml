@@ -8,13 +8,6 @@ media_player:
         ce48673008590c4ad1b6453a25a7279f992ac9fa: 'Basement'
 
 
-  - platform: spotify_metafy
-    users:
-    spotify_entity_id: media_player.spotify_1235664265
-    destination: Family Room Roku
-    playlists:
-    - uri: spotify:playlist:1sr8gOmSXcWBU4MOql6KCa
-    
 sensor:
   - platform: spotify-playlist-sensor
     client_id: !secret client_id_spotify_playlist
