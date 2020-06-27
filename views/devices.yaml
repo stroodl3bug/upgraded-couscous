@@ -34,9 +34,9 @@ cards:
                   - entity: sensor.db_size
                     name: Database
                     icon: mdi:database
-                  - entity: sensor.upgraded_couscous
-                    name: GIT
-                    
+                  - entity: sensor.github_commit
+                    name: 
+
                   - type: custom:bar-card
                     entities: 
                       - sensor.hassio_cpu

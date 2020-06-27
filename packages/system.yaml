@@ -63,6 +63,16 @@ sensor:
           {% else %}
             mdi:cpu-64-bit
           {% endif %}
+      github_commit:
+         friendly_name: "Last Commit"
+         value_template: '{{states.sensor.upgraded_couscous.attributes.latest_commit_message}}'
+         icon_template: >-
+          {% if is_state('binary_sensor.basement_window', 'on') %}
+            mdi:github-circle
+          {% else %}
+            mdi:github-circle
+          {% endif %}
+         
 
   - platform: command_line
     name: CPU Temp

@@ -38,8 +38,8 @@ sensor:
       - pubDate 
 
   - platform: feedparser
-    name: reuters-top-news
-    feed_url: !secret rss_reuters
+    name: rss-lifehacker
+    feed_url: !secret rss_lifehacker
     date_format: '%a, %b %d %I:%M %p'
     inclusions:
       - title
