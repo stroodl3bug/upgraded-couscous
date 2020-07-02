@@ -25,6 +25,13 @@ cards:
               - sensor.blink_front_door_temperature
             camera_image: camera.blink_front_door
 
+        #   - type: picture-glance
+        #     title: Driveway
+        #     entities:
+        #       - camera.driveway
+        #     camera_image: camera.driveway
+
+
   - type: vertical-stack
     cards:
     

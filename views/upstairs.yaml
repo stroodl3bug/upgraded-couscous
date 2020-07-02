@@ -73,8 +73,9 @@ cards:
                       {% endif %}                 
                   }
 
-              - type: "custom:button-card"
-                color_type: blank-card
+              - type: custom:button-card   
+                entity: switch.tasmota_10
+                icon: mdi:fan
     
           - type: horizontal-stack
             cards:
@@ -122,8 +123,10 @@ cards:
                 entity: binary_sensor.kids_room_window_2
                 name: 2
     
-              - type: "custom:button-card"
-                color_type: blank-card
+              - type: custom:button-card   
+                entity: switch.tasmota_12
+                icon: mdi:fan
+
 
       - type: vertical-stack
         cards:
