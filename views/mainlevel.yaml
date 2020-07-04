@@ -51,7 +51,7 @@ cards:
 
       - type: custom:mini-graph-card
         entities: 
-          - sensor.lil_bee_temperature    
+          - sensor.family_room_temperature    
         height: 65
         line_width: 2
         font_size: 70

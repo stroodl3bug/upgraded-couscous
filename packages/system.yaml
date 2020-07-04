@@ -30,7 +30,31 @@ sensor:
         arg: eth0
       - type: last_boot
       - type: processor_use
+         
 
+  - platform: command_line
+    name: CPU Temp
+    command: "cat /sys/class/thermal/thermal_zone0/temp"
+    # If errors occur, make sure configuration file is encoded as UTF-8
+    unit_of_measurement: "°C"
+    value_template: '{{ value | multiply(0.001) | round(1) }}'
+
+
+  # HA database size
+  - platform: sql
+    # Not needed when using recorder, because we already have a connection.
+    # Also, socket connections on Linux systems are MUCH faster.
+    # Absolute path begins after the 3rd "/" (location for Hassbian).
+    #db_url: sqlite:////home/homeassistant/.homeassistant/home-assistant_v2.db
+    scan_interval: 300
+    queries:
+      - name: DB Size
+        # This is the fastest solution, available since sqlite 3.16.
+        # It’s the same info as returned by ".dbinfo" in the sqlite3 cmdline client.
+        query: 'SELECT ROUND(page_count * page_size / 1024 / 1024 / 1024, 1) as size FROM pragma_page_count(), pragma_page_size();'
+        column: 'size'
+        unit_of_measurement: 'GB'
+ 
   - platform: template
     sensors:
       hassio_memory:
@@ -63,6 +87,17 @@ sensor:
           {% else %}
             mdi:cpu-64-bit
           {% endif %}
+          
+      hassio_temp:      
+        friendly_name: "CPU Temp"
+        unit_of_measurement: 'ºC'
+        value_template: "{{ (((states('sensor.cpu_temp') | float)-32) / 1.8)|round(1)}}"
+
+      glances_temp:
+        friendly_name: "Core Temp"
+        unit_of_measurement: 'ºC'
+        value_template: "{{ (((states('sensor.glances_core_0_temp') | float)-32) / 1.8)|round(1)}}"
+
       github_commit:
          friendly_name: "Last Commit"
          value_template: '{{states.sensor.upgraded_couscous.attributes.latest_commit_message}}'
@@ -71,28 +106,4 @@ sensor:
             mdi:github-circle
           {% else %}
             mdi:github-circle
-          {% endif %}
-         
-
-  - platform: command_line
-    name: CPU Temp
-    command: "cat /sys/class/thermal/thermal_zone0/temp"
-    # If errors occur, make sure configuration file is encoded as UTF-8
-    unit_of_measurement: "°C"
-    value_template: '{{ value | multiply(0.001) | round(1) }}'
-
-  # HA database size
-  - platform: sql
-    # Not needed when using recorder, because we already have a connection.
-    # Also, socket connections on Linux systems are MUCH faster.
-    # Absolute path begins after the 3rd "/" (location for Hassbian).
-    #db_url: sqlite:////home/homeassistant/.homeassistant/home-assistant_v2.db
-    scan_interval: 300
-    queries:
-      - name: DB Size
-        # This is the fastest solution, available since sqlite 3.16.
-        # It’s the same info as returned by ".dbinfo" in the sqlite3 cmdline client.
-        query: 'SELECT ROUND(page_count * page_size / 1024 / 1024, 1) as size FROM pragma_page_count(), pragma_page_size();'
-        column: 'size'
-        unit_of_measurement: 'MiB'
-    
+          {% endif %}    
