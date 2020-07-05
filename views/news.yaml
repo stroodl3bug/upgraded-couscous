@@ -50,8 +50,14 @@ cards:
                   - entity: sensor.worldwide_coronavirus_confirmed
                     name: Confirmed
                     unit: false
+                  - entity: sensor.worldwide_coronavirus_current
+                    name: Current
+                    unit: false
                   - entity: sensor.worldwide_coronavirus_deaths
                     name: Deaths
+                    unit: false
+                  - entity: sensor.worldwide_coronavirus_recovered
+                    name: Recovered
                     unit: false
 
 
