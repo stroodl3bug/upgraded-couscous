@@ -8,6 +8,7 @@ id: 3
 icon: mdi:home-floor-1
 name: Main Level
 cards:
+
   - type: vertical-stack
     cards:
       - type: markdown
@@ -28,6 +29,7 @@ cards:
 
           - type: "custom:button-card"
             color_type: blank-card
+
 
       - type: horizontal-stack
         cards:

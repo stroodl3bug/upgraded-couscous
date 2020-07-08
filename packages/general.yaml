@@ -25,3 +25,51 @@ input_select:
       - Occupied
       - Guest
     initial: Empty    
+    
+##THEME PACK SELECTOR##
+
+  themes:
+    name: 'Themes'
+    icon: mdi:format-paint
+    options:
+      - Black Rose - Flat
+      - Black Purple - Flat
+      - Black Blue - Flat 
+      - Black Aqua - Flat
+      - Black Green - Flat
+      - Black Yellow - Flat
+      - Black Orange - Flat
+      - Black Coral - Flat
+      - Black Pink - Flat
+      - Black Gray - Flat
+      - Dark Rose - Flat
+      - Dark Purple - Flat
+      - Dark Blue - Flat 
+      - Dark Aqua - Flat
+      - Dark Green - Flat
+      - Dark Yellow - Flat
+      - Dark Orange - Flat
+      - Dark Coral - Flat
+      - Dark Pink - Flat
+      - Dark Gray - Flat
+      - Light Rose - Flat
+      - Light Purple - Flat
+      - Light Blue - Flat 
+      - Light Aqua - Flat
+      - Light Green - Flat
+      - Light Yellow - Flat
+      - Light Orange - Flat
+      - Light Coral - Flat
+      - Light Pink - Flat
+      - Light Gray - Flat
+      - Black Rose - Transparent
+      - Black Purple - Transparent
+      - Black Blue - Transparent 
+      - Black Aqua - Transparent
+      - Black Green - Transparent
+      - Black Yellow - Transparent
+      - Black Orange - Transparent
+      - Black Coral - Transparent
+      - Black Pink - Transparent
+      - Black Gray - Transparent      
+      - Default
