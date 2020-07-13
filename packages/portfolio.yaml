@@ -1,0 +1,11 @@
+sensor:
+  platform: yahoofinance
+  scan_interval:
+    hours: 4
+  symbols:
+    - !secret stock_1
+    - !secret stock_2
+    - !secret stock_3
+    - !secret stock_4
+    - !secret stock_5
+    

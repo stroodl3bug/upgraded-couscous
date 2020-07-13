@@ -1,0 +1,13 @@
+"""Constants for Yahoo Finance sensor."""
+
+ATTR_FIFTY_DAY_AVERAGE = "fiftyDayAverage"
+ATTR_FIFTY_DAY_SYMBOL = "symbol"
+ATTR_PREVIOUS_CLOSE = "previousClose"
+ATTR_MARKET_CHANGE = "marketChange"
+ATTR_PERCENT_CHANGE = "regularMarketChangePercent"
+ATTRIBUTION = "Data provided by Yahoo Finance"
+BASE = "https://query1.finance.yahoo.com/v7/finance/quote?symbols="
+CONF_SYMBOLS = "symbols"
+DEFAULT_CURRENCY = "USD"
+DEFAULT_ICON = "mdi:currency-usd"
+DOMAIN = "yahoofinance"
