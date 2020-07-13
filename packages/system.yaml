@@ -107,3 +107,7 @@ sensor:
           {% else %}
             mdi:github-circle
           {% endif %}    
+          
+shell_command:
+  backup_to_unraid: '/bin/bash -c /config/backup.sh'
+          

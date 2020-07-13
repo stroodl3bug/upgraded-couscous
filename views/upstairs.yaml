@@ -75,7 +75,9 @@ cards:
 
               - type: custom:button-card   
                 entity: switch.tasmota_10
+                template: windows-doors
                 icon: mdi:fan
+                name: Fan
     
           - type: horizontal-stack
             cards:
@@ -100,17 +102,7 @@ cards:
         cards:
           - type: markdown
             content: "#### Kids Bedroom"
-          - type: horizontal-stack
-            cards:
-              - type: "custom:button-card"
-                color_type: blank-card
-    
-              - type: "custom:button-card"
-                color_type: blank-card
-                
-              - type: "custom:button-card"
-                color_type: blank-card
-    
+
           - type: horizontal-stack
             cards:
               - type: custom:button-card   
@@ -122,10 +114,29 @@ cards:
                 template: windows-doors
                 entity: binary_sensor.kids_room_window_2
                 name: 2
-    
+
+              - type: "custom:button-card"
+                color_type: blank-card
+
+
+          - type: horizontal-stack
+            cards:
               - type: custom:button-card   
+                template: windows-doors
                 entity: switch.tasmota_12
                 icon: mdi:fan
+                name: Fan
+
+              - type: custom:button-card
+                template: windows-doors
+                entity: switch.tasmota_9
+                icon: mdi:android-debug-bridge
+                name: Mickey
+
+              - type: "custom:button-card"
+                color_type: blank-card
+
+    
 
 
       - type: vertical-stack
