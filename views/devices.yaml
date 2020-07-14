@@ -117,6 +117,9 @@ cards:
             title: UnRAID
             show_header_toggle: false
             entities:
+
+              - type: divider
+
               - type: custom:hui-glance-card
                 columns: 4
                 entities:
@@ -141,11 +144,15 @@ cards:
                     name: 'Disk 3'
                   - entity: sensor.glances_mnt_disk4_used_percent    
                     name: 'Disk 4'
+
+
                     
           - type: entities
             title: Statistics
             show_header_toggle: false
             entities:
+
+              - type: divider
 
               - type: custom:hui-glance-card
                 columns: 4
@@ -192,9 +199,24 @@ cards:
 
           - type: entities
             show_header_toggle: false
+            title: Network
             entities:
 
-        
+              - type: divider
+
+              - entity: sensor.pi_hole_ads_blocked_today
+                name: Ads Blocked Today
+              - entity: sensor.pi_hole_ads_percentage_blocked_today
+                name: Ads % Blocked Today
+              - entity: sensor.pi_hole_dns_queries_today
+                name: DNS Queries Today
+              - entity: sensor.pi_hole_domains_blocked
+                name: Blocked Domains
+              - entity: sensor.pi_hole_seen_clients
+                name: Clients                    
+                
+              - type: divider
+
               - type: custom:hui-glance-card
                 title: DD-WRT
                 columns: 3
@@ -235,21 +257,24 @@ cards:
                     name: Download
                   - entity: sensor.speedtest_upload
                     name: Upload
+
+
+
                     
-          - type: entities
-            title: PiHole Stats
-            show_header_toggle: false
-            entities:     
-              - entity: sensor.pi_hole_ads_blocked_today
-                name: Ads Blocked Today
-              - entity: sensor.pi_hole_ads_percentage_blocked_today
-                name: Ads % Blocked Today
-              - entity: sensor.pi_hole_dns_queries_today
-                name: DNS Queries Today
-              - entity: sensor.pi_hole_domains_blocked
-                name: Blocked Domains
-              - entity: sensor.pi_hole_seen_clients
-                name: Clients                    
+        #   - type: entities
+        #     title: PiHole Stats
+        #     show_header_toggle: false
+        #     entities:     
+        #       - entity: sensor.pi_hole_ads_blocked_today
+        #         name: Ads Blocked Today
+        #       - entity: sensor.pi_hole_ads_percentage_blocked_today
+        #         name: Ads % Blocked Today
+        #       - entity: sensor.pi_hole_dns_queries_today
+        #         name: DNS Queries Today
+        #       - entity: sensor.pi_hole_domains_blocked
+        #         name: Blocked Domains
+        #       - entity: sensor.pi_hole_seen_clients
+        #         name: Clients                    
             #   - type: custom:mini-graph-card
             #     name: Ping
             #     more_info: true
@@ -279,6 +304,7 @@ cards:
             show_header_toggle: false
             entities:
 
+              - type: divider
 
               - type: custom:bar-card
                 title: 'Epson XP 4100'

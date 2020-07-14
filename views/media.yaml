@@ -8,32 +8,34 @@ cards:
 
       - type: vertical-stack
         cards:
+          - type: entities
+            entities:
 
 # #Upcoming Media Card
-          - type: custom:upcoming-media-card
-            entity: sensor.movielist
-#            title: Upcoming
-            image_style: fanart
-            max: 6
-            line1_text: '$studio'
-            line1_color: '#787148'
-            line2_text: '$rating'
-            line2_color: '#606469'
-            line3_text: '$genres'
-            line3_color: '#606469'            
-            line4_text: '[$runtime]'
-            line4_color: '#606469'            
-            title_size: small
-            line1_size: small
-            line2_size: small
-            line3_size: small
-            line4_size: small
-            # style: |
-            #     ha-card  {
-            #       margin-top: 15px;
-            #       padding-left: 15px;
-            #       height: 1000px;
-            #     }
+              - type: custom:upcoming-media-card
+                entity: sensor.movielist
+    #            title: Upcoming
+                image_style: fanart
+                max: 6
+                line1_text: '$studio'
+                line1_color: '#787148'
+                line2_text: '$rating'
+                line2_color: '#606469'
+                line3_text: '$genres'
+                line3_color: '#606469'            
+                line4_text: '[$runtime]'
+                line4_color: '#606469'            
+                title_size: small
+                line1_size: small
+                line2_size: small
+                line3_size: small
+                line4_size: small
+                # style: |
+                #     ha-card  {
+                #       margin-top: 15px;
+                #       padding-left: 15px;
+                #       height: 1000px;
+                #     }
     
 
 
@@ -148,22 +150,30 @@ cards:
 
 
 
+
+      - type: vertical-stack
+        cards:
+          - type: entities
+            entities:
+
+              - type: "custom:spotify-playlist-card"
+                sensor: sensor.spotifyplaylist  
+                playback_method: spotify
+                speaker_entity: "media_player.spotify_1235664265"
+                show_playlist_titles: true
+                shuffle: false
+                columns: 4
+                style: |
+                    ha-card  {
+                      margin-top: 15px;
+                      padding-left: 15px;
+                      height: 1000px;
+                    }
+                
         #   - type: 'custom:spotify-card'
         #     client_id: !secret client_id_spotify
         #     limit: 10
         #     transfer_playback: true
-      - type: vertical-stack
-        cards:
-
-          - type: "custom:spotify-playlist-card"
-            sensor: sensor.spotifyplaylist  
-            playback_method: spotify
-            speaker_entity: "media_player.spotify_1235664265"
-            show_playlist_titles: true
-            shuffle: false
-            columns: 3
-
-
 
 
 
@@ -171,30 +181,32 @@ cards:
                 
       - type: vertical-stack
         cards:
+          - type: entities
+            entities:        
 # #Upcoming Media Card
-          - type: custom:upcoming-media-card
-            entity: sensor.tvlist
-    #            title: Upcoming
-            image_style: fanart
-            max: 6
-            line1_text: '$episode'
-            line1_color: '#787148'
-            line2_text: '$rating'
-            line2_color: '#606469'
-            line3_text: '$empty'
-            line3_color: '#606469'            
-            line4_text: '$genres [$studio]'
-            line4_color: '#787148'         
-            title_size: small
-            line1_size: small
-            line2_size: small
-            line3_size: small
-            line4_size: small
-            # style: |
-            #     ha-card  {
-            #       margin-top: 15px;
-            #       padding-left: 15px;
-            #       height: 1000px;
-            #     }
+              - type: custom:upcoming-media-card
+                entity: sensor.tvlist
+        #            title: Upcoming
+                image_style: fanart
+                max: 6
+                line1_text: '$episode'
+                line1_color: '#787148'
+                line2_text: '$rating'
+                line2_color: '#606469'
+                line3_text: '$empty'
+                line3_color: '#606469'            
+                line4_text: '$genres [$studio]'
+                line4_color: '#787148'         
+                title_size: small
+                line1_size: small
+                line2_size: small
+                line3_size: small
+                line4_size: small
+                # style: |
+                #     ha-card  {
+                #       margin-top: 15px;
+                #       padding-left: 15px;
+                #       height: 1000px;
+                #     }
 
 
