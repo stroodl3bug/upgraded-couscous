@@ -45,7 +45,8 @@
     type: js   
   - url: /local/stack-in-card/stack-in-card.js
     type: module
-
+  - url: /hacsfiles/spotify-card/spotify-card.js
+    type: module 
 
       
 # custom_header:

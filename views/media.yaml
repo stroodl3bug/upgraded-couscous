@@ -170,10 +170,10 @@ cards:
                       height: 1000px;
                     }
                 
-        #   - type: 'custom:spotify-card'
-        #     client_id: !secret client_id_spotify
-        #     limit: 10
-        #     transfer_playback: true
+            #   - type: 'custom:spotify-card'
+            #     client_id: !secret client_id_spotify
+            #     limit: 10
+            #     transfer_playback: true
 
 
 

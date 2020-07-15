@@ -8,7 +8,6 @@ icon: mdi:home-floor-2
 title: Upstairs
 panel: true
 
-
 cards:
   - type: horizontal-stack
     cards:
@@ -17,7 +16,8 @@ cards:
           - type: markdown
             content: "#### Master Bedroom"
           - type: horizontal-stack
-            cards:
+            cards:         
+
               - type: custom:button-card   
                 template: lights
                 entity: light.master_bedroom
@@ -32,9 +32,10 @@ cards:
                 
               - type: "custom:button-card"
                 color_type: blank-card
-    
+
           - type: horizontal-stack
             cards:
+
     
               - type: "custom:button-card"
                 color_type: blank-card
@@ -47,6 +48,7 @@ cards:
 
       - type: vertical-stack
         cards:
+
           - type: markdown
             content: "#### Guest Bedroom"
           - type: horizontal-stack
@@ -96,10 +98,35 @@ cards:
                 template: windows-doors
                 entity: binary_sensor.guest_room_window_3
                 name: 3
+                
+
 
 
       - type: vertical-stack
         cards:
+
+          - type: markdown
+            content: "#### Laundry Room"
+          - type: entities
+            show_header_toggle: false
+            title: ""
+            entities:
+              - type: custom:hui-glance-card
+                columns: 2
+                entities:
+                  - entity: sensor.washing_machine_status
+                    name: Washing Machine
+                    icon: mdi:washing-machine
+                  - entity: sensor.washing_machine_status
+                    name: Washing Machine
+                    icon: mdi:washing-machine
+
+            #   - type: 'custom:text-divider-row'
+            #     text: divider
+
+      - type: vertical-stack
+        cards:
+
           - type: markdown
             content: "#### Kids Bedroom"
 
@@ -136,27 +163,38 @@ cards:
               - type: "custom:button-card"
                 color_type: blank-card
 
-    
 
 
-      - type: vertical-stack
-        cards:
-          - type: markdown
-            content: "#### Laundry Room"
-          - type: entities
-#            title: UnRAID
-            show_header_toggle: false
-            entities:
-              - type: custom:hui-glance-card
-                columns: 2
-                entities:
-                  - entity: sensor.washing_machine_status
-                    name: Washing Machine
-                    icon: mdi:washing-machine
-                  - entity: sensor.washing_machine_status
-                    name: Washing Machine
-                    icon: mdi:washing-machine
                 
+    #   - type: vertical-stack
+    #     cards:
+    #       - type: markdown
+    #         content: "#### - "
+    #       - type: horizontal-stack
+    #         cards:
+    #           - type: "custom:button-card"
+    #             color_type: blank-card
+    
+    #           - type: "custom:button-card"
+    #             color_type: blank-card
+    
+    #           - type: "custom:button-card"
+    #             color_type: blank-card
+
+    
+    #       - type: horizontal-stack
+    #         cards:
+    
+    #           - type: "custom:button-card"
+    #             color_type: blank-card
+    
+    #           - type: "custom:button-card"
+    #             color_type: blank-card
+    
+    #           - type: "custom:button-card"
+    #             color_type: blank-card
+
+
 
 
             
