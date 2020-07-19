@@ -7,6 +7,7 @@ before_install:
 install:
   - pip3 install homeassistant
 #  - pip3 install homeassistant==0.111.1
+  - pip3 install alexapy
   - pip3 install colorlog
   - pip3 install --upgrade pip
   - pip3 install beautifulsoup4
