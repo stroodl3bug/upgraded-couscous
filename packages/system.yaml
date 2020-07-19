@@ -51,7 +51,7 @@ sensor:
       - name: DB Size
         # This is the fastest solution, available since sqlite 3.16.
         # It’s the same info as returned by ".dbinfo" in the sqlite3 cmdline client.
-        query: 'SELECT ROUND(page_count * page_size / 1024 / 1024 / 1024, 2) as size FROM pragma_page_count(), pragma_page_size();'
+        query: 'SELECT ROUND(page_count * page_size / 1024 / 1024, 2) as size FROM pragma_page_count(), pragma_page_size();'
         column: 'size'
         unit_of_measurement: 'GB'
  
@@ -87,6 +87,18 @@ sensor:
           {% else %}
             mdi:cpu-64-bit
           {% endif %}
+
+      hassio_dbsize:      
+        friendly_name: "DB size"
+        unit_of_measurement: 'GB'
+        value_template: "{{ ((states('sensor.db_size') | float) / 1000)|round(2)}}"
+        icon_template: >-
+          {% if is_state('binary_sensor.basement_window', 'on') %}
+            mdi:database
+          {% else %}
+            mdi:database
+          {% endif %}
+     
           
       hassio_temp:      
         friendly_name: "CPU Temp"

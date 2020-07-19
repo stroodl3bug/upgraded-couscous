@@ -18,6 +18,7 @@ cards:
         cards:
           - type: vertical-stack
             cards:
+
               - type: entities
                 title: Home Assistant
                 show_header_toggle: false
@@ -69,9 +70,10 @@ cards:
                           --paper-item-icon-color: rgb(255, 165, 0);
                         {% endif %};
                       }       
-                  - entity: sensor.db_size
+                  - entity: sensor.hassio_dbsize
                     name: Database
                     icon: mdi:database
+                    
                   - entity: sensor.github_commit
                     name: Github
 
