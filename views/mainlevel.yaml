@@ -9,14 +9,14 @@ icon: mdi:home-floor-1
 name: Main Level
 cards:
 
-
-
   - type: vertical-stack
     cards:
       - type: markdown
         content: "#### Family Room"
       - type: horizontal-stack
         cards:
+    
+                
           - type: custom:button-card   
             template: lights
             entity: light.family_room
@@ -31,11 +31,11 @@ cards:
 
           - type: "custom:button-card"
             color_type: blank-card
-
-
+    
+    
       - type: horizontal-stack
         cards:
-
+    
           - type: custom:button-card   
             template: windows-doors
             entity: binary_sensor.family_room_window_1
@@ -51,7 +51,7 @@ cards:
             entity: binary_sensor.patio_door
             name: Patio
 
-            
+    
 
       - type: custom:mini-graph-card
         entities: 
@@ -75,12 +75,11 @@ cards:
 
   - type: vertical-stack
     cards:
-
       - type: markdown
         content: "#### Living Room"
       - type: horizontal-stack
         cards:
-
+    
           - type: custom:button-card   
             template: lights
             entity: switch.tasmota_2
@@ -95,10 +94,10 @@ cards:
             
           - type: "custom:button-card"
             color_type: blank-card
-
+    
       - type: horizontal-stack
         cards:
-
+    
           - type: custom:button-card   
             template: windows-doors
             entity: binary_sensor.living_room_window_1
@@ -113,7 +112,7 @@ cards:
             template: windows-doors
             entity: binary_sensor.living_room_window_3
             name: 3
-
+        
       - type: custom:mini-graph-card
         entities: 
           - sensor.thermostat_temperature
@@ -134,6 +133,7 @@ cards:
             color: "#1db954"
           - value: 65
             color: "#3498db" 
+            
       - type: custom:mini-graph-card
         entities: 
           - sensor.thermostat_humidity 
@@ -161,6 +161,7 @@ cards:
         content: "#### Dining Room"
       - type: horizontal-stack
         cards:
+        
           - type: custom:button-card   
             template: windows-doors
             entity: binary_sensor.dining_room_window_1
@@ -176,7 +177,6 @@ cards:
 
       - type: horizontal-stack
         cards:
-
           - type: custom:button-card   
             template: windows-doors
             entity: binary_sensor.dining_room_window_3
@@ -193,12 +193,10 @@ cards:
 
   - type: vertical-stack
     cards:
-
       - type: markdown
-        content: "#### Kitchen"
+        content: "#### Lights"
       - type: horizontal-stack
         cards:
-
           - type: custom:button-card   
             template: lights
             entity: light.breakfast_light_1
@@ -251,9 +249,9 @@ cards:
 
           - type: "custom:button-card"
             color_type: blank-card
-     
+ 
 
-
+    
 
 
 

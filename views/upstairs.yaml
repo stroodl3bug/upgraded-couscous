@@ -11,12 +11,13 @@ panel: true
 cards:
   - type: horizontal-stack
     cards:
+
       - type: vertical-stack
         cards:
           - type: markdown
             content: "#### Master Bedroom"
           - type: horizontal-stack
-            cards:         
+            cards:
 
               - type: custom:button-card   
                 template: lights
@@ -36,7 +37,6 @@ cards:
           - type: horizontal-stack
             cards:
 
-    
               - type: "custom:button-card"
                 color_type: blank-card
     
@@ -48,11 +48,10 @@ cards:
 
       - type: vertical-stack
         cards:
-
           - type: markdown
             content: "#### Guest Bedroom"
           - type: horizontal-stack
-            cards:
+            cards:    
               - type: custom:button-card   
                 template: lights
                 entity: light.guest_bedroom
@@ -80,10 +79,10 @@ cards:
                 template: windows-doors
                 icon: mdi:fan
                 name: Fan
-    
+
           - type: horizontal-stack
-            cards:
-    
+            cards:         
+
               - type: custom:button-card   
                 template: windows-doors
                 entity: binary_sensor.guest_room_window_1
@@ -99,39 +98,13 @@ cards:
                 entity: binary_sensor.guest_room_window_3
                 name: 3
                 
-
-
-
       - type: vertical-stack
         cards:
-
           - type: markdown
-            content: "#### Laundry Room"
-          - type: entities
-            show_header_toggle: false
-            title: ""
-            entities:
-              - type: custom:hui-glance-card
-                columns: 2
-                entities:
-                  - entity: sensor.washing_machine_status
-                    name: Washing Machine
-                    icon: mdi:washing-machine
-                  - entity: sensor.washing_machine_status
-                    name: Washing Machine
-                    icon: mdi:washing-machine
-
-            #   - type: 'custom:text-divider-row'
-            #     text: divider
-
-      - type: vertical-stack
-        cards:
-
-          - type: markdown
-            content: "#### Kids Bedroom"
-
+            content: "#### Kids Room"
           - type: horizontal-stack
-            cards:
+            cards:    
+                
               - type: custom:button-card   
                 template: windows-doors
                 entity: binary_sensor.kids_room_window_1
@@ -164,35 +137,31 @@ cards:
                 color_type: blank-card
 
 
+      - type: vertical-stack
+        cards:
 
-                
-    #   - type: vertical-stack
-    #     cards:
-    #       - type: markdown
-    #         content: "#### - "
-    #       - type: horizontal-stack
-    #         cards:
-    #           - type: "custom:button-card"
-    #             color_type: blank-card
-    
-    #           - type: "custom:button-card"
-    #             color_type: blank-card
-    
-    #           - type: "custom:button-card"
-    #             color_type: blank-card
+          - type: entities
+            show_header_toggle: false
+            title: ""
+            entities:
 
-    
-    #       - type: horizontal-stack
-    #         cards:
-    
-    #           - type: "custom:button-card"
-    #             color_type: blank-card
-    
-    #           - type: "custom:button-card"
-    #             color_type: blank-card
-    
-    #           - type: "custom:button-card"
-    #             color_type: blank-card
+            #   - type: custom:hui-markdown-card
+            #     content: "#### Laundry Room"
+
+              - type: custom:hui-glance-card
+                columns: 2
+                entities:
+                  - entity: sensor.washing_machine_status
+                    name: Washing Machine
+                    icon: mdi:washing-machine
+                  - entity: sensor.washing_machine_status
+                    name: Washing Machine
+                    icon: mdi:washing-machine
+
+            #   - type: 'custom:text-divider-row'
+            #     text: divider
+
+
 
 
 

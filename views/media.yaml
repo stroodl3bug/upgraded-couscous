@@ -174,7 +174,7 @@ cards:
             #     client_id: !secret client_id_spotify
             #     limit: 10
             #     transfer_playback: true
-
+            #     display_style: Grid
 
 
             

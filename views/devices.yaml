@@ -306,33 +306,33 @@ cards:
 
               - type: divider
 
-              - type: custom:bar-card
-                title: 'Epson XP 4100'
-                columns: 4
-                direction: up
-                height: 150px
-                padding: 2px
-                width: 100%
-                positions:
-                  icon: 'off'
-                  name: 'outside'
-                  value: 'inside'
-                min: 0
-                max: 100
-                unit_of_measurement: '%'
-                entities:
-                  - color: MediumTurquoise
-                    entity: sensor.epson_xp_4100_series_cyan_ink
-                    name: Cyan
-                  - color: MediumOrchid
-                    entity: sensor.epson_xp_4100_series_magenta_ink
-                    name: Magenta
-                  - color: Gold
-                    entity: sensor.epson_xp_4100_series_yellow_ink
-                    name: Yellow
-                  - color: Black
-                    entity: sensor.epson_xp_4100_series_black_ink
-                    name: Black
+            #   - type: custom:bar-card
+            #     title: 'Epson XP 4100'
+            #     columns: 4
+            #     direction: up
+            #     height: 150px
+            #     padding: 2px
+            #     width: 100%
+            #     positions:
+            #       icon: 'off'
+            #       name: 'outside'
+            #       value: 'inside'
+            #     min: 0
+            #     max: 100
+            #     unit_of_measurement: '%'
+            #     entities:
+            #       - color: MediumTurquoise
+            #         entity: sensor.epson_xp_4100_series_cyan_ink
+            #         name: Cyan
+            #       - color: MediumOrchid
+            #         entity: sensor.epson_xp_4100_series_magenta_ink
+            #         name: Magenta
+            #       - color: Gold
+            #         entity: sensor.epson_xp_4100_series_yellow_ink
+            #         name: Yellow
+            #       - color: Black
+            #         entity: sensor.epson_xp_4100_series_black_ink
+            #         name: Black
                     
               - type: custom:bar-card
                 title: 'Epson XP 340'
