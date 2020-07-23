@@ -9,6 +9,7 @@ views:
   - !include '/config/views/level.yaml'
   - !include '/config/views/news.yaml'
   - !include '/config/views/issues.yaml'
+  - !include '/config/views/floor_01.yaml'
 
 custom_header:
   split_mode: true
@@ -174,4 +175,46 @@ button_card_templates:
       action: toggle
     hold_action:
       action: more-info
+      
+  windows-doors-2:
+    layout: icon_label
+    color: auto
+    aspect_ratio: 1/1
+    show_state: false
+    show_name: true
+    show_label: false
+    show_last_changed: true
+    styles:
+      grid:
+        - grid-template-rows: 7px auto 7px
+        - grid-template-columns: 7px auto
+      card:
+        - border-radius: 7px
+        - margin: 5px 5px 0px 0px
+        - padding: 0px 0px
+      icon:
+        - height: 4px
+        - width: 4px
+      name:
+        - justify-self: start
+        - padding: 0px 10px
+        - font-size: 3px
+        - font-family: Helvetica
+        - text-transform: capitalize
+        - font-weight: bold
+        - align-self: end
+      lock:
+        - align-items: flex-end
+      label:
+        - font-size: 8px
+        - font-weight: normal
+
+    state:
+      - value: "on"
+        styles:
+          card:
+            - --paper-card-background-color: rgba(40, 40, 40)
+            - box-shadow: 0px 0px 10px 3px var(--button-card-light-color)
+          name:
+            - color: white      
               

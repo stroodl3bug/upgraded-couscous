@@ -47,6 +47,8 @@
     type: module
   - url: /hacsfiles/spotify-card/spotify-card.js
     type: module 
+  - url: /hacsfiles/banner-card/banner-card.js
+    type: module
 
       
 # custom_header:

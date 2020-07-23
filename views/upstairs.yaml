@@ -6,160 +6,160 @@
 id: 4 
 icon: mdi:home-floor-2
 title: Upstairs
-panel: true
+#panel: true
 
 cards:
-  - type: horizontal-stack
+#   - type: horizontal-stack
+#     cards:
+
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: "#### Master Bedroom"
+      - type: horizontal-stack
+        cards:
+
+          - type: custom:button-card   
+            template: lights
+            entity: light.master_bedroom
+            name: Ceiling Light
+            icon: mdi:ceiling-light
+
+          - type: custom:button-card   
+            template: lights
+            entity: light.master_bathroom
+            name: Bathroom
+            icon: mdi:ceiling-light
+            
+          - type: "custom:button-card"
+            color_type: blank-card
+
+      - type: horizontal-stack
+        cards:
+
+          - type: "custom:button-card"
+            color_type: blank-card
+
+          - type: "custom:button-card"
+            color_type: blank-card
+
+          - type: "custom:button-card"
+            color_type: blank-card
+
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: "#### Guest Bedroom"
+      - type: horizontal-stack
+        cards:    
+          - type: custom:button-card   
+            template: lights
+            entity: light.guest_bedroom
+            name: Ceiling Light
+            icon: mdi:ceiling-light
+
+          - type: custom:button-card   
+            template: lights
+            entity: switch.tasmota_6
+            name: Floor Lamp
+            icon: mdi:floor-lamp
+            style: |
+              ha-card {
+                margin: 10px;
+                box-shadow: 
+                  {% if is_state('sun.sun', 'above_horizon') %}
+                    -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
+                  {% elif is_state('sun.sun', 'below_horizon') %}
+                    -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
+                  {% endif %}                 
+              }
+
+          - type: custom:button-card   
+            entity: switch.tasmota_10
+            template: windows-doors
+            icon: mdi:fan
+            name: Fan
+
+      - type: horizontal-stack
+        cards:         
+
+          - type: custom:button-card   
+            template: windows-doors
+            entity: binary_sensor.guest_room_window_1
+            name: 1
+
+          - type: custom:button-card   
+            template: windows-doors
+            entity: binary_sensor.guest_room_window_2
+            name: 2
+
+          - type: custom:button-card   
+            template: windows-doors
+            entity: binary_sensor.guest_room_window_3
+            name: 3
+            
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: "#### Kids Room"
+      - type: horizontal-stack
+        cards:    
+            
+          - type: custom:button-card   
+            template: windows-doors
+            entity: binary_sensor.kids_room_window_1
+            name: 1
+
+          - type: custom:button-card   
+            template: windows-doors
+            entity: binary_sensor.kids_room_window_2
+            name: 2
+
+          - type: "custom:button-card"
+            color_type: blank-card
+
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card   
+            template: windows-doors
+            entity: switch.tasmota_12
+            icon: mdi:fan
+            name: Fan
+
+          - type: custom:button-card
+            template: windows-doors
+            entity: switch.tasmota_9
+            icon: mdi:android-debug-bridge
+            name: Mickey
+
+          - type: "custom:button-card"
+            color_type: blank-card
+
+
+  - type: vertical-stack
     cards:
 
-      - type: vertical-stack
-        cards:
-          - type: markdown
-            content: "#### Master Bedroom"
-          - type: horizontal-stack
-            cards:
+      - type: entities
+        show_header_toggle: false
+        title: ""
+        entities:
 
-              - type: custom:button-card   
-                template: lights
-                entity: light.master_bedroom
-                name: Ceiling Light
-                icon: mdi:ceiling-light
-    
-              - type: custom:button-card   
-                template: lights
-                entity: light.master_bathroom
-                name: Bathroom
-                icon: mdi:ceiling-light
-                
-              - type: "custom:button-card"
-                color_type: blank-card
+        #   - type: custom:hui-markdown-card
+        #     content: "#### Laundry Room"
 
-          - type: horizontal-stack
-            cards:
-
-              - type: "custom:button-card"
-                color_type: blank-card
-    
-              - type: "custom:button-card"
-                color_type: blank-card
-    
-              - type: "custom:button-card"
-                color_type: blank-card
-
-      - type: vertical-stack
-        cards:
-          - type: markdown
-            content: "#### Guest Bedroom"
-          - type: horizontal-stack
-            cards:    
-              - type: custom:button-card   
-                template: lights
-                entity: light.guest_bedroom
-                name: Ceiling Light
-                icon: mdi:ceiling-light
-    
-              - type: custom:button-card   
-                template: lights
-                entity: switch.tasmota_6
-                name: Floor Lamp
-                icon: mdi:floor-lamp
-                style: |
-                  ha-card {
-                    margin: 10px;
-                    box-shadow: 
-                      {% if is_state('sun.sun', 'above_horizon') %}
-                        -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
-                      {% elif is_state('sun.sun', 'below_horizon') %}
-                        -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
-                      {% endif %}                 
-                  }
-
-              - type: custom:button-card   
-                entity: switch.tasmota_10
-                template: windows-doors
-                icon: mdi:fan
-                name: Fan
-
-          - type: horizontal-stack
-            cards:         
-
-              - type: custom:button-card   
-                template: windows-doors
-                entity: binary_sensor.guest_room_window_1
-                name: 1
-    
-              - type: custom:button-card   
-                template: windows-doors
-                entity: binary_sensor.guest_room_window_2
-                name: 2
-    
-              - type: custom:button-card   
-                template: windows-doors
-                entity: binary_sensor.guest_room_window_3
-                name: 3
-                
-      - type: vertical-stack
-        cards:
-          - type: markdown
-            content: "#### Kids Room"
-          - type: horizontal-stack
-            cards:    
-                
-              - type: custom:button-card   
-                template: windows-doors
-                entity: binary_sensor.kids_room_window_1
-                name: 1
-    
-              - type: custom:button-card   
-                template: windows-doors
-                entity: binary_sensor.kids_room_window_2
-                name: 2
-
-              - type: "custom:button-card"
-                color_type: blank-card
-
-
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card   
-                template: windows-doors
-                entity: switch.tasmota_12
-                icon: mdi:fan
-                name: Fan
-
-              - type: custom:button-card
-                template: windows-doors
-                entity: switch.tasmota_9
-                icon: mdi:android-debug-bridge
-                name: Mickey
-
-              - type: "custom:button-card"
-                color_type: blank-card
-
-
-      - type: vertical-stack
-        cards:
-
-          - type: entities
-            show_header_toggle: false
-            title: ""
+          - type: custom:hui-glance-card
+            columns: 2
             entities:
+              - entity: sensor.washing_machine_status
+                name: Washing Machine
+                icon: mdi:washing-machine
+              - entity: sensor.washing_machine_status
+                name: Washing Machine
+                icon: mdi:washing-machine
 
-            #   - type: custom:hui-markdown-card
-            #     content: "#### Laundry Room"
-
-              - type: custom:hui-glance-card
-                columns: 2
-                entities:
-                  - entity: sensor.washing_machine_status
-                    name: Washing Machine
-                    icon: mdi:washing-machine
-                  - entity: sensor.washing_machine_status
-                    name: Washing Machine
-                    icon: mdi:washing-machine
-
-            #   - type: 'custom:text-divider-row'
-            #     text: divider
+        #   - type: 'custom:text-divider-row'
+        #     text: divider
 
 
 

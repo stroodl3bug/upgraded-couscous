@@ -114,7 +114,7 @@ pi_hole:
 
 
 #logger:
-#  default: error
+#  default: debug
 #  logs:
 #    homeassistant.components.darksky: debug
 #    homeassistant.components.alarmdotcom: debug   

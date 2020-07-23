@@ -1,0 +1,446 @@
+#############################################################################################################################################
+#                                                                                                                                           # 
+#                                                          MAIN LEVEL VIEW                                                         #
+#                                                                                                                                           #
+#############################################################################################################################################
+
+id: 3
+icon: mdi:home-floor-1
+name: Main Level
+cards:
+
+  - type: vertical-stack
+    cards:
+
+      - type: custom:banner-card
+        background: "transparent"
+        heading: 
+          - mdi:television-classic
+          -  Family Room
+#        link: /lovelace/living_room
+        row_size: 4
+        style: |
+          ha-card .heading {
+            color: white;
+            font-size: 1em;
+            margin-top: 15px;
+            margin-bottom: 15px;
+          }
+        entities:
+          - entity: light.family_room
+            name: Floor Lamp
+            domain: sensor
+            value: mdi:floor-lamp
+            action:
+              service: light.toggle
+            color: black
+            map_state:
+              "on":
+                color: yellow        
+              "off":
+                color: white
+          - entity: switch.tasmota_1
+            name: Table Lamp
+            domain: sensor
+            value: mdi:lamp
+            action:
+              service: switch.toggle
+            color: black
+            map_state:
+              "on":
+                color: yellow        
+              "off":
+                color: white
+
+          - entity: media_player.echodot
+            name: "Echo Dot"
+            value: mdi:amazon-alexa
+
+          - entity: binary_sensor.family_room_window_1
+            name: 1
+            domain: sensor
+            color: black
+            map_state:
+              "on":
+                color: blue        
+                value: mdi:window-open
+              "off":
+                color: gray    
+                value: mdi:window-closed-variant
+                
+          - entity: binary_sensor.family_room_window_2
+            name: 2
+            domain: sensor
+            color: black
+            map_state:
+              "on":
+                color: blue        
+                value: mdi:window-open
+              "off":
+                color: gray    
+                value: mdi:window-closed-variant     
+
+          - entity: binary_sensor.patio_door
+            name: Patio Door
+            domain: sensor
+            color: black
+            map_state:
+              "on":
+                color: blue        
+                value: mdi:door-open
+              "off":
+                color: gray    
+                value: mdi:door-closed   
+
+
+      - type: custom:banner-card
+        background: "transparent"
+        heading: "\U0001F6CB Living room"
+#        link: /lovelace/living_room
+        row_size: 4
+        style: |
+          ha-card .heading {
+            color: white;
+            font-size: 1em;
+            margin-top: 15px;
+            margin-bottom: 15px;
+          }
+        entities:
+          - entity: switch.tasmota_2
+            name: Table Lamp
+            domain: sensor
+            value: mdi:lamp
+            action:
+              service: switch.toggle
+            color: black
+            map_state:
+              "on":
+                color: yellow        
+              "off":
+                color: white
+
+          - entity: switch.tasmota_3
+            name: Small Lamp
+            domain: sensor
+            value: mdi:lamp
+            action:
+              service: switch.toggle
+            color: black
+            map_state:
+              "on":
+                color: yellow        
+              "off":
+                color: white
+
+####Psuedo Blank Card#####
+          - entity: binary_sensor.living_room_window_1
+            name: ''
+            domain: sensor
+            color: black
+            value: mdi:window-closed-variant
+            map_state:
+              "on":
+                color: black        
+              "off":
+                color: black
+
+####Psuedo Blank Card#####
+          - entity: binary_sensor.living_room_window_1
+            name: ''
+            domain: sensor
+            color: black
+            value: mdi:window-closed-variant
+            map_state:
+              "on":
+                color: black        
+              "off":
+                color: black
+
+####Psuedo Blank Card#####
+
+
+          - entity: binary_sensor.living_room_window_1
+            name: 1
+            domain: sensor
+            color: black
+            map_state:
+              "on":
+                color: blue        
+                value: mdi:window-open
+              "off":
+                color: gray    
+                value: mdi:window-closed-variant
+                
+          - entity: binary_sensor.living_room_window_2
+            name: 2
+            domain: sensor
+            value: mdi:window-closed-variant
+            color: black
+            map_state:
+              "on":
+                color: blue        
+                value: mdi:window-open
+              "off":
+                color: gray    
+                value: mdi:window-closed-variant     
+
+          - entity: binary_sensor.living_room_window_3
+            name: 3
+            domain: sensor
+            value: mdi:window-closed-variant
+            color: black
+            map_state:
+              "on":
+                color: blue        
+                value: mdi:window-open
+              "off":
+                color: gray    
+                value: mdi:window-closed-variant   
+
+
+      - type: custom:banner-card
+        background: "transparent"
+        heading:
+         - mdi:food-fork-drink
+         -  Kitchen
+#        link: /lovelace/living_room
+        row_size: 4
+        style: |
+          ha-card .heading {
+            color: white;
+            font-size: 1em;
+            margin-top: 15px;
+            margin-bottom: 15px;
+          }
+        entities:
+          - entity: light.breakfast_light_1
+            name: Overhead (L)
+            domain: sensor
+            value: mdi:ceiling-light
+            action:
+              service: light.toggle
+            color: black
+            map_state:
+              "on":
+                color: yellow        
+              "off":
+                color: white
+
+          - entity: light.breakfast_light_2
+            name: Overhead (R)
+            domain: sensor
+            value: mdi:ceiling-light
+            action:
+              service: light.toggle
+            color: black
+            map_state:
+              "on":
+                color: yellow        
+              "off":
+                color: white
+
+          - entity: switch.tasmota_8
+            name: Floor Lamp
+            domain: sensor
+            value: mdi:floor-lamp
+            color: black
+            action:
+              service: switch.toggle
+            map_state:
+              "on":
+                color: yellow
+              "off":
+                color: white
+
+
+          - entity: switch.tasmota_5
+            name: Wallflower
+            domain: sensor
+            value: mdi:air-filter
+            action:
+              service: switch.toggle
+            color: black
+            map_state:
+              "on":
+                color: green        
+              "off":
+                color: red
+
+          - entity: binary_sensor.breakfast_window_1
+            name: 1
+            domain: sensor
+            color: black
+            map_state:
+              "on":
+                color: blue        
+                value: mdi:window-open
+              "off":
+                color: gray    
+                value: mdi:window-closed-variant
+                
+          - entity: binary_sensor.breakfast_window_2
+            name: 2
+            domain: sensor
+            value: mdi:window-closed-variant
+            color: black
+            map_state:
+              "on":
+                color: blue        
+                value: mdi:window-open
+              "off":
+                color: gray    
+                value: mdi:window-closed-variant            
+
+
+      - type: custom:banner-card
+        background: "transparent"
+        heading:
+         - mdi:silverware
+         -  Dining Room
+#        link: /lovelace/living_room
+        row_size: 4
+        style: |
+          ha-card .heading {
+            color: white;
+            font-size: 1em;
+            margin-top: 15px;
+            margin-bottom: 15px;
+          }
+        entities:
+          - entity: binary_sensor.dining_room_window_1
+            name: 1
+            domain: sensor
+            value: mdi:window-closed-variant
+            color: black
+            map_state:
+              "on":
+                color: blue        
+                value: mdi:window-open
+              "off":
+                color: gray    
+                value: mdi:window-closed-variant 
+
+          - entity: binary_sensor.dining_room_window_2
+            name: 2
+            domain: sensor
+            value: mdi:window-closed-variant
+            color: black
+            map_state:
+              "on":
+                color: blue        
+                value: mdi:window-open
+              "off":
+                color: gray    
+                value: mdi:window-closed-variant 
+
+          - entity: binary_sensor.dining_room_window_3
+            name: 3
+            domain: sensor
+            value: mdi:window-closed-variant
+            color: black
+            map_state:
+              "on":
+                color: blue        
+                value: mdi:window-open
+              "off":
+                color: gray    
+                value: mdi:window-closed-variant                 
+
+          - entity: binary_sensor.dining_room_window_4
+            name: 4
+            domain: sensor
+            value: mdi:window-closed-variant
+            color: black
+            map_state:
+              "on":
+                color: blue        
+                value: mdi:window-open
+              "off":
+                color: gray    
+                value: mdi:window-closed-variant 
+
+  - type: vertical-stack
+    cards:
+
+      - type: custom:banner-card
+        background: "transparent"
+        heading: 
+          - mdi:television-classic
+          -  Family Room
+#        link: /lovelace/living_room
+        row_size: 4
+        style: |
+          ha-card .heading {
+            color: white;
+            font-size: 1em;
+            margin-top: 15px;
+            margin-bottom: 15px;
+          }
+        entities:
+          - entity: light.family_room
+            name: Floor Lamp
+            domain: sensor
+            value: mdi:floor-lamp
+            action:
+              service: light.toggle
+            color: black
+            map_state:
+              "on":
+                color: yellow        
+              "off":
+                color: white
+
+  - type: vertical-stack
+    cards:
+
+      - type: custom:banner-card
+        background: "transparent"
+        heading: 
+          - mdi:television-classic
+          -  Family Room
+#        link: /lovelace/living_room
+        row_size: 4
+        style: |
+          ha-card .heading {
+            color: white;
+            font-size: 1em;
+            margin-top: 15px;
+            margin-bottom: 15px;
+          }
+        entities:
+          - entity: light.family_room
+            name: Floor Lamp
+            domain: sensor
+            value: mdi:floor-lamp
+            action:
+              service: light.toggle
+            color: black
+            map_state:
+              "on":
+                color: yellow        
+              "off":
+                color: white
+
+
+
+
+
+
+
+
+
+     
+
+    
+
+
+
+
+
+
+
+
+    
+            
+            
+

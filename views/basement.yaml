@@ -6,7 +6,7 @@
 id: 2  
 icon: mdi:home-floor-0
 title: Basement
-panel: true
+#panel: true
 
 cards:
 
@@ -16,153 +16,186 @@ cards:
 #                                                               #
 #################################################################
 
-  - type: horizontal-stack
+#   - type: horizontal-stack
+#     cards:
+
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: "#### Lights"
+      - type: horizontal-stack
+        cards:
+        
+          - type: custom:button-card   
+            template: lights
+            entity: switch.48674340a4cf12a6b42e
+            name: Lamp (L)
+            icon: mdi:floor-lamp
+            
+          - type: custom:button-card   
+            template: lights
+            entity: switch.48674340a4cf12a65f59
+            name: Lamp (R)
+            icon: mdi:floor-lamp
+
+          - type: custom:button-card   
+            template: lights
+            entity: light.breakfast_lamp
+            name: Floor Lamp
+            icon: mdi:floor-lamp
+
+      - type: horizontal-stack
+        cards:
+            
+          - type: custom:button-card   
+            template: lights
+            entity: light.basement_light_level
+            name: Basement
+            icon: mdi:ceiling-light
+
+          - type: custom:button-card   
+            template: lights
+            entity: light.hue_color_downlight_1
+            name: Front Door
+            icon: mdi:ceiling-light
+
+          - type: custom:button-card   
+            template: lights
+            entity: switch.back_door_light_switch
+            name: Back Door
+            icon: mdi:ceiling-light
+            
+
+      - type: horizontal-stack
+        cards:
+
+          - type: "custom:button-card"
+            color_type: blank-card
+
+          - type: custom:button-card   
+            template: lights
+            entity: switch.downstairs_wallflower
+            name: Wallflower
+            icon: mdi:air-filter
+
+          - type: "custom:button-card"
+            color_type: blank-card
+
+  - type: vertical-stack
     cards:
 
-      - type: vertical-stack
+      - type: markdown
+        content: "#### Doors & Windows"
+
+      - type: horizontal-stack
         cards:
-          - type: markdown
-            content: "#### Lights"
-          - type: horizontal-stack
-            cards:
+
+
+          - type: custom:button-card   
+            template: windows-doors
+            entity: binary_sensor.basement_window
+
+          - type: custom:button-card   
+            template: windows-doors
+            entity: binary_sensor.front_door
+
+          - type: custom:button-card   
+            template: windows-doors
+            entity: binary_sensor.back_door
+
+      - type: horizontal-stack
+        cards:
+
+          - type: "custom:button-card"
+            color_type: blank-card
+
+
+          - type: custom:button-card   
+            template: cover
+            name: Garage Door
+            entity: cover.garage_door_opener_2
             
-              - type: custom:button-card   
-                template: lights
-                entity: switch.48674340a4cf12a6b42e
-                name: Lamp (L)
-                icon: mdi:floor-lamp
-                
-              - type: custom:button-card   
-                template: lights
-                entity: switch.48674340a4cf12a65f59
-                name: Lamp (R)
-                icon: mdi:floor-lamp
+          - type: "custom:button-card"
+            color_type: blank-card
 
-              - type: custom:button-card   
-                template: lights
-                entity: light.breakfast_lamp
-                name: Floor Lamp
-                icon: mdi:floor-lamp
 
-          - type: horizontal-stack
-            cards:
-                
-              - type: custom:button-card   
-                template: lights
-                entity: light.basement_light_level
-                name: Basement
-                icon: mdi:ceiling-light
 
-              - type: custom:button-card   
-                template: lights
-                entity: light.hue_color_downlight_1
+  - type: vertical-stack
+    cards:
+      - type: custom:mini-graph-card
+        entities: 
+          - sensor.basement_temperature
+        height: 65
+        line_width: 2
+        font_size: 70
+        hours_to_show: 168
+        points_per_hour: 1
+        show:
+          #extrema: true
+          fill: true
+          #graph: bar
+        color_thresholds:
+          - value: 76
+            color: "#e74c3c"
+          - value: 70
+            color: "#1db954"
+          - value: 65
+            color: "#3498db"
+            
+      - type: custom:mini-graph-card
+        entities: 
+          - sensor.basement_temperature
+        height: 65
+        line_width: 2
+        font_size: 70
+        hours_to_show: 168
+        points_per_hour: 1
+        show:
+          #extrema: true
+          fill: true
+          #graph: bar
+        color_thresholds:
+          - value: 76
+            color: "#e74c3c"
+          - value: 70
+            color: "#1db954"
+          - value: 65
+            color: "#3498db"
+            
+
+  - type: vertical-stack
+    cards:
+
+      - type: markdown
+        content: "#### Occupancy"
+
+      - type: horizontal-stack
+        cards:
+          - type: glance
+            entities:
+              - entity: binary_sensor.basement_occupancy
+                name: Inside
+              - entity: binary_sensor.front_door_motion
                 name: Front Door
-                icon: mdi:ceiling-light
-
-              - type: custom:button-card   
-                template: lights
-                entity: switch.back_door_light_switch
-                name: Back Door
-                icon: mdi:ceiling-light
-                
-
-          - type: horizontal-stack
-            cards:
-
-              - type: "custom:button-card"
-                color_type: blank-card
-
-              - type: custom:button-card   
-                template: lights
-                entity: switch.downstairs_wallflower
-                name: Wallflower
-                icon: mdi:air-filter
-
-              - type: "custom:button-card"
-                color_type: blank-card
-
-      - type: vertical-stack
+              - entity: binary_sensor.blink_driveway_motion_detected
+                name: Driveway
+              - entity: binary_sensor.blink_garage_inside_motion_detected
+                name: Garage
+            show_state: false 
+    
+      - type: horizontal-stack
         cards:
-
-          - type: markdown
-            content: "#### Doors & Windows"
-
-          - type: horizontal-stack
-            cards:
-
-
-              - type: custom:button-card   
-                template: windows-doors
-                entity: binary_sensor.basement_window
-
-              - type: custom:button-card   
-                template: windows-doors
-                entity: binary_sensor.front_door
-
-              - type: custom:button-card   
-                template: windows-doors
-                entity: binary_sensor.back_door
-
-          - type: horizontal-stack
-            cards:
-
-              - type: "custom:button-card"
-                color_type: blank-card
-
-
-              - type: custom:button-card   
-                template: cover
-                name: Garage Door
-                entity: cover.garage_door_opener_2
-                
-              - type: "custom:button-card"
-                color_type: blank-card
-
-
-      - type: vertical-stack
-        cards:
-
-          - type: markdown
-            content: "#### Occupancy"
-
-          - type: horizontal-stack
-            cards:
-              - type: glance
-                entities:
-                  - entity: binary_sensor.basement_occupancy
-                    name: Inside
-                  - entity: binary_sensor.front_door_motion
-                    name: Front Door
-                  - entity: binary_sensor.blink_driveway_motion_detected
-                    name: Driveway
-                  - entity: binary_sensor.blink_garage_inside_motion_detected
-                    name: Garage
-                show_state: false 
-
-      - type: vertical-stack
-        cards:
-          - type: custom:mini-graph-card
-            entities: 
-              - sensor.basement_temperature
-            height: 65
-            line_width: 2
-            font_size: 70
-            hours_to_show: 168
-            points_per_hour: 1
-            show:
-              #extrema: true
-              fill: true
-              #graph: bar
-            color_thresholds:
-              - value: 76
-                color: "#e74c3c"
-              - value: 70
-                color: "#1db954"
-              - value: 65
-                color: "#3498db"
-            
-
-
+          - type: glance
+            entities:
+              - entity: binary_sensor.basement_occupancy
+                name: Inside
+              - entity: binary_sensor.front_door_motion
+                name: Front Door
+              - entity: binary_sensor.blink_driveway_motion_detected
+                name: Driveway
+              - entity: binary_sensor.blink_garage_inside_motion_detected
+                name: Garage
+            show_state: false             
 
             
             
