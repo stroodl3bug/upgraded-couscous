@@ -4,24 +4,24 @@
 [![Build Status](https://travis-ci.com/stroodl3bug/upgraded-couscous.svg?branch=master)](https://travis-ci.com/stroodl3bug/upgraded-couscous)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/stroodl3bug/upgraded-couscous)](https://github.com/stroodl3bug/upgraded-couscous/commits/master)
 [![GitHub Activity](https://img.shields.io/github/commit-activity/m/stroodl3bug/upgraded-couscous)](https://github.com/stroodl3bug/upgraded-couscous/commits/master)
-[![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-0.113.0%20(Latest)-brightgreen)](https://github.com/home-assistant/home-assistant/releases/latest)
+[![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-0.113.2%20(Latest)-brightgreen)]2https://github.com/home-assistant/home-assistant/releases/latest)
 
 
 **Statistics:**
 
 Description | Count
 -- | --
-Entities | 406
+Entities | 332
 Alarm Panel | 2
-Sensors | 262
+Sensors | 212
 Binary sensors | 46
 Cameras | 5
-ZWave Devices | 8
+ZWave Devices | 0
 Media Players | 10
 Device Trackers  | 1
 Persons | 0
-Switches | 37
-Lights | 11
+Switches | 23
+Lights | 8
 Remotes | 2
 Groups | 3
 
