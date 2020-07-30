@@ -16,7 +16,7 @@ cards:
             title: Doorbell
             entities:
               - sensor.front_door_battery
-            camera_image: camera.front_door_2
+            camera_image: camera.front_door
 
           - type: picture-glance
             title: Front Door
