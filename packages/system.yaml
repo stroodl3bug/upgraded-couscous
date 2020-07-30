@@ -1,6 +1,8 @@
-# Example configuration.yaml entry
 sensor:
+# Uptime
   - platform: uptime
+# Get Public IP Adddress
+  - platform: dnsip  
 #==============================
 #=== Installed hass.io version
 #==============================
