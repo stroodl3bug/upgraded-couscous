@@ -38,8 +38,6 @@ custom_header:
     Trash day is {{states('sensor.trash')}}</div></div><><div>
 
           
-
-
 background: center / cover no-repeat url("/local/blackgrey.jpg") fixed
 button_card_templates:
 

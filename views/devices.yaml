@@ -371,26 +371,31 @@ cards:
                 icon: mdi:database
                 tap_action:
                   action: url
-                  url_path: http://192.168.0.81
+                  url_path: !secret ip_unraid
               - type: button
 #                name: pi-hole
                 icon: mdi:pi-hole
                 tap_action:
                   action: url
-                  url_path: http://192.168.0.2
+                  url_path: !secret ip_pihole
               - type: button
 #                name: DD-WRT
                 icon: mdi:router-wireless
                 tap_action:
                   action: url
-                  url_path: http://192.168.0.1                 
- 
+                  url_path: !secret ip_ddwrt                
+              - type: button
+#                name: UAP-AC-LITE
+                icon: mdi:access-point
+                tap_action:
+                  action: url
+                  url_path: !secret ip_unify             
               - type: button
 #                name: plex
                 icon: mdi:plex
                 tap_action:
                   action: url
-                  url_path: http://192.168.0.81
+                  url_path: !secret ip_unraid
               - type: button
 #                name: duckduckgo
                 icon: mdi:duck
