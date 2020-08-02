@@ -49,7 +49,9 @@
     type: module 
   - url: /hacsfiles/banner-card/banner-card.js
     type: module
-
+  - url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
+    type: module
+                
       
 # custom_header:
 #   compact_mode: true

@@ -63,6 +63,8 @@ cards:
 
           - type: entities
             entities:
+
+
               - type: custom:list-card
                 entity: sensor.bbc_top_news
                 title: ''
@@ -72,6 +74,8 @@ cards:
                   - title: 'BBC'
                     field: title
                     add_link: link
+
+              - type: divider
 
               - type: custom:list-card
                 entity: sensor.rss_lifehacker
@@ -87,6 +91,8 @@ cards:
         cards:
           - type: entities
             entities:
+
+
               - type: custom:list-card
                 entity: sensor.reddit_home_automation
                 title: ''
@@ -96,6 +102,8 @@ cards:
                   - title: 'Reddit'
                     field: title
                     add_link: link
+
+              - type: divider
 
               - type: custom:list-card
                 entity: sensor.tech_news
@@ -107,6 +115,8 @@ cards:
                     field: title
                     add_link: link
 
+              - type: divider
+
               - type: custom:list-card
                 entity: sensor.fs_ft
                 title: ''
@@ -116,6 +126,18 @@ cards:
                   - title: 'For Sale/For Trade'
                     field: title
                     add_link: link
+
+
+            #   - type: custom:fold-entity-row
+            #     head:
+            #       type: section
+            #       label: Stock Market
+            #     entities:
+            #       - yahoofinance.tsla
+            #       - yahoofinance.aapl
+            #       - yahoofinance.spy
+            #       - yahoofinance.msft
+            #       - yahoofinance.docu
 
             
    

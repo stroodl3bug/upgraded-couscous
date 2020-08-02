@@ -25,20 +25,6 @@ cards:
                 entities:
 
                   - type: divider
-
-                #   - entity: sensor.installed_version
-                #     name: Installed
-                #     icon: mdi:thumb-up
-                    
-                #   - entity: sensor.latest_version
-                #     name: Latest Available
-                #     style: |
-                #       :host {
-                #         {% if states(config.entity).split('.')[1] != states('sensor.latest_version').split('.')[1] %}
-                #           color: rgb(255, 165, 0);
-                #           --paper-item-icon-color: rgb(255, 165, 0);
-                #         {% endif %};
-                #       }
                       
                   - type: custom:multiple-entity-row
                     entity: sensor.installed_version
@@ -109,6 +95,8 @@ cards:
                     show:
                       extrema: true
                       fill: true
+
+
 
                   - type: divider
 
@@ -192,6 +180,7 @@ cards:
                     name: Windows
                     icon: mdi:window-closed
 
+              - type: divider
 
 
 
@@ -201,23 +190,14 @@ cards:
 
           - type: entities
             show_header_toggle: false
-            title: Network
+            title: WAN
             entities:
 
               - type: divider
 
-              - entity: sensor.pi_hole_ads_blocked_today
-                name: Ads Blocked Today
-              - entity: sensor.pi_hole_ads_percentage_blocked_today
-                name: Ads % Blocked Today
-              - entity: sensor.pi_hole_dns_queries_today
-                name: DNS Queries Today
-              - entity: sensor.pi_hole_domains_blocked
-                name: Blocked Domains
-              - entity: sensor.pi_hole_seen_clients
-                name: Clients                    
-                
-              - type: divider
+              - entity: sensor.myip
+                name: IP Address
+                icon: mdi:network
 
               - type: custom:hui-glance-card
                 title: DD-WRT
@@ -232,8 +212,8 @@ cards:
                   - entity: sensor.ap_c9_uptime                
                     name: Uptime
                     icon: mdi:timelapse
-        #   - type: entities
-        #     entities:
+
+              - type: divider
 
               - type: custom:mini-graph-card
                 name: Speed Test
@@ -260,82 +240,103 @@ cards:
                   - entity: sensor.speedtest_upload
                     name: Upload
 
+              - type: divider
 
+              - type: custom:fold-entity-row
+                head:
+                  type: section
+                  label: Links
+                open: true
+                items:
+                  - type: custom:hui-horizontal-stack-card
+                    cards:
+                      - type: button
+#                        name: UnRaid
+                        icon: mdi:database
+                        tap_action:
+                          action: url
+                          url_path: !secret ip_unraid
+                      - type: button
+#                        name: pi-hole
+                        icon: mdi:pi-hole
+                        tap_action:
+                          action: url
+                          url_path: !secret ip_pihole
+                      - type: button
+#                        name: DD-WRT
+                        icon: mdi:router-wireless
+                        tap_action:
+                          action: url
+                          url_path: !secret ip_ddwrt                
+                      - type: button
+#                        name: UAP-AC-LITE
+                        icon: mdi:access-point
+                        tap_action:
+                          action: url
+                          url_path: !secret ip_unify             
+                      - type: button
+#                        name: plex
+                        icon: mdi:plex
+                        tap_action:
+                          action: url
+                          url_path: !secret ip_unraid
+                      - type: button
+#                        name: duckduckgo
+                        icon: mdi:duck
+                        tap_action:
+                          action: url
+                          url_path: http://duckduckgo.com
+                      - type: button
+#                        name: home assistant
+                        icon: mdi:home-assistant
+                        tap_action:
+                          action: url
+                          url_path: http://community.home-assistant.io
+
+              - type: divider
 
                     
-        #   - type: entities
-        #     title: PiHole Stats
-        #     show_header_toggle: false
-        #     entities:     
-        #       - entity: sensor.pi_hole_ads_blocked_today
-        #         name: Ads Blocked Today
-        #       - entity: sensor.pi_hole_ads_percentage_blocked_today
-        #         name: Ads % Blocked Today
-        #       - entity: sensor.pi_hole_dns_queries_today
-        #         name: DNS Queries Today
-        #       - entity: sensor.pi_hole_domains_blocked
-        #         name: Blocked Domains
-        #       - entity: sensor.pi_hole_seen_clients
-        #         name: Clients                    
-            #   - type: custom:mini-graph-card
-            #     name: Ping
-            #     more_info: true
-            #     line_color: purple
-            #     hour24: true
-            #     animate: true
-            #     decimals: 1
-            #     show:
-            #       name: true
-            #       icon: true
-            #       state: true
-            #       graph: true
-            #       fill: true
-            #       points: true
-            #       legend: true
-            #       extrema: true
-            #       labels: true
-            #     entities:
-            #       - sensor.speedtest_ping   
-
       - type: vertical-stack
         cards:
-        #   - type: vertical-stack
-        #     cards:
+
           - type: entities
-            title: Printers
+            title: LAN
             show_header_toggle: false
             entities:
 
               - type: divider
-
-            #   - type: custom:bar-card
-            #     title: 'Epson XP 4100'
-            #     columns: 4
-            #     direction: up
-            #     height: 150px
-            #     padding: 2px
-            #     width: 100%
-            #     positions:
-            #       icon: 'off'
-            #       name: 'outside'
-            #       value: 'inside'
-            #     min: 0
-            #     max: 100
-            #     unit_of_measurement: '%'
-            #     entities:
-            #       - color: MediumTurquoise
-            #         entity: sensor.epson_xp_4100_series_cyan_ink
-            #         name: Cyan
-            #       - color: MediumOrchid
-            #         entity: sensor.epson_xp_4100_series_magenta_ink
-            #         name: Magenta
-            #       - color: Gold
-            #         entity: sensor.epson_xp_4100_series_yellow_ink
-            #         name: Yellow
-            #       - color: Black
-            #         entity: sensor.epson_xp_4100_series_black_ink
-            #         name: Black
                     
+              - type: custom:fold-entity-row
+                head:
+                  type: section
+                  label: Online Devices
+                open: true
+                items:
+                  - type: custom:auto-entities
+                    card:
+                      type: entities
+                    filter:
+                      include:
+                        - domain: device_tracker
+                          options:
+                            secondary_info: last-changed
+                          attributes:
+                           source_type: router
+                           essid: skynet
+
+              - entity: sensor.pi_hole_ads_blocked_today
+                name: Ads Blocked Today
+              - entity: sensor.pi_hole_ads_percentage_blocked_today
+                name: Ads % Blocked Today
+              - entity: sensor.pi_hole_dns_queries_today
+                name: DNS Queries Today
+              - entity: sensor.pi_hole_domains_blocked
+                name: Blocked Domains
+              - entity: sensor.pi_hole_seen_clients
+                name: Clients                    
+                
+              - type: divider
+
               - type: custom:bar-card
                 title: 'Epson XP 340'
                 columns: 4
@@ -364,47 +365,5 @@ cards:
                     entity: sensor.epson_xp_340_series_black_ink
                     name: Black
 
-          - type: horizontal-stack
-            cards:
-              - type: button
-#                name: UnRaid
-                icon: mdi:database
-                tap_action:
-                  action: url
-                  url_path: !secret ip_unraid
-              - type: button
-#                name: pi-hole
-                icon: mdi:pi-hole
-                tap_action:
-                  action: url
-                  url_path: !secret ip_pihole
-              - type: button
-#                name: DD-WRT
-                icon: mdi:router-wireless
-                tap_action:
-                  action: url
-                  url_path: !secret ip_ddwrt                
-              - type: button
-#                name: UAP-AC-LITE
-                icon: mdi:access-point
-                tap_action:
-                  action: url
-                  url_path: !secret ip_unify             
-              - type: button
-#                name: plex
-                icon: mdi:plex
-                tap_action:
-                  action: url
-                  url_path: !secret ip_unraid
-              - type: button
-#                name: duckduckgo
-                icon: mdi:duck
-                tap_action:
-                  action: url
-                  url_path: http://duckduckgo.com
-              - type: button
-#                name: home assistant
-                icon: mdi:home-assistant
-                tap_action:
-                  action: url
-                  url_path: http://community.home-assistant.io
+              - type: divider
+
