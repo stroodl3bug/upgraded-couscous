@@ -36,15 +36,22 @@ cards:
                         name: Latest
                     style: |
                       :host {
-                        {% if states(config.entity).split('.')[1] != states('sensor.latest_version').split('.')[1] %}
+                        {% if states(config.entity).split('.')[1] == states('sensor.latest_version').split('.')[1] %}
+                         color: var(--primary-text-color);
+                          --paper-item-icon-color: var(--primary-text-color);
+                        {% else %}
                           color: rgb(255, 165, 0);
                           --paper-item-icon-color: rgb(255, 165, 0);
                         {% endif %};
                       }
 
-                  - entity: sensor.hassio_uptime
+
+                  - type: custom:secondaryinfo-entity-row
+                    entity: sensor.hassio_uptime
                     name: Uptime
                     icon: mdi:timelapse
+                    secondary_info: "Last Boot: [[ sensor.hassio_last_boot ]]"
+
                     
                   - entity: sensor.hacs
                     name: HACS
@@ -56,6 +63,7 @@ cards:
                           --paper-item-icon-color: rgb(255, 165, 0);
                         {% endif %};
                       }       
+                      
                   - entity: sensor.hassio_dbsize
                     name: Database
                     icon: mdi:database
@@ -310,7 +318,7 @@ cards:
                 head:
                   type: section
                   label: Online Devices
-                open: true
+#                open: true
                 items:
                   - type: custom:auto-entities
                     card:
@@ -319,11 +327,20 @@ cards:
                       include:
                         - domain: device_tracker
                           options:
-                            secondary_info: last-changed
+                            type: custom:secondaryinfo-entity-row
+                            secondary_info: "IP Address: [[ {entity}.attributes.ip ]]"
                           attributes:
                            source_type: router
                            essid: skynet
+                    sort:
+                      method: attribute
+                      attribute: ip
+              - type: divider
 
+          - type: entities
+            title: pi-hole
+            show_header_toggle: false
+            entities:
               - entity: sensor.pi_hole_ads_blocked_today
                 name: Ads Blocked Today
               - entity: sensor.pi_hole_ads_percentage_blocked_today
@@ -334,7 +351,8 @@ cards:
                 name: Blocked Domains
               - entity: sensor.pi_hole_seen_clients
                 name: Clients                    
-                
+
+                  
               - type: divider
 
               - type: custom:bar-card

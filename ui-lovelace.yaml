@@ -10,6 +10,7 @@ views:
   - !include '/config/views/news.yaml'
   - !include '/config/views/issues.yaml'
   - !include '/config/views/floor_01.yaml'
+  - !include '/config/views/system.yaml'
 
 custom_header:
   split_mode: true
@@ -36,6 +37,7 @@ custom_header:
     House is {% if is_state("alarm_control_panel.alarm_com", "disarmed") -%} Disarmed {%- elif is_state("alarm_control_panel.alarm_com", "armed_home") -%}  Armed (Stay) {%- elif is_state("alarm_control_panel.alarm_com", "armed_away") -%} Armed (Away) {%- endif %}</div></div><div><div>
     {% if is_state("media_player.spotify_1235664265", "playing") -%} Currently playing {{state_attr('media_player.spotify_1235664265', 'media_title')}} by {{state_attr('media_player.spotify_1235664265', 'media_artist')}} on {{state_attr('media_player.spotify_1235664265', 'source')}}{%- elif is_state("media_player.spotify_1235664265","idle") -%}Weather: {{states('sensor.dark_sky_temperature')}}°F ({{states('sensor.dark_sky_summary')}}){%- endif -%}</div></div><div><div>
     Trash day is {{states('sensor.trash')}}</div></div><><div>
+
 
           
 background: center / cover no-repeat url("/local/blackgrey.jpg") fixed

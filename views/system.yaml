@@ -1,0 +1,189 @@
+
+#############################################################################################################################################
+#                                                                                                                                           # 
+#                                                          MONITOR VIEW                                                                    #
+#                                                                                                                                           #
+#############################################################################################################################################
+
+## Tab Status
+id: 11
+title: Monitor
+icon: mdi:cube-scan
+panel: true
+cards:
+  - type: vertical-stack
+    cards:
+
+
+      - type: horizontal-stack
+        cards:
+
+            # Blocked Today
+            - type: custom:mini-graph-card
+            #   style: |
+            #     ha-card {
+            #       background: var(--paper-card-background-color);
+            #       border-radius: 10px;
+            #       box-shadow: 10px;
+            #       font-weight: bold;
+            #       opacity: 0.8;
+            #     }
+              entities:
+                - entity: sensor.pi_hole_ads_blocked_today
+                  color: '#f205b3' # Pink
+              name: Pi-Hole Ads Blocked Today
+              icon: mdi:account-cancel-outline
+              height: 65
+              hours_to_show: 24
+              points_per_hour: 3600
+              update_interval: 10
+              aggregate_func: avg
+              line_width: 1
+              smoothing: true
+              font_size: 70
+              font_size_header: 12
+              show:
+                graph: bar
+                average: true
+                extrema: true
+                fill: true
+              tap_action: none
+              
+
+
+          # Forwarded Queries
+            - type: custom:mini-graph-card
+              style: |
+                ha-card {
+                  background: var(--paper-card-background-color);
+                  border-radius: 10px;
+                  box-shadow: 10px;
+                  font-weight: bold;
+                  opacity: 0.8;
+                }
+              entities:
+                - entity: sensor.pi_hole_dns_queries_forwarded
+                  color: '#0293fa' # Sky Blue
+              name: Queries Forwarded   
+              icon: mdi:upload-network-outline
+              height: 65
+              hours_to_show: 24
+              points_per_hour: 3600
+              update_interval: 10
+              aggregate_func: avg
+              line_width: 1
+              smoothing: true
+              font_size: 70
+              font_size_header: 12
+              show:
+                graph: bar
+                average: true
+                extrema: true
+                fill: true
+              tap_action: none
+
+            # Cached Queries
+            - type: custom:mini-graph-card
+              style: |
+                ha-card {
+                  background: var(--paper-card-background-color);
+                  border-radius: 10px;
+                  box-shadow: 10px;
+                  font-weight: bold;
+                  opacity: 0.8;
+                }
+              entities:
+                - entity: sensor.pi_hole_dns_queries_cached
+                  color: '#05f248' # Green
+              name: Queries Cached   
+              icon: mdi:download-network-outline
+              height: 65
+              hours_to_show: 24
+              points_per_hour: 3600
+              update_interval: 10
+              aggregate_func: avg
+              line_width: 1
+              smoothing: true
+              font_size: 70
+              font_size_header: 12
+              show:
+                graph: bar
+                average: true
+                extrema: true
+                fill: true
+              tap_action: none 
+              
+              
+
+      - type: horizontal-stack
+        cards:
+    
+# Reload Lovelace
+          - type: custom:button-card
+            style: |
+              ha-card {
+                background: var(--paper-card-background-color);
+                border-radius: 10px;
+                box-shadow: 10px;
+                font-weight: bold;
+                opacity: 0.8;
+              }
+            name: Reload
+            icon: mdi:heart
+            tap_action:
+              action: call-service
+              service: lovelace.reload_resources
+
+# Take Home Assistant Snapshot
+          - type: custom:button-card
+            style: |
+              ha-card {
+                background: var(--paper-card-background-color);
+                border-radius: 10px;
+                box-shadow: 10px;
+                font-weight: bold;
+                opacity: 0.8;
+              }
+            name: Snapshot
+            icon: mdi:backup-restore
+            tap_action:
+              action: call-service
+              service: hassio.snapshot_full
+    
+# Restart Home Assistant
+          - type: custom:button-card
+            style: |
+              ha-card {
+                background: var(--paper-card-background-color);
+                border-radius: 10px;
+                box-shadow: 10px;
+                font-weight: bold;
+                opacity: 0.8;
+              }
+            name: Restart
+            icon: mdi:home-assistant
+            tap_action:
+              action: call-service
+              service: homeassistant.restart
+            confirmation: 
+              text: 'Are you sure you want to restart Home Assistant?'
+
+# Reboot Home Assistant Host
+          - type: custom:button-card
+            style: |
+              ha-card {
+                background: var(--paper-card-background-color);
+                border-radius: 10px;
+                box-shadow: 10px;
+                font-weight: bold;
+                opacity: 0.8;
+              }
+            name: Reboot
+            icon: mdi:server-network
+            tap_action:
+              action: call-service
+              service: hassio.host_reboot
+            confirmation: 
+              text: 'Are you sure you want to restart the host?'    
+
+    

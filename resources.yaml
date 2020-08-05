@@ -29,6 +29,8 @@
     type: module
   - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
     type: module
+  - url: /hacsfiles/secondaryinfo-entity-row/secondaryinfo-entity-row.js
+    type: module
   - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
     type: module
   - url: /hacsfiles/list-card/list-card.js
@@ -51,7 +53,7 @@
     type: module
   - url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
     type: module
-                
+                                
       
 # custom_header:
 #   compact_mode: true
