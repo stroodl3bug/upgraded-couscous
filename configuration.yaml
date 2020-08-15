@@ -148,8 +148,6 @@ cover:
 withings:
   client_id: !secret withingsid
   client_secret: !secret withingssecret
-  profiles:
-    -  stroodl3bug
 
 zone:
   # This will override the default home zone
