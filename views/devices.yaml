@@ -207,19 +207,19 @@ cards:
                 name: IP Address
                 icon: mdi:network
 
-              - type: custom:hui-glance-card
-                title: DD-WRT
-                columns: 3
-                entities:
-                  - entity: sensor.ap_c9_cpu_load
-                    name: CPU
-                    icon: mdi:cpu-64-bit
-                  - entity: sensor.ap_c9_ram_free
-                    name: Memory Free
-                    icon: mdi:memory
-                  - entity: sensor.ap_c9_uptime                
-                    name: Uptime
-                    icon: mdi:timelapse
+            #   - type: custom:hui-glance-card
+            #     title: DD-WRT
+            #     columns: 3
+            #     entities:
+            #       - entity: sensor.ap_c9_cpu_load
+            #         name: CPU
+            #         icon: mdi:cpu-64-bit
+            #       - entity: sensor.ap_c9_ram_free
+            #         name: Memory Free
+            #         icon: mdi:memory
+            #       - entity: sensor.ap_c9_uptime                
+            #         name: Uptime
+            #         icon: mdi:timelapse
 
               - type: divider
 
