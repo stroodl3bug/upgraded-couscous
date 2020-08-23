@@ -50,6 +50,21 @@ cards:
             camera_image: camera.blink_garage_inside
 
 
-           
+
+  - type: vertical-stack
+    cards:
+
+          - type: picture-glance
+            title: driveway
+            entities: 
+              - camera.driveway
+            camera_image: camera.driveway
+
+          - type: picture-glance
+            title: garage
+            entities: 
+              - camera.garage
+            camera_image: camera.garage
+
 
             

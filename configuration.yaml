@@ -113,8 +113,8 @@ pi_hole:
 
 
 
-#logger:
-#  default: debug
+# logger:
+#   default: debug
 #  logs:
 #    homeassistant.components.darksky: debug
 #    homeassistant.components.alarmdotcom: debug   
