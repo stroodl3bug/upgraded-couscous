@@ -43,11 +43,11 @@ cards:
             camera_image: camera.blink_driveway
         
           - type: picture-glance
-            title: Garage
+            title: utility room
             entities: 
-              - sensor.blink_garage_inside_wifi_signal
-              - sensor.blink_garage_inside_temperature
-            camera_image: camera.blink_garage_inside
+              - sensor.blink_utility_room_wifi_signal
+              - sensor.blink_utility_room_temperature
+            camera_image: camera.blink_utility_room
 
 
 
