@@ -80,73 +80,106 @@ cards:
           - type: entities
             entities:
 
-            - entity: media_player.family_room_yamaha
-              type: custom:mini-media-player
-              name: Family Room
-              background: "/local/tree.png"
-              idle_view: when_idle
-#              icon: mdi:music-circle
-              artwork: cover
-              hide:
-                icon: true
-                power_state: false
-                # volume: true
-                source: true
-                controls: true 
-            - entity: media_player.basement_yamaha
-              type: custom:mini-media-player
-              name: Basement
-              artwork: cover
-              background: "/local/earth.png"
-              source: icon
-#              icon: mdi:music-circle
-              volume_stateless: true
-              idle_view: when_idle
-              hide:
-                icon: true
-                volume: true
-                power_state: false              
-                controls: true 
-            - entity: media_player.echo_dot
-              type: custom:mini-media-player
-              name: Echo Dot
-              idle_view: when_idle
-              icon: mdi:amazon
-              background: "/local/echo.jpg"
-              hide:
-                power_state: false 
-                source: true
-                controls: true 
-            - entity: media_player.basement_speaker
-              type: custom:mini-media-player
-              name: Google Mini
-              idle_view: when_idle
-              icon: mdi:google-home
-              background: "/local/google-mini.jpg"          
-              hide:
-                power_state: false           
+#             - entity: media_player.family_room_yamaha
+#               type: custom:mini-media-player
+#               name: Family Room
+#               background: "/local/tree.png"
+#               idle_view: when_idle
+# #              icon: mdi:music-circle
+#               artwork: cover
+#               hide:
+#                 icon: true
+#                 power_state: false
+#                 # volume: true
+#                 source: true
+#                 controls: true 
+#             - entity: media_player.basement_yamaha
+#               type: custom:mini-media-player
+#               name: Basement
+#               artwork: cover
+#               background: "/local/earth.png"
+#               source: icon
+# #              icon: mdi:music-circle
+#               volume_stateless: true
+#               idle_view: when_idle
+#               hide:
+#                 icon: true
+#                 volume: true
+#                 power_state: false              
+#                 controls: true 
+#             - entity: media_player.echo_dot
+#               type: custom:mini-media-player
+#               name: Echo Dot
+#               idle_view: when_idle
+#               icon: mdi:amazon
+#               background: "/local/echo.jpg"
+#               hide:
+#                 power_state: false 
+#                 source: true
+#                 controls: true 
+#             - entity: media_player.basement_speaker
+#               type: custom:mini-media-player
+#               name: Google Mini
+#               idle_view: when_idle
+#               icon: mdi:google-home
+#               background: "/local/google-mini.jpg"          
+#               hide:
+#                 power_state: false           
     
-            - entity: media_player.samsung_tv_remote
-              type: custom:mini-media-player
-              name: Family Room TV
-              artwork: cover
-              icon: mdi:television-box
-              source: icon
-              idle_view: when_idle
-              hide:
-                volume: true               
-                power_state: false
-            - entity: media_player.fire_stick
-              type: custom:mini-media-player
-              name: Upstairs TV
-              icon: mdi:television-box
-              artwork: cover
-              source: icon
-              idle_view: when_idle
-              hide:
-                power_state: false              
-                volume: true 
+#             - entity: media_player.samsung_tv_remote
+#               type: custom:mini-media-player
+#               name: Family Room TV
+#               artwork: cover
+#               icon: mdi:television-box
+#               source: icon
+#               idle_view: when_idle
+#               hide:
+#                 volume: true               
+#                 power_state: false
+#             - entity: media_player.fire_stick
+#               type: custom:mini-media-player
+#               name: Upstairs TV
+#               icon: mdi:television-box
+#               artwork: cover
+#               source: icon
+#               idle_view: when_idle
+#               hide:
+#                 power_state: false              
+#                 volume: true 
 
+            # Show all active media players
+            - type: custom:auto-entities
+              show_empty: false
+              filter:
+                exclude:
+                  - entity_id: media_player.roku
+                include:
+                  - domain: media_player
+                    state: /playing|paused/
+                    options:
+                      type: custom:mini-media-player
+                      artwork_border: false
+                      artwork: cover
+                      hide:
+                        icon: true
+                        power_state: false
+                        volume: true
+              card: 
+                type: entities
+#                title: Now Playing ...
+                show_header_toggle : false
+
+
+            # - entity: media_player.plex_plex_web_firefox_osx
+            #   type: custom:mini-media-player
+            #   name: Upstairs TV
+            #   icon: mdi:television-box
+            #   artwork: cover
+            #   source: icon
+            #   idle_view: when_idle
+            #   hide:
+            #     power_state: false              
+            #     volume: true 
 
 
 
