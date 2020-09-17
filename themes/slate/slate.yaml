@@ -1,8 +1,7 @@
 slate:
   # Main colors
-  lovelace-background: 'center / cover no-repeat url("/local/blackbackground.jpg") fixed'
   primary-color: '#2980b9'
-  accent-color: '#b9bec1'
+  accent-color: '#b58e31'
   dark-primary-color: '#2980b9'
   light-primary-color: '#2980b9'
   # Text colors
@@ -12,7 +11,7 @@ slate:
   disabled-text-color: '#777777'
   label-badge-border-color: 'green'
   # Sidebar
-  sidebar-icon-color: '#292929'
+  sidebar-icon-color: '#777777'
   # Background colors
   primary-background-color: '#222222'
   secondary-background-color: '#222222'
@@ -26,13 +25,10 @@ slate:
   paper-grey-200: '#222222'
   # Paper card
   paper-card-header-color: '#2980b9'
-  paper-card-background-color: 'rgba(65,65,65,0.20)'
+  paper-card-background-color: '#292929'
   paper-dialog-background-color: '#292929'
   paper-item-icon-color: 'var(--primary-text-color)'
- #Active Icon Yellow
- #paper-item-icon-active-color: '#b58e31'
-  #Active Icon Blue
-  paper-item-icon-active-color: '#FFC30B'
+  paper-item-icon-active-color: '#b58e31'
   paper-item-icon_-_color: 'green'
   paper-item-selected_-_background-color: '#292929'
   paper-tabs-selection-bar-color: 'green'
@@ -64,8 +60,6 @@ slate:
   google-red-500: '#b93829'
   google-green-500: '#2980b9'
   # Changes to fix history/logbook menus
-  # Card Border curved
-  ha-card-border-radius: '15px'
   lumo-primary-text-color: '#2980b9'
   lumo-secondary-text-color: '#2980b9'
   lumo-primary-color: '#2980b9'
@@ -91,4 +85,11 @@ slate:
   lumo-tint-5pct: '#222222'
   # fix for device configuration screen
   card-background-color: "var(--paper-card-background-color)"
-  sidebar-background-color: "var(--paper-listbox-background-color)"
+  # Fix for Person Device Chooser - thanks to vajonam!
+  material-background-color: "var(--paper-listbox-background-color)"
+  material-secondary-background-color: '#222222'
+  material-body-text-color: '#FFFFFF'
+  # simple-thermostat buttons
+  st-mode-background: 'var(--primary-background-color)'
+  # fix white on white markdown code sections (eg. the addons infos)
+  markdown-code-background-color: 'var(--secondary-background-color)'
