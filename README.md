@@ -11,16 +11,16 @@
 
 Description | Count
 -- | --
-Entities | 516
+Entities | 493
 Alarm Panel | 2
-Sensors | 282
+Sensors | 267
 Binary sensors | 47
 Cameras | 7
 ZWave Devices | 8
-Media Players | 16
-Device Trackers  | 69
+Media Players | 11
+Device Trackers  | 75
 Persons | 0
-Switches | 49
+Switches | 41
 Lights | 11
 Remotes | 2
 Groups | 3
