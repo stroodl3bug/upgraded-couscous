@@ -7,7 +7,7 @@
 ## Tab Status
 id: 5
 title: Settings
-icon: mdi:settings
+icon: mdi:cog
 panel: true
 cards:
   - type: horizontal-stack
