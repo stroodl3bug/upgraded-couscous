@@ -51,7 +51,7 @@ cards:
             - entity: media_player.spotify_1235664265
               type: custom:mini-media-player
               artwork: full-cover
-              idle_view: when_idle
+#              idle_view: when_idle
               volume_stateless: true
               progress: true
               hide:
@@ -77,8 +77,6 @@ cards:
                     type: source
                     id: iPhone
 
-          - type: entities
-            entities:
 
 #             - entity: media_player.family_room_yamaha
 #               type: custom:mini-media-player
@@ -148,11 +146,16 @@ cards:
 #                 volume: true 
 
             # Show all active media players
+      - type: vertical-stack
+        cards:
+          - type: entities
+            entities:        
             - type: custom:auto-entities
               show_empty: false
               filter:
                 exclude:
                   - entity_id: media_player.roku
+                  - entity_id: media_player.spotify_1235664265
                 include:
                   - domain: media_player
                     state: /playing|paused/
@@ -184,30 +187,30 @@ cards:
 
 
 
-      - type: vertical-stack
-        cards:
-          - type: entities
-            entities:
+    #   - type: vertical-stack
+    #     cards:
+    #       - type: entities
+    #         entities:
 
-              - type: "custom:spotify-playlist-card"
-                sensor: sensor.spotifyplaylist  
-                playback_method: spotify
-                speaker_entity: "media_player.spotify_1235664265"
-                show_playlist_titles: true
-                shuffle: false
-                columns: 4
-                style: |
-                    ha-card  {
-                      margin-top: 15px;
-                      padding-left: 15px;
-                      height: 1000px;
-                    }
+    #           - type: "custom:spotify-playlist-card"
+    #             sensor: sensor.spotifyplaylist  
+    #             playback_method: spotify
+    #             speaker_entity: "media_player.spotify_1235664265"
+    #             show_playlist_titles: true
+    #             shuffle: false
+    #             columns: 4
+    #             style: |
+    #                 ha-card  {
+    #                   margin-top: 15px;
+    #                   padding-left: 15px;
+    #                   height: 1000px;
+    #                 }
                 
-            #   - type: 'custom:spotify-card'
-            #     client_id: !secret client_id_spotify
-            #     limit: 10
-            #     transfer_playback: true
-            #     display_style: Grid
+    #         #   - type: 'custom:spotify-card'
+    #         #     client_id: !secret client_id_spotify
+    #         #     limit: 10
+    #         #     transfer_playback: true
+    #         #     display_style: Grid
 
 
             

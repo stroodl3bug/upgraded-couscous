@@ -111,7 +111,7 @@ sensor:
 pi_hole:
   host: !secret pi_hole_ip
 
-
+media_source:
 
 # logger:
 #   default: debug
