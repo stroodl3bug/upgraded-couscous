@@ -8,4 +8,4 @@ sensor:
       - 'time_date'
       - 'time_utc'
       - 'beat'
-  - platform: yr
+#  - platform: yr
