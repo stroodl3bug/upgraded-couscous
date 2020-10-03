@@ -7,10 +7,10 @@ media_player:
     host: !secret yamaha_basement_ip
     name: Basement (Yamaha)    
     
-  - platform: xboxone
-    device: !secret xboxonedeviceid
-    name: Xbox One
-    ip_address: !secret xboxoneip
+#   - platform: xboxone
+#     device: !secret xboxonedeviceid
+#     name: Xbox One
+#     ip_address: !secret xboxoneip
     
 #  - platform: samsungtv_custom
 # https://github.com/xchwarze/ha-samsungtv-custom  

@@ -331,7 +331,7 @@ cards:
                             secondary_info: "IP Address: [[ {entity}.attributes.ip ]]"
                           attributes:
                            source_type: router
-                           essid: skynet
+#                           essid: skynet
                     sort:
                       method: attribute
                       attribute: ip
