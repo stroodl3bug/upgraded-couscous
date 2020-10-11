@@ -8,4 +8,5 @@ sensor:
     - !secret stock_3
     - !secret stock_4
     - !secret stock_5
-    
+ 
+
