@@ -1,0 +1,418 @@
+#############################################################################################################################################
+#                                                                                                                                           # 
+#                                                          MONITORING VIEW                                                                  #
+#                                                                                                                                           #
+#############################################################################################################################################
+id: 12
+title: Monitoring
+panel: true
+icon: mdi:server
+cards:
+  - type: vertical-stack
+    cards:
+
+      - type: custom:stack-in-card
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: vertical-stack
+                cards:
+                  # Image
+                  - type: markdown
+                    content: >
+                      <img width="140" src="https://home-assistant-china.github.io/images/supported_brands/home-assistant.png">
+                    style: |
+                      ha-card {
+                        margin-left: 95px;
+                      }
+
+              - type: vertical-stack
+                cards:
+    
+                  - type: entities
+#                    title: Home Assistant
+                    show_header_toggle: false
+                    entities:
+    
+                      - type: divider
+                          
+                      - type: custom:multiple-entity-row
+                        entity: sensor.installed_version
+                        name: HA Installed Version
+                        icon: mdi:home-assistant
+                        state_header: Current
+                        entities:
+                          - entity: sensor.latest_version
+                            name: Latest
+                        style: |
+                          :host {
+                            {% if states(config.entity).split('.')[1] == states('sensor.latest_version').split('.')[1] %}
+                             color: var(--primary-text-color);
+                              --paper-item-icon-color: var(--primary-text-color);
+                            {% else %}
+                              color: rgb(255, 165, 0);
+                              --paper-item-icon-color: rgb(255, 165, 0);
+                            {% endif %};
+                          }
+    
+    
+                      - type: custom:secondaryinfo-entity-row
+                        entity: sensor.hassio_uptime
+                        name: Uptime
+                        icon: mdi:timelapse
+                        secondary_info: "Last Boot: [[ sensor.hassio_last_boot ]]"
+    
+                        
+                      - entity: sensor.hacs
+                        name: HACS
+                        icon: mdi:update
+                        style: |
+                          :host {
+                            {% if states(config.entity) != '0' %}
+                              color: rgb(255, 165, 0);
+                              --paper-item-icon-color: rgb(255, 165, 0);
+                            {% endif %};
+                          }       
+                          
+              - type: vertical-stack
+                cards:
+    
+                  - type: entities
+#                    title: Home Assistant
+                    show_header_toggle: false
+                    entities:
+
+                      - entity: sensor.hassio_dbsize
+                        name: Database
+                        icon: mdi:database
+
+              - type: vertical-stack
+                cards:
+
+                  - type: custom:bar-card
+                    entities: 
+                      - sensor.hassio_cpu
+                      - sensor.hassio_memory
+                      - sensor.hassio_disk
+                    align: split
+                    show_icon: true
+                    icon_position: inside                    
+
+              - type: vertical-stack
+                cards:
+
+                  - type: custom:mini-graph-card
+                    entities: 
+                      - sensor.hassio_temp
+                    name: Temperature
+                    color_thresholds:
+                          - value: 50
+                            color: "#3498db"
+                          - value: 70
+                            color: "#f39c12"
+                          - value: 100
+                            color: "#E45E65"
+                    height: 15
+                    line_width: 2
+                    font_size: 70
+                    hours_to_show: 168
+                    points_per_hour: 1
+                    show:
+                      extrema: true
+                      fill: true
+                    
+            #   ####################################################
+            #   #                  Empty Column                    #
+            #   ####################################################
+            #   - type: vertical-stack
+            #     cards:
+            #       - type: markdown
+            #         content: " "                            
+
+
+      - type: custom:stack-in-card
+        cards:
+          - type: horizontal-stack
+            cards:
+
+              - type: vertical-stack
+                cards:
+                  # Image
+                  - type: markdown
+                    content: >
+                      <img width="140" src="https://craftassets.unraid.net/uploads/logos/unraid-stacked-dark.svg">
+                    style: |
+                      ha-card {
+                        margin-left: 95px;
+                      }
+
+              - type: vertical-stack
+                cards:
+                  - type: entities
+#                    title: UnRAID
+                    show_header_toggle: false
+                    entities:
+        
+                      - type: custom:hui-glance-card
+                        columns: 4
+                        entities:
+                          - entity: sensor.glances_cpu_used
+                            name: CPU
+                            icon: mdi:cpu-64-bit
+                          - entity: sensor.glances_ram_used_percent
+                            name: Memory
+                          - entity: sensor.glances_containers_active
+                            name: Docker
+                          - entity: sensor.glances_temp     
+                            name: Temp
+
+              - type: vertical-stack
+                cards:
+                  - type: entities
+#                    title: UnRAID
+                    show_header_toggle: false
+                    entities:
+        
+                      - type: custom:hui-glance-card
+                        columns: 4
+                        entities:
+                          - entity: sensor.glances_mnt_disk1_used_percent    
+                            name: 'Disk 1'
+                          - entity: sensor.glances_mnt_disk2_used_percent    
+                            name: 'Disk 2'
+                          - entity: sensor.glances_mnt_disk3_used_percent    
+                            name: 'Disk 3'
+                          - entity: sensor.glances_mnt_disk4_used_percent    
+                            name: 'Disk 4'
+    
+
+              ####################################################
+              #                  Empty Column                    #
+              ####################################################
+              - type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: " "        
+                    
+
+              ####################################################
+              #                  Empty Column                    #
+              ####################################################
+              - type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: " "                            
+
+
+      - type: custom:stack-in-card
+        cards:
+          - type: horizontal-stack
+            cards:
+
+              - type: vertical-stack
+                cards:
+                  # Image
+                  - type: markdown
+                    content: >
+                      <img width="140" src="https://upload.wikimedia.org/wikipedia/en/thumb/1/15/Pi-hole_vector_logo.svg/1200px-Pi-hole_vector_logo.svg.png">
+                    style: |
+                      ha-card {
+                        margin-left: 95px;
+                      }
+
+              - type: vertical-stack
+                cards:
+
+                  - type: markdown
+                    content: " "                            
+
+
+                  - type: entities
+#                    title: pi-hole
+                    show_header_toggle: false
+                    entities:
+                      - entity: sensor.pi_hole_ads_percentage_blocked_today
+                        name: Ads % Blocked Today
+                      - entity: sensor.pi_hole_dns_queries_today
+                        name: DNS Queries Today
+                      - entity: sensor.pi_hole_domains_blocked
+                        name: Blocked Domains
+                      - entity: sensor.pi_hole_seen_clients
+                        name: Clients                 
+    
+    
+              - type: vertical-stack
+                cards:
+    
+
+                 - type: custom:mini-graph-card
+                 #   style: |
+                 #     ha-card {
+                 #       background: var(--paper-card-background-color);
+                 #       border-radius: 10px;
+                 #       box-shadow: 10px;
+                 #       font-weight: bold;
+                 #       opacity: 0.8;
+                 #     }
+                   entities:
+                     - entity: sensor.pi_hole_ads_blocked_today
+                       color: '#f205b3' # Pink
+                   name: Pi-Hole Ads Blocked Today
+                   icon: mdi:account-cancel-outline
+                   height: 65
+                   hours_to_show: 24
+                   points_per_hour: 3600
+                   update_interval: 10
+                   aggregate_func: avg
+                   line_width: 1
+                   smoothing: true
+                   font_size: 70
+                   font_size_header: 12
+                   show:
+                     graph: bar
+                     average: true
+                     extrema: true
+                     fill: true
+                   tap_action: none    
+
+              - type: vertical-stack
+                cards:
+
+                - type: custom:mini-graph-card
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: 10px;
+                      box-shadow: 10px;
+                      font-weight: bold;
+                      opacity: 0.8;
+                    }
+                  entities:
+                    - entity: sensor.pi_hole_dns_queries_forwarded
+                      color: '#0293fa' # Sky Blue
+                  name: Queries Forwarded   
+                  icon: mdi:upload-network-outline
+                  height: 65
+                  hours_to_show: 24
+                  points_per_hour: 3600
+                  update_interval: 10
+                  aggregate_func: avg
+                  line_width: 1
+                  smoothing: true
+                  font_size: 70
+                  font_size_header: 12
+                  show:
+                    graph: bar
+                    average: true
+                    extrema: true
+                    fill: true
+                  tap_action: none
+
+              - type: vertical-stack
+                cards:
+
+                # Cached Queries
+                - type: custom:mini-graph-card
+                  style: |
+                    ha-card {
+                      background: var(--paper-card-background-color);
+                      border-radius: 10px;
+                      box-shadow: 10px;
+                      font-weight: bold;
+                      opacity: 0.8;
+                    }
+                  entities:
+                    - entity: sensor.pi_hole_dns_queries_cached
+                      color: '#05f248' # Green
+                  name: Queries Cached   
+                  icon: mdi:download-network-outline
+                  height: 65
+                  hours_to_show: 24
+                  points_per_hour: 3600
+                  update_interval: 10
+                  aggregate_func: avg
+                  line_width: 1
+                  smoothing: true
+                  font_size: 70
+                  font_size_header: 12
+                  show:
+                    graph: bar
+                    average: true
+                    extrema: true
+                    fill: true
+                  tap_action: none 
+                    
+                
+      - type: custom:stack-in-card
+        cards:
+          - type: horizontal-stack
+            cards:
+
+              - type: vertical-stack
+                cards:
+                  # Image
+                  - type: markdown
+                    content: >
+                      <img width="140" src="https://clipartart.com/images250_/ubiquiti-logo-clipart-1.png">
+                    style: |
+                      ha-card {
+                        margin-left: 95px;
+                      }
+
+              - type: vertical-stack
+                cards:
+                  - type: entities
+#                    title: UnRAID
+                    show_header_toggle: false
+                    entities:
+        
+                      - entity: sensor.myip
+                        name: IP Address
+                        icon: mdi:network
+
+
+              - type: vertical-stack
+                cards:
+                  - type: custom:mini-graph-card
+                    name: Speed Test
+                    more_info: true
+                    line_color:
+                      - green
+                      - orange
+                    hour24: true
+                    animate: true
+                    decimals: 1
+                    show:
+                      name: true
+                      icon: true
+                      state: true
+                      graph: true
+                      fill: true
+                      points: false
+                      legend: true
+                      extrema: false
+                      labels: true
+                    entities:
+                      - entity: sensor.speedtest_download
+                        name: Download
+                      - entity: sensor.speedtest_upload
+                        name: Upload
+
+    
+
+              ####################################################
+              #                  Empty Column                    #
+              ####################################################
+              - type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: " "        
+                    
+
+              ####################################################
+              #                  Empty Column                    #
+              ####################################################
+              - type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: " "                                     
