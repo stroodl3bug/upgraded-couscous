@@ -158,7 +158,60 @@ cards:
             entities:
               - sensor.trash
               - sensor.recycle
+
           - type: thermostat
             entity: climate.thermostat
+
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Links
+            open: true
+            items:
+              - type: custom:hui-horizontal-stack-card
+                cards:
+                  - type: button
+    #                        name: UnRaid
+                    icon: mdi:database
+                    tap_action:
+                      action: url
+                      url_path: !secret ip_unraid
+                  - type: button
+    #                        name: pi-hole
+                    icon: mdi:pi-hole
+                    tap_action:
+                      action: url
+                      url_path: !secret ip_pihole
+                  - type: button
+    #                        name: DD-WRT
+                    icon: mdi:router-wireless
+                    tap_action:
+                      action: url
+                      url_path: !secret ip_ddwrt                
+                  - type: button
+    #                        name: UAP-AC-LITE
+                    icon: mdi:access-point
+                    tap_action:
+                      action: url
+                      url_path: !secret ip_unify             
+                  - type: button
+    #                        name: plex
+                    icon: mdi:plex
+                    tap_action:
+                      action: url
+                      url_path: !secret ip_unraid
+                  - type: button
+    #                        name: duckduckgo
+                    icon: mdi:duck
+                    tap_action:
+                      action: url
+                      url_path: http://duckduckgo.com
+                  - type: button
+    #                        name: home assistant
+                    icon: mdi:home-assistant
+                    tap_action:
+                      action: url
+                      url_path: http://community.home-assistant.io
+
     
 

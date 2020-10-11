@@ -9,8 +9,8 @@ views:
   - !include '/config/views/level.yaml'
   - !include '/config/views/news.yaml'
   - !include '/config/views/issues.yaml'
-  - !include '/config/views/floor_01.yaml'
-  - !include '/config/views/system.yaml'
+#  - !include '/config/views/floor_01.yaml'
+#  - !include '/config/views/system.yaml'
   - !include '/config/views/monitoring.yaml'
 
 
