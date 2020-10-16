@@ -57,12 +57,21 @@ cards:
     
     
                       - type: custom:secondaryinfo-entity-row
-                        entity: sensor.hassio_uptime
+                        entity: sensor.uptime
                         name: Uptime
                         icon: mdi:timelapse
                         secondary_info: "Last Boot: [[ sensor.hassio_last_boot ]]"
     
                         
+                          
+              - type: vertical-stack
+                cards:
+    
+                  - type: entities
+#                    title: Home Assistant
+                    show_header_toggle: false
+                    entities:
+
                       - entity: sensor.hacs
                         name: HACS
                         icon: mdi:update
@@ -73,18 +82,15 @@ cards:
                               --paper-item-icon-color: rgb(255, 165, 0);
                             {% endif %};
                           }       
-                          
-              - type: vertical-stack
-                cards:
-    
-                  - type: entities
-#                    title: Home Assistant
-                    show_header_toggle: false
-                    entities:
+
 
                       - entity: sensor.hassio_dbsize
                         name: Database
                         icon: mdi:database
+
+                      - entity: sensor.github_commit
+                        name: Github
+
 
               - type: vertical-stack
                 cards:
@@ -187,12 +193,62 @@ cards:
     
 
               ####################################################
-              #                  Empty Column                    #
+              #                  Bookmarks                       #
               ####################################################
               - type: vertical-stack
                 cards:
-                  - type: markdown
-                    content: " "        
+
+                  - type: custom:fold-entity-row
+                    head:
+                      type: section
+                      label: Links
+                    open: true
+                    items:
+                      - type: custom:hui-horizontal-stack-card
+                        cards:
+                          - type: button
+    #                        name: UnRaid
+                            icon: mdi:database
+                            tap_action:
+                              action: url
+                              url_path: !secret ip_unraid
+                          - type: button
+    #                        name: pi-hole
+                            icon: mdi:pi-hole
+                            tap_action:
+                              action: url
+                              url_path: !secret ip_pihole
+                          - type: button
+    #                        name: DD-WRT
+                            icon: mdi:router-wireless
+                            tap_action:
+                              action: url
+                              url_path: !secret ip_ddwrt                
+                          - type: button
+    #                        name: UAP-AC-LITE
+                            icon: mdi:access-point
+                            tap_action:
+                              action: url
+                              url_path: !secret ip_unify             
+                          - type: button
+    #                        name: plex
+                            icon: mdi:plex
+                            tap_action:
+                              action: url
+                              url_path: !secret ip_unraid
+                          - type: button
+    #                        name: duckduckgo
+                            icon: mdi:duck
+                            tap_action:
+                              action: url
+                              url_path: http://duckduckgo.com
+                          - type: button
+    #                        name: home assistant
+                            icon: mdi:home-assistant
+                            tap_action:
+                              action: url
+                              url_path: http://community.home-assistant.io
+
                     
 
               ####################################################
@@ -353,7 +409,7 @@ cards:
                   # Image
                   - type: markdown
                     content: >
-                      <img width="140" src="https://clipartart.com/images250_/ubiquiti-logo-clipart-1.png">
+                      <img width="140" src="https://www.openhab.org/logos/unifi.png">
                     style: |
                       ha-card {
                         margin-left: 95px;
@@ -374,6 +430,14 @@ cards:
               - type: vertical-stack
                 cards:
                   - type: custom:mini-graph-card
+                    style: |
+                      ha-card {
+                        background: var(--paper-card-background-color);
+                        border-radius: 10px;
+                        box-shadow: 10px;
+                        font-weight: bold;
+                        opacity: 0.8;
+                      }
                     name: Speed Test
                     more_info: true
                     line_color:
@@ -382,6 +446,8 @@ cards:
                     hour24: true
                     animate: true
                     decimals: 1
+                    font_size: 70
+                    font_size_header: 12
                     show:
                       name: true
                       icon: true
@@ -405,8 +471,28 @@ cards:
               ####################################################
               - type: vertical-stack
                 cards:
-                  - type: markdown
-                    content: " "        
+
+                  - type: custom:fold-entity-row
+                    head:
+                      type: section
+                      label: Online Devices
+    #                open: true
+                    items:
+                      - type: custom:auto-entities
+                        card:
+                          type: entities
+                        filter:
+                          include:
+                            - domain: device_tracker
+                              options:
+                                type: custom:secondaryinfo-entity-row
+                                secondary_info: "IP Address: [[ {entity}.attributes.ip ]]"
+                              attributes:
+                               source_type: router
+    #                           essid: skynet
+                        sort:
+                          method: attribute
+                          attribute: ip
                     
 
               ####################################################

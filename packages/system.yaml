@@ -9,6 +9,17 @@ sensor:
   - platform: version
     name: Installed Version
 
+
+  - platform: unifigateway
+    host: !secret ip_unify
+    username: !secret unifi_user
+    password: !secret unifi_pass
+    monitored_conditions:
+      - www
+      - wlan
+      - alerts
+      - firmware
+
 #================================
 #=== Latest Available HA Version
 #================================
