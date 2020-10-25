@@ -1,0 +1,36 @@
+sensor:
+  - platform: date_reminder
+    name: Audi Registration
+    start_date_input: input_datetime.audi_vehicle_registration
+    days_in_future: 0
+
+  - platform: date_reminder
+    name: Acura Vehicle Registration
+    start_date_input: input_datetime.acura_vehicle_registration
+    days_in_future: 0
+
+
+input_datetime:
+  # Set date according when changed
+  ac_filter_change:
+    name: Last AC Filter Change Date
+    has_date: true
+    has_time: false
+
+  # Set date according when changed
+  refrigerator_filter_change:
+    name: Last Water Filter Change Date
+    has_date: true
+    has_time: false
+
+  # Set date according to sticker
+  audi_vehicle_registration:
+    name: Audi Vehicle Registration
+    has_date: true
+    has_time: false
+
+  # Set date according to sticker
+  acura_vehicle_registration:
+    name: Acura Vehicle Registration
+    has_date: true
+    has_time: false
