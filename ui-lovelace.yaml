@@ -14,35 +14,8 @@ views:
   - !include '/config/views/monitoring.yaml'
 
 
-custom_header:
-  split_mode: true
-  footer_mode: true
-  tab_indicator_color: orange
-  header_text: >-
-    <style>
-    #flipper {color:#999;}
-    #flip {height:24px;overflow:hidden;}
-    #flip > div > div {color:#fff;height:24px;margin-bottom:24px;display:inline-block;}
-    #flip div:first-child {animation: show 10s linear infinite;}
-    @keyframes show {
-    0% {margin-top:-144px;}
-    5% {margin-top:-96px;}
-    33% {margin-top:-96px;}
-    38% {margin-top:-48px;}
-    66% {margin-top:-48px;}
-    76% {margin-top:0px;}
-    100% {margin-top:0px;}}
-    #flipper p {position:fixed;color:#999; }
-    </style>
-    <div id=flipper><div id=flip><div><div>
-    Trash day is {{states('sensor.trash')}}. Recycling is {{states('sensor.recycle')}}</div></div><div><div>
-    House is {% if is_state("alarm_control_panel.alarm_com", "disarmed") -%} Disarmed {%- elif is_state("alarm_control_panel.alarm_com", "armed_home") -%}  Armed (Stay) {%- elif is_state("alarm_control_panel.alarm_com", "armed_away") -%} Armed (Away) {%- endif %}</div></div><div><div>
-    {% if is_state("media_player.spotify_1235664265", "playing") -%} Currently playing {{state_attr('media_player.spotify_1235664265', 'media_title')}} by {{state_attr('media_player.spotify_1235664265', 'media_artist')}} on {{state_attr('media_player.spotify_1235664265', 'source')}}{%- elif is_state("media_player.spotify_1235664265","idle") -%}Weather: {{states('sensor.dark_sky_temperature')}}°F ({{states('sensor.dark_sky_summary')}}){%- endif -%}</div></div><div><div>
-    Trash day is {{states('sensor.trash')}}</div></div><><div>
-
-
           
-background: center / cover no-repeat url("/local/blackgrey.jpg") fixed
+#background: center / cover no-repeat url("/local/blackgrey.jpg") fixed
 button_card_templates:
 
   cover:
@@ -219,4 +192,63 @@ button_card_templates:
             - box-shadow: 0px 0px 10px 3px var(--button-card-light-color)
           name:
             - color: white      
-              
+
+  lights_inset:
+#    layout: icon_label
+    icon: mdi:fire
+    size: 30% # You can adjust the size of the icon
+    styles:
+      img_cell:
+        - padding-left: 25px # You can adjust padding of the icon
+        - justify-content: start
+      card:
+        - width: min(25vw, 100px)
+        - height: min(25vw, 100px)
+        - border-radius: 15px
+        - border-style: solid
+        - border-color: var(--primary-background-color)
+        - border-width: 1px
+        - margin: 10px
+        - box-shadow: |
+            [[[ return states['light.family_room'].state == 'off'
+              ? '-5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08)'
+              : '-4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+            ]]]
+        - background-color: var(--primary-background-color)
+      icon:
+        - color: var(--primary-text-color)
+      grid:
+        - grid-template-areas: '"i" "n" "s"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: 1fr min-content min-content
+      name:
+        - justify-self: start
+        - font-weight: bold
+        - font-size: 15px
+        - padding-left: 15px
+      state:
+        - justify-self: start
+        - font-weight: bold
+        - font-size: 15px
+        - opacity: 0.6
+        - padding: 0 15px 5px
+    show_state: true
+    state:
+      - value: 'on'
+        styles:
+          card:
+            - border-width: 2px
+            - box-shadow: |
+                [[[ return states['light.family_room'].state == 'off'
+                  ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                  : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                ]]]
+            - border-color: var(--paper-item-icon-active-color)
+          icon:
+            - color: var(--paper-item-icon-active-color)
+    tap_action:
+      action: toggle
+      haptic: light
+    hold_action:
+      action: more-info
+      haptic: medium           
