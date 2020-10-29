@@ -51,7 +51,7 @@ cards:
             - entity: media_player.spotify_1235664265
               type: custom:mini-media-player
               artwork: full-cover
-#              idle_view: when_idle
+              idle_view: when_idle
               volume_stateless: true
               progress: true
               hide:
@@ -59,7 +59,7 @@ cards:
                 name: true
                 power: true
                 icon: true
-                source: true
+#                source: true
               shortcuts:
                 columns: 4 # Max buttons per row
                 buttons:
