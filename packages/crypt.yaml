@@ -1,15 +1,15 @@
-sensor:
-  - platform: bitfetch
-    pair: BTCUSD
-    api_key: !secret bitfetch_api 
-    scan_interval: 300
+# sensor:
+#   - platform: bitfetch
+#     pair: BTCUSD
+#     api_key: !secret bitfetch_api 
+#     scan_interval: 300
     
-  - platform: bitfetch
-    pair: ETHUSD
-    api_key: !secret bitfetch_api 
-    scan_interval: 300
+#   - platform: bitfetch
+#     pair: ETHUSD
+#     api_key: !secret bitfetch_api 
+#     scan_interval: 300
     
-  - platform: bitfetch
-    pair: LTCUSD
-    api_key: !secret bitfetch_api 
-    scan_interval: 300  
+#   - platform: bitfetch
+#     pair: LTCUSD
+#     api_key: !secret bitfetch_api 
+#     scan_interval: 300  

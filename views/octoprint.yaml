@@ -1,0 +1,151 @@
+#############################################################################################################################################
+#                                                                                                                                           # 
+#                                                          3D PRINTER VIEW                                                                  #
+#                                                                                                                                           #
+#############################################################################################################################################
+
+## Tab Status
+id: 12
+title: 3DP
+icon: 'mdi:printer-3d'
+panel: true
+cards:
+  - type: horizontal-stack
+    cards:
+
+      - type: 'custom:auto-entities'
+        card:
+          title: Octoprint ERROR
+          type: entities
+        filter:
+          include:
+            - entity_id: binary_sensor.ender*error*
+              state: 'on'
+        show_empty: false
+        show_header_toggle: false
+
+      - type: vertical-stack
+        cards:
+
+          - type: entities
+            title: Job
+            entities:
+            - entity: sensor.ender_3_job_percentage
+            - entity: sensor.ender_3_time_remaining_format
+            - entity: sensor.ender_3_time_elapsed_format
+
+            
+
+      - type: vertical-stack
+        cards:
+
+          - type: entities
+            title: Status
+            entities:
+            - entity: sensor.ender_3_current_state
+            - entity: binary_sensor.ender_3_printing
+            - entity: binary_sensor.ender_3_printing_error
+
+          - type: picture-glance
+            camera_image: camera.octoprint
+            entities:
+              - camera.octoprint
+            aspect_ratio: 50%
+            show_name: false
+            show_state: false 
+            
+
+      - type: vertical-stack
+        cards:
+          - type: 'custom:mini-graph-card'
+            name: Bed Temp
+            icon: 'mdi:temperature-celsius'
+            show:
+              labels: hover
+              legend: false
+              name_adaptive_color: false
+            entities:
+              - entity: sensor.ender_3_actual_bed_temp
+                name: Current Temp
+                color: orange
+              - entity: sensor.ender_3_target_bed_temp
+                color: skyblue
+                name: Target Temp
+            hours_to_show: 24
+            line_width: 3
+            color_thresholds:
+              - value: 35
+                color: white
+              - value: 40
+                color: green
+              - value: 49
+                color: orange
+              - value: 70
+                color: red
+
+          - type: 'custom:mini-graph-card'
+            name: Hotend Temp
+            icon: 'mdi:temperature-celsius'
+            show:
+              labels: hover
+              legend: false
+              name_adaptive_color: false
+            entities:
+              - entity: sensor.ender_3_actual_tool0_temp
+                name: Current Temp
+                color: orange
+              - entity: sensor.ender_3_target_tool0_temp
+                color: darkred
+                name: Target Temp
+            hours_to_show: 24
+            line_width: 3
+            color_thresholds:
+              - value: 35
+                color: white
+              - value: 179
+                color: green
+              - value: 220
+                color: orange
+              - value: 300
+                color: red
+        
+#   - card:
+#       title: Octoprint ERROR
+#       type: entities
+#     filter:
+#       include:
+#         - entity_id: binary_sensor.ender*error*
+#           state: 'on'
+#     show_empty: true
+#     show_header_toggle: false
+#     type: 'custom:auto-entities'
+
+
+          - type: 'custom:vacuum-card'
+            show_status: true
+            show_toolbar: true
+            entity: vacuum.bai
+            stats:
+              default:
+                # - attribute: fan_speed
+                #   unit: hours
+                - entity_id: sensor.bai_status
+                  subtitle: Status
+                - entity_id: sensor.bai_sidebrush
+                  unit: hours
+                  subtitle: Side brush
+                - entity_id: sensor.bai_brush
+                  unit: hours
+                  subtitle: Main brush
+                - entity_id: sensor.bai_water_level
+#                  unit: hours
+                  subtitle: Water Level
+              cleaning:
+                - attribute: cleaned_area
+                  unit: m2
+                  subtitle: Cleaning area
+                - attribute: cleaning_time
+                  unit: minutes
+                  subtitle: Cleaning time
+
+

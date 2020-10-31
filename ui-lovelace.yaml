@@ -12,6 +12,7 @@ views:
 #  - !include '/config/views/floor_01.yaml'
 #  - !include '/config/views/system.yaml'
   - !include '/config/views/monitoring.yaml'
+  - !include '/config/views/octoprint.yaml'
 
 
           

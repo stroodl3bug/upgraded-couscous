@@ -55,6 +55,8 @@
     type: module
   - url: /hacsfiles/stack-in-card/stack-in-card.js
     type: module
+  - url: /hacsfiles/vacuum-card/vacuum-card.js
+    type: module    
                                 
       
 # custom_header:
