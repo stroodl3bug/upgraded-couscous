@@ -4,31 +4,33 @@
 [![Build Status](https://travis-ci.com/stroodl3bug/upgraded-couscous.svg?branch=master)](https://travis-ci.com/stroodl3bug/upgraded-couscous)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/stroodl3bug/upgraded-couscous)](https://github.com/stroodl3bug/upgraded-couscous/commits/master)
 [![GitHub Activity](https://img.shields.io/github/commit-activity/m/stroodl3bug/upgraded-couscous)](https://github.com/stroodl3bug/upgraded-couscous/commits/master)
-[![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-0.117.0%20(Latest)-brightgreen)](https://github.com/home-assistant/home-assistant/releases/latest)
+[![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-0.118.4%20(Latest)-brightgreen)](https://github.com/home-assistant/home-assistant/releases/latest)
 
 
 **Statistics:**
 
 Description | Count
 -- | --
-Entities | 720
+Entities | 894
 Alarm Panel | 2
-Sensors | 489
-Binary sensors | 51
-Cameras | 7
+Sensors | 614
+Binary sensors | 53
+Cameras | 8
 ZWave Devices | 8
-Media Players | 10
-Device Trackers  | 74
+Media Players | 19
+Device Trackers  | 100
 Persons | 0
-Switches | 40
-Lights | 11
-Remotes | 2
+Switches | 48
+Lights | 12
+Remotes | 3
 Groups | 3
 
 **Custom Components:**
 
 
 [Generate readme](https://github.com/custom-components/readme)
+
+[Alarm.com](https://www.github.com/uvjustin/alarmdotcom)
 
 [Alarm.com](https://www.github.com/uvjustin/alarmdotcomajax)
 
@@ -41,6 +43,8 @@ Groups | 3
 [HACS](https://hacs.xyz/docs/configuration/start)
 
 [Raspberry Pi Power Supply Checker](https://github.com/custom-components/sensor.rpi_power/blob/master/README.md)
+
+[deebot vacuum 960/950/920 Custom](https://github.com/And3rsL/Deebot-for-hassio)
 
 [Wyze Sense Component](https://github.com/kevinvincent/wyzesense)
 
