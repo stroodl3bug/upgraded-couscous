@@ -1,14 +1,10 @@
 """Support for Deebot Vaccums."""
-import asyncio
-import logging
-import async_timeout
-import time
-import random
-import string
-import voluptuous as vol
-import homeassistant.helpers.config_validation as cv
-from deebotozmo import *
 import base64
+from typing import Optional, Dict, Any, Union, List
+
+from deebotozmo import *
+from homeassistant.util import slugify
+
 from . import HUB as hub
 
 CONF_COUNTRY = "country"
@@ -66,19 +62,20 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     """Set up the Deebot vacuums."""
     if DEEBOT_DEVICES not in hass.data:
         hass.data[DEEBOT_DEVICES] = []
-    
-    vacuum = DeebotVacuum(hass)
-    add_devices([vacuum])
+
+    for vacbot in hub.vacbots:
+        vacuum = DeebotVacuum(hass, vacbot)
+        add_devices([vacuum])
 
 class DeebotVacuum(VacuumEntity):
     """Deebot Vacuums"""
 
-    def __init__(self, hass):
+    def __init__(self, hass, vacbot):
         """Initialize the Deebot Vacuum."""
         self._hass = hass
 
-        self.device = hub.vacbot
-        
+        self.device = vacbot
+
         if self.device.vacuum.get("nick", None) is not None:
             self._name = "{}".format(self.device.vacuum["nick"])
         else:
@@ -87,13 +84,13 @@ class DeebotVacuum(VacuumEntity):
 
         self._fan_speed = None
         self._live_map = None
-        self._live_map_path = hub.config.get(CONF_LIVEMAPPATH)
+        self._live_map_path = hub.config.get(CONF_LIVEMAPPATH) + self._name + '_liveMap.png'
 
         _LOGGER.debug("Vacuum initialized: %s", self.name)
 
     def on_fan_change(self, fan_speed):
         self._fan_speed = fan_speed
-		
+
     @property
     def should_poll(self) -> bool:
         """Return True if entity has to be polled for state."""
@@ -165,7 +162,7 @@ class DeebotVacuum(VacuumEntity):
     async def async_send_command(self, command, params=None, **kwargs):
         """Send a command to a vacuum cleaner."""
         _LOGGER.debug("async_send_command %s (%s), %s", command, params, kwargs)
-        
+
         if command == 'spot_area':
             await self.hass.async_add_executor_job(self.device.SpotArea, params['rooms'], params['cleanings'])
             return
@@ -213,3 +210,28 @@ class DeebotVacuum(VacuumEntity):
                     fh.write(base64.decodebytes(self.device.live_map))
         except KeyError:
             _LOGGER.warning("Can't access local folder: %s", self._live_map_path)
+
+    @property
+    def device_state_attributes(self) -> Optional[Dict[str, Any]]:
+        """Return device specific state attributes.
+
+        Implemented by platform classes. Convention for attribute names
+        is lowercase snake_case.
+        """
+        if self.device.getSavedRooms() is not None:
+            rooms: Dict[str, Union[int, List[int]]] = {}
+            for r in self.device.getSavedRooms():
+                # convert room name to snake_case to meet the convention
+                room_name = "room_" + slugify(r["subtype"])
+                room_values = rooms.get(room_name)
+                if room_values is None:
+                    rooms[room_name] = r["id"]
+                elif isinstance(room_values, list):
+                    room_values.append(r["id"])
+                else:
+                    # Convert from int to list
+                    rooms[room_name] = [room_values, r["id"]]
+
+            return rooms
+
+        return None
