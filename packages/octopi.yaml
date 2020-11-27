@@ -1,93 +1,176 @@
-octoprint:
-  host: !secret octopi_host
-  api_key: !secret octopi_api
-  name: 'Ender 3'
-  bed: true
+switch:
+  - platform: rest
+    name: "Ender 3 V2"
+    resource: !secret octopi_status_api
+    scan_interval: 5
+    body_on: '{"command": "connect"}'
+    body_off: '{"command": "disconnect"}'
+    is_on_template: '{{ value_json.current.state == "Operational" }}'
+    headers:
+      Content-Type: application/json
+      X-Api-Key: !secret octopi_api
 
 sensor:
-  - platform: octoprint  
-    monitored_conditions:
-      - 'Current State'
-      - 'Job Percentage'
-      - 'Temperatures'
-      - 'Time Elapsed'
-      - 'Time Remaining'
 
-#fix time display
+#Printer Status API
+
+  - platform: rest
+    resource: !secret octopi_printer_details
+    name: "Ender 3 Status"
+    value_template: '{{ value_json.state.text }}'
+    headers:
+      X-Api-Key: !secret octopi_api
+      
+  - platform: rest
+    resource: !secret octopi_printer_details
+    name: "Ender 3 Bed Temperature Actual"
+    value_template: '{{ value_json.temperature.bed.actual }}'
+    headers:
+      X-Api-Key: !secret octopi_api
+
+  - platform: rest
+    resource: !secret octopi_printer_details
+    name: "Ender 3 Bed Temperature Target"
+    value_template: '{{ value_json.temperature.bed.target }}'
+    headers:
+      X-Api-Key: !secret octopi_api
+
+  - platform: rest
+    resource: !secret octopi_printer_details
+    name: "Ender 3 Tool Temperature Actual"
+    value_template: '{{ value_json.temperature.tool0.actual }}'
+    headers:
+      X-Api-Key: !secret octopi_api
+      
+  - platform: rest
+    resource: !secret octopi_printer_details
+    name: "Ender 3 Tool Temperature Target"
+    value_template: '{{ value_json.temperature.tool0.target }}'
+    headers:
+      X-Api-Key: !secret octopi_api
+
+##JOB API
+
+  - platform: rest
+    resource: !secret octopi_job_api
+    name: "Ender 3 Progress"
+    value_template: '{{ value_json.progress.completion | round(2) }}%'
+    headers:
+      X-Api-Key: !secret octopi_api      
+
+  - platform: rest
+    resource: !secret octopi_job_api
+    name: "Ender 3 Print Time Left"
+    value_template: '{{ value_json.progress.printTimeLeft }}'
+    headers:
+      X-Api-Key: !secret octopi_api      
+
+  - platform: rest
+    resource: !secret octopi_job_api
+    name: "Ender 3 Print Time"
+    value_template: '{{ value_json.progress.printTime }}'
+    headers:
+      X-Api-Key: !secret octopi_api      
+
+  - platform: rest
+    resource: !secret octopi_job_api
+    name: "Ender 3 Estimated Print Time"
+    value_template: '{{ value_json.job.estimatedPrintTime }}'
+    headers:
+      X-Api-Key: !secret octopi_api      
+
+      
+  - platform: rest
+    resource: !secret octopi_job_api
+    name: "Ender 3 Last Print Time"
+    value_template: '{{ value_json.job.lastPrintTime }}'
+    headers:
+      X-Api-Key: !secret octopi_api      
+
+  - platform: rest
+    resource: !secret octopi_job_api
+    name: "Ender 3 STL file"
+    value_template: '{{ value_json.job.file.name }}'
+    headers:
+      X-Api-Key: !secret octopi_api
+
+
+  - platform: rest
+    resource: !secret octopi_job_api
+    name: "Ender 3 File Size"
+    value_template: '{{value_json.job.file.size}}'
+    headers:
+      X-Api-Key: !secret octopi_api
+
+
+#MODEL DETAILS
+
+  - platform: rest
+    resource: !secret octopi_display_layer_progress
+    name: "Ender 3 Model Current Height"
+    value_template: '{{value_json.height.current}}'
+    headers:
+      X-Api-Key: !secret octopi_api
+
+  - platform: rest
+    resource: !secret octopi_display_layer_progress
+    name: "Ender 3 Model Total Height"
+    value_template: '{{value_json.height.total}}'
+    headers:
+      X-Api-Key: !secret octopi_api
+
+#LAYER INFORMATION
+
+  - platform: rest
+    resource: !secret octopi_display_layer_progress
+    name: "Ender 3 Fan Speed"
+    value_template: '{{value_json.fanSpeed}}'
+    headers:
+      X-Api-Key: !secret octopi_api
+
+
+  - platform: rest
+    resource: !secret octopi_display_layer_progress
+    name: "Ender 3 Total Layers"
+    value_template: '{{value_json.layer.total}}'
+    headers:
+      X-Api-Key: !secret octopi_api
+
+  - platform: rest
+    resource: !secret octopi_display_layer_progress
+    name: "Ender 3 Current Layer"
+    value_template: '{{value_json.layer.current}}'
+    headers:
+      X-Api-Key: !secret octopi_api
+
+
+  - platform: rest
+    resource: !secret octopi_display_layer_progress
+    name: "Ender 3 Last Layer Duration"
+    value_template: '{{value_json.layer.lastLayerDuration}}'
+    headers:
+      X-Api-Key: !secret octopi_api
+
+
+# #fix time display
   - platform: template
     sensors:
       ender_3_time_elapsed_format:
-        friendly_name: 'Printing Time Elapsed'
-        value_template: >-
-          {% set etime = states.sensor.ender_3_time_elapsed.state | int %}
-          {% set seconds = etime % 60 %}
-          {% set minutes = ((etime % 3600) / 60) | int %}
-          {% set hours = ((etime % 86400) / 3600) | int %}
-          {% set days = (etime / 86400) | int %}
-          {%- if days > 0 -%}
-            {%- if days == 1 -%}
-              1 day
-            {%- else -%}
-              {{ days }} days
-            {%- endif -%}
-            {{ ', ' }}
-          {%- endif -%}
-          {%- if hours > 0 -%}
-            {%- if hours == 1 -%}
-              1 hour
-            {%- else -%}
-              {{ hours }} hours
-            {%- endif -%}
-            {{ ', ' }}
-          {%- endif -%}
-          {%- if minutes > 0 -%}
-            {%- if minutes == 1 -%}
-              1 minute
-            {%- else -%}
-              {{ minutes }} minutes
-            {%- endif -%}
-          {%- endif -%}
-      ender_3_time_remaining_format:
-        friendly_name: 'Printing Time Remaining'
-        value_template: >-
-          {% set rtime = states.sensor.ender_3_time_remaining.state | int %}
-          {% set seconds = rtime % 60 %}
-          {% set minutes = ((rtime % 3600) / 60) | int %}
-          {% set hours = ((rtime % 86400) / 3600) | int %}
-          {% set days = (rtime / 86400) | int %}
-          {%- if days > 0 -%}
-            {%- if days == 1 -%}
-              1 day
-            {%- else -%}
-              {{ days }} days
-            {%- endif -%}
-            {{ ', ' }}
-          {%- endif -%}
-          {%- if hours > 0 -%}
-            {%- if hours == 1 -%}
-              1 hour
-            {%- else -%}
-              {{ hours }} hours
-            {%- endif -%}
-            {{ ', ' }}
-          {%- endif -%}
-          {%- if minutes > 0 -%}
-            {%- if minutes == 1 -%}
-              1 minute
-            {%- else -%}
-              {{ minutes }} minutes
-            {%- endif -%}
-          {%- endif -%}      
+        friendly_name: 'Print Time'
+        value_template: '{{ states("sensor.ender_3_print_time") | int | timestamp_custom("%H:%M", false)}}'
 
+      ender_3_time_remaining_format:
+        friendly_name: 'Print Time Left'
+        value_template: '{{ states("sensor.ender_3_print_time_left") | int | timestamp_custom("%H:%M", false)}}'
+
+      ender_3_time_estimated_print_time_format:
+        friendly_name: 'Estimated Print Time'
+        value_template: '{{ states("sensor.ender_3_estimated_print_time") | int | timestamp_custom("%H:%M", false)}}'
+
+ 
 camera:
   - platform: mjpeg
     name: OctoPrint
     still_image_url: !secret octopi_still_image_url
-    mjpeg_url: !secret octopi_stream_url  
+    mjpeg_url: !secret octopi_stream_url 
 
-binary_sensor:
-  - platform: octoprint
-    monitored_conditions:
-      - Printing
-      - Printing Error    
-      

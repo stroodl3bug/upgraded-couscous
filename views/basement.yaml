@@ -49,7 +49,7 @@ cards:
             
           - type: custom:button-card   
             template: lights
-            entity: light.basement_light_level
+            entity: light.basement_light
             name: Basement
             icon: mdi:ceiling-light
 

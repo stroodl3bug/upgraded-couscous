@@ -13,65 +13,202 @@ cards:
   - type: horizontal-stack
     cards:
 
-      - type: 'custom:auto-entities'
-        card:
-          title: Octoprint ERROR
-          type: entities
-        filter:
-          include:
-            - entity_id: binary_sensor.ender*error*
-              state: 'on'
-        show_empty: false
-        show_header_toggle: false
-
       - type: vertical-stack
         cards:
-
+        
+          - type: markdown
+            content: 'Ender 3 v2'
+        
           - type: entities
-            title: Job
+            style:
+              .: |
+                ha-card {
+                  border: solid 1px var(--border-color);
+                  font-family: Raleway;
+                }
+              "#states div:nth-child(9)":
+                "hui-sensor-entity-row":
+                  $: |
+                    .text-content::after{
+                       content: '';
+                       display: inline-block;
+                       width: 34px;
+                       height: 34px;
+                       -moz-border-radius: 17px;
+                       -webkit-border-radius: 17px;
+                       border-radius: 17px;
+                       background-color:
+                       {% set updated = (as_timestamp(now()) - as_timestamp(states.sensor.octoprint.last_updated)) / 60 %}
+                       {% set state = states.sensor.ender_3_status %}
+                       {% if state == 'Printing' and updated < 5 %}
+                         orange
+                       {% elif state == 'Operational' and updated < 5 %}
+                         green
+                       {% else %}
+                         red
+                       {% endif %}
+                       ;
+                       margin-left: 10px;
+                    }
+                    .text-content {
+                       display: flex;
+                       justify-content: center;
+                       align-items: center;
+                    }
             entities:
-            - entity: sensor.ender_3_job_percentage
-            - entity: sensor.ender_3_time_remaining_format
-            - entity: sensor.ender_3_time_elapsed_format
+              - entity: sensor.ender_3_status
+                name: Status
+                state_header: 'Status'
+                icon: mdi:bullseye-arrow
+                type: custom:multiple-entity-row
+                entities:
+                  - entity: sensor.ender_3_progress
+                    name: Progress
+                #   - entity: binary_sensor.ender3_power
+                #     name: Strom
+
+              - entity:  sensor.ender_3_fan_speed
+                name: 'Fan Speed'
+                state_header: 'Fan Speed'
+                icon: mdi:fan
+                
+              - entity: sensor.ender_3_tool_temperature_actual
+                name: 'Tool Temperature'
+                state_header: Actual
+                type: custom:multiple-entity-row
+                unit: '°C'
+                icon: mdi:oil-temperature
+                entities:
+                  - entity:  sensor.ender_3_tool_temperature_target
+                    unit: '°C'
+                    name: 'Target'
+              - entity: sensor.ender_3_bed_temperature_actual
+                name: 'Bed Temperature'
+                state_header: Actual
+                type: custom:multiple-entity-row
+                unit: '°C'
+                icon: mdi:oil-temperature
+                entities:
+                  - entity: sensor.ender_3_bed_temperature_target
+                    unit: '°C'
+                    name: 'Target'
+            #   - entity: sensor.octoprint_enclosure_temperature
+            #     name: Gehäuse
+            #     state_header: Temperatur
+            #     type: custom:multiple-entity-row
+            #     entities:
+            #       - entity: sensor.octoprint_enclosure_humidity
+            #         unit: '%'
+            #         name: 'Luftfeuchtigkeit'
+              - entity:  sensor.ender_3_stl_file
+                name: File
+                icon: mdi:file-outline
+              - entity:  sensor.ender_3_time_estimated_print_time_format
+                name: 'Print Time'
+                icon: 'mdi:clock-outline'
+                state_header: 'Print Time'
+                secondary_info: last-changed
+                type: custom:multiple-entity-row
+                entities:
+                  - entity: sensor.ender_3_time_remaining_format
+                    name: 'Time Left'
+                  - entity: sensor.ender_3_time_elapsed_format
+                    name: 'Time Elapsed'
+        
 
             
 
-      - type: vertical-stack
-        cards:
-
+          - type: markdown
+            content: 'Current Model'
+        
           - type: entities
-            title: Status
+            style:
+              .: |
+                ha-card {
+                  border: solid 1px var(--border-color);
+                  font-family: Raleway;
+                }
+              "#states div:nth-child(9)":
+                "hui-sensor-entity-row":
+                  $: |
+                    .text-content::after{
+                       content: '';
+                       display: inline-block;
+                       width: 34px;
+                       height: 34px;
+                       -moz-border-radius: 17px;
+                       -webkit-border-radius: 17px;
+                       border-radius: 17px;
+                       background-color:
+                       {% set updated = (as_timestamp(now()) - as_timestamp(states.sensor.octoprint.last_updated)) / 60 %}
+                       {% set state = states.sensor.ender_3_status %}
+                       {% if state == 'Printing' and updated < 5 %}
+                         orange
+                       {% elif state == 'Operational' and updated < 5 %}
+                         green
+                       {% else %}
+                         red
+                       {% endif %}
+                       ;
+                       margin-left: 10px;
+                    }
+                    .text-content {
+                       display: flex;
+                       justify-content: center;
+                       align-items: center;
+                    }
             entities:
-            - entity: sensor.ender_3_current_state
-            - entity: binary_sensor.ender_3_printing
-            - entity: binary_sensor.ender_3_printing_error
+              - entity: sensor.ender_3_model_total_height
+                name: Height
+                state_header: 'Total'
+                icon: mdi:table-row-height
+                type: custom:multiple-entity-row
+                entities:
+                  - entity: sensor.ender_3_model_current_height
+                    name: Current
 
-          - type: picture-glance
-            camera_image: camera.octoprint
-            entities:
-              - camera.octoprint
-            aspect_ratio: 50%
+                #   - entity: binary_sensor.ender3_power
+                #     name: Strom
+
+              - entity: sensor.ender_3_total_layers
+                name: 'Layers'
+                state_header: Total
+                type: custom:multiple-entity-row
+                icon: mdi:layers
+                entities:
+                  - entity:  sensor.ender_3_current_layer
+                    name: 'Current'
+
+          - type: picture-entity
+            style:
+              .: |
+                ha-card {
+                  height: 330px;
+                }
+            entity: camera.octoprint
+            camera_view: live
+            show_state: false
             show_name: false
-            show_state: false 
-            
 
       - type: vertical-stack
         cards:
+
+
           - type: 'custom:mini-graph-card'
-            name: Bed Temp
+            name: Bed Temperature
             icon: 'mdi:temperature-celsius'
             show:
               labels: hover
               legend: false
               name_adaptive_color: false
             entities:
-              - entity: sensor.ender_3_actual_bed_temp
+              - entity: sensor.ender_3_bed_temperature_actual
                 name: Current Temp
                 color: orange
-              - entity: sensor.ender_3_target_bed_temp
+              - entity: sensor.ender_3_bed_temperature_target
                 color: skyblue
                 name: Target Temp
-            hours_to_show: 24
+            hours_to_show: 72
             line_width: 3
             color_thresholds:
               - value: 35
@@ -84,20 +221,20 @@ cards:
                 color: red
 
           - type: 'custom:mini-graph-card'
-            name: Hotend Temp
+            name: Hotend Temperature
             icon: 'mdi:temperature-celsius'
             show:
               labels: hover
               legend: false
               name_adaptive_color: false
             entities:
-              - entity: sensor.ender_3_actual_tool0_temp
+              - entity: sensor.ender_3_tool_temperature_actual
                 name: Current Temp
                 color: orange
-              - entity: sensor.ender_3_target_tool0_temp
+              - entity: sensor.ender_3_tool_temperature_target
                 color: darkred
                 name: Target Temp
-            hours_to_show: 24
+            hours_to_show: 72
             line_width: 3
             color_thresholds:
               - value: 35
@@ -108,6 +245,11 @@ cards:
                 color: orange
               - value: 300
                 color: red
+            
+
+      - type: vertical-stack
+        cards:
+
         
 #   - card:
 #       title: Octoprint ERROR
@@ -120,32 +262,38 @@ cards:
 #     show_header_toggle: false
 #     type: 'custom:auto-entities'
 
+          - type: entities
+            title: Vaccum
+            entities:
 
-          - type: 'custom:vacuum-card'
-            show_status: true
-            show_toolbar: true
-            entity: vacuum.bai
-            stats:
-              default:
-                # - attribute: fan_speed
-                #   unit: hours
-                - entity_id: sensor.bai_status
-                  subtitle: Status
-                - entity_id: sensor.bai_sidebrush
-                  unit: hours
-                  subtitle: Side brush
-                - entity_id: sensor.bai_brush
-                  unit: hours
-                  subtitle: Main brush
-                - entity_id: sensor.bai_water_level
-#                  unit: hours
-                  subtitle: Water Level
-              cleaning:
-                - attribute: cleaned_area
-                  unit: m2
-                  subtitle: Cleaning area
-                - attribute: cleaning_time
-                  unit: minutes
-                  subtitle: Cleaning time
+              - type: 'custom:vacuum-card'
+                show_status: true
+                show_toolbar: true
+                entity: vacuum.bai
+                stats:
+                  default:
+                    # - attribute: fan_speed
+                    #   unit: hours
+                    - entity_id: sensor.bai_status
+                      subtitle: Status
+                    - entity_id: sensor.bai_sidebrush
+                      unit: hours
+                      subtitle: Side brush
+                    - entity_id: sensor.bai_brush
+                      unit: hours
+                      subtitle: Main brush
+                    - entity_id: sensor.bai_water_level
+        #                  unit: hours
+                      subtitle: Water Level
+                  cleaning:
+                    - attribute: cleaned_area
+                      unit: m2
+                      subtitle: Cleaning area
+                    - attribute: cleaning_time
+                      unit: minutes
+                      subtitle: Cleaning time
+
+
+
 
 
