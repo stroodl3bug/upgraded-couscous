@@ -138,7 +138,8 @@ deebot:
   password: !secret ecovacs_pass
   country: US
   continent: NA
-  deviceid: !secret ecovacs_serial
+  deviceid: 
+    - !secret ecovacs_serial
 
   
 rachio:
