@@ -32,7 +32,10 @@ cards:
             icon: mdi:ceiling-light
             
           - type: "custom:button-card"
-            color_type: blank-card
+            template: lights
+            entity: switch.ikea_upstairs
+            name: Floor Lamp
+            icon: mdi:floor-lamp
 
       - type: horizontal-stack
         cards:

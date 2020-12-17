@@ -28,13 +28,13 @@ cards:
         
           - type: custom:button-card   
             template: lights
-            entity: switch.48674340a4cf12a6b42e
+            entity: switch.ikealeft
             name: Lamp (L)
             icon: mdi:floor-lamp
             
           - type: custom:button-card   
             template: lights
-            entity: switch.48674340a4cf12a65f59
+            entity: switch.ikearight
             name: Lamp (R)
             icon: mdi:floor-lamp
 
