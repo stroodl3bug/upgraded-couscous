@@ -4,21 +4,21 @@
 [![Build Status](https://travis-ci.com/stroodl3bug/upgraded-couscous.svg?branch=master)](https://travis-ci.com/stroodl3bug/upgraded-couscous)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/stroodl3bug/upgraded-couscous)](https://github.com/stroodl3bug/upgraded-couscous/commits/master)
 [![GitHub Activity](https://img.shields.io/github/commit-activity/m/stroodl3bug/upgraded-couscous)](https://github.com/stroodl3bug/upgraded-couscous/commits/master)
-[![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-2020.12.1%20(Latest)-brightgreen)](https://github.com/home-assistant/home-assistant/releases/latest)
+[![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-2021.1.4%20(Latest)-brightgreen)](https://github.com/home-assistant/home-assistant/releases/latest)
 
 
 **Statistics:**
 
 Description | Count
 -- | --
-Entities | 903
+Entities | 962
 Alarm Panel | 2
-Sensors | 620
+Sensors | 665
 Binary sensors | 53
 Cameras | 8
 ZWave Devices | 8
-Media Players | 20
-Device Trackers  | 102
+Media Players | 21
+Device Trackers  | 115
 Persons | 0
 Switches | 48
 Lights | 12
@@ -42,9 +42,7 @@ Groups | 3
 
 [HACS](https://hacs.xyz/docs/configuration/start)
 
-[Raspberry Pi Power Supply Checker](https://github.com/custom-components/sensor.rpi_power/blob/master/README.md)
-
-[deebot vacuum 960/950/920 Custom](https://github.com/And3rsL/Deebot-for-hassio)
+[Deebot for Hassio](https://github.com/And3rsL/Deebot-for-hassio)
 
 [Wyze Sense Component](https://github.com/kevinvincent/wyzesense)
 
