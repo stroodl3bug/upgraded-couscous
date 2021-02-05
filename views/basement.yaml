@@ -144,7 +144,8 @@ cards:
             
       - type: custom:mini-graph-card
         entities: 
-          - sensor.basement_temperature
+          - sensor.lil_bee_temperature
+        name: Stairs Temperature  
         height: 65
         line_width: 2
         font_size: 70

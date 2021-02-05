@@ -51,27 +51,6 @@ cards:
             name: Patio
 
     
-
-      - type: custom:mini-graph-card
-        entities: 
-          - sensor.family_room_temperature    
-        height: 65
-        line_width: 2
-        font_size: 70
-        hours_to_show: 168
-        points_per_hour: 1
-        show:
-          #extrema: true
-          fill: true
-          #graph: bar
-        color_thresholds:
-          - value: 76
-            color: "#e74c3c"
-          - value: 70
-            color: "#1db954"
-          - value: 65
-            color: "#3498db" 
-
   - type: vertical-stack
     cards:
       - type: markdown
