@@ -4,24 +4,24 @@
 [![Build Status](https://travis-ci.com/stroodl3bug/upgraded-couscous.svg?branch=master)](https://travis-ci.com/stroodl3bug/upgraded-couscous)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/stroodl3bug/upgraded-couscous)](https://github.com/stroodl3bug/upgraded-couscous/commits/master)
 [![GitHub Activity](https://img.shields.io/github/commit-activity/m/stroodl3bug/upgraded-couscous)](https://github.com/stroodl3bug/upgraded-couscous/commits/master)
-[![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-2021.2.3%20(Latest)-brightgreen)](https://github.com/home-assistant/home-assistant/releases/latest)
+[![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-2021.3.4%20(Latest)-brightgreen)](https://github.com/home-assistant/home-assistant/releases/latest)
 
 
 **Statistics:**
 
 Description | Count
 -- | --
-Entities | 974
+Entities | 938
 Alarm Panel | 2
-Sensors | 673
-Binary sensors | 53
+Sensors | 648
+Binary sensors | 54
 Cameras | 8
-ZWave Devices | 8
+ZWave Devices | 0
 Media Players | 20
-Device Trackers  | 118
+Device Trackers  | 122
 Persons | 0
-Switches | 50
-Lights | 12
+Switches | 44
+Lights | 10
 Remotes | 3
 Groups | 3
 
@@ -32,11 +32,9 @@ Groups | 3
 
 [Alarm.com](https://www.github.com/uvjustin/alarmdotcom)
 
-[Alarm.com](https://www.github.com/uvjustin/alarmdotcomajax)
-
 [Xbox One](https://github.com/ericleb010/hassio-addons/tree/master/xboxone)
 
-[Node-RED](https://github.com/zachowj/node-red)
+[Node-RED](https://zachowj.github.io/node-red-contrib-home-assistant-websocket/guide/custom_integration/)
 
 [Clean up your snapshots](https://github.com/tmonck/clean_up_snapshots)
 
