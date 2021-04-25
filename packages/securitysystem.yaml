@@ -7,10 +7,10 @@ binary_sensor:
       basement_window:
         friendly_name: "Basement Window"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Basement Window is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Basement Window is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
           {% if is_state('binary_sensor.basement_window', 'on') %}
@@ -21,13 +21,13 @@ binary_sensor:
       basement_glass_break:
         friendly_name: "Basement Glass Break"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Basement Glass Break is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Basement Glass Break is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Basement Glass Break is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Basement Glass Break is Open') %}
             mdi:window-open
           {% else %}
             mdi:window-closed
@@ -35,13 +35,13 @@ binary_sensor:
       back_door:
         friendly_name: "Back Door"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Garage Door is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Garage Door is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Garage Door is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Garage Door is Open') %}
             mdi:door-open
           {% else %}
             mdi:door-closed
@@ -49,13 +49,13 @@ binary_sensor:
       front_door:
         friendly_name: "Front Door"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Front Door is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Front Door is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Front Door is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Front Door is Open') %}
             mdi:door-open
           {% else %}
             mdi:door-closed
@@ -67,13 +67,13 @@ binary_sensor:
       kids_room_window_1:
         friendly_name: "Kids Room Window 1"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Second Bedroom Window 1 is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Second Bedroom Window 1 is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Second Bedroom Window 1 is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Second Bedroom Window 1 is Open') %}
             mdi:window-open
           {% else %}
             mdi:window-closed
@@ -81,13 +81,13 @@ binary_sensor:
       kids_room_window_2:
         friendly_name: "Kids Room Window 2"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Second Bedroom Window 2 is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Second Bedroom Window 2 is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Second Bedroom Window 2 is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Second Bedroom Window 2 is Open') %}
             mdi:window-open
           {% else %}
             mdi:window-closed
@@ -95,13 +95,13 @@ binary_sensor:
       guest_room_window_1:
         friendly_name: "Guest Bedroom Window 1"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Third Bedroom Window 1 is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Third Bedroom Window 1 is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Third Bedroom Window 1 is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Third Bedroom Window 1 is Open') %}
             mdi:window-open
           {% else %}
             mdi:window-closed
@@ -109,13 +109,13 @@ binary_sensor:
       guest_room_window_2:
         friendly_name: "Guest Bedroom Window 2"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Third Bedroom Window 2 is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Third Bedroom Window 2 is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Third Bedroom Window 2 is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Third Bedroom Window 2 is Open') %}
             mdi:window-open
           {% else %}
             mdi:window-closed
@@ -123,13 +123,13 @@ binary_sensor:
       guest_room_window_3:
         friendly_name: "Guest Bedroom Window 3"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Third Bedroom Window 3 is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Third Bedroom Window 3 is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Third Bedroom Window 3 is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Third Bedroom Window 3 is Open') %}
             mdi:window-open
           {% else %}
             mdi:window-closed
@@ -141,13 +141,13 @@ binary_sensor:
       breakfast_window_1:
         friendly_name: "Breakfast Room Window 1"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Breakfast Room Window 1 is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Breakfast Room Window 1 is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Breakfast Room Window 1 is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Breakfast Room Window 1 is Open') %}
             mdi:window-open
           {% else %}
             mdi:window-closed
@@ -155,13 +155,13 @@ binary_sensor:
       breakfast_window_2:
         friendly_name: "Breakfast Room Window 2"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Breakfast Room Window 2 is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Breakfast Room Window 2 is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Breakfast Room Window 2 is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Breakfast Room Window 2 is Open') %}
             mdi:window-open
           {% else %}
             mdi:window-closed
@@ -169,13 +169,13 @@ binary_sensor:
       living_room_window_1:
         friendly_name: "Living Room Window 1"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Living Room Window 1 is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Living Room Window 1 is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Living Room Window 1 is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Living Room Window 1 is Open') %}
             mdi:window-open
           {% else %}
             mdi:window-closed
@@ -183,13 +183,13 @@ binary_sensor:
       living_room_window_2:
         friendly_name: "Living Room Window 2"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Living Room Window 2 is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Living Room Window 2 is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Living Room Window 2 is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Living Room Window 2 is Open') %}
             mdi:window-open
           {% else %}
             mdi:window-closed
@@ -197,13 +197,13 @@ binary_sensor:
       living_room_window_3:
         friendly_name: "Living Room Window 3"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Living Room Window 3 is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Living Room Window 3 is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Living Room Window 3 is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Living Room Window 3 is Open') %}
             mdi:window-open
           {% else %}
             mdi:window-closed
@@ -211,13 +211,13 @@ binary_sensor:
       dining_room_window_1:
         friendly_name: "Dining Room Window 1"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Dining Room Window 1 is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Dining Room Window 1 is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Dining Room Window 1 is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Dining Room Window 1 is Open') %}
             mdi:window-open
           {% else %}
             mdi:window-closed
@@ -225,13 +225,13 @@ binary_sensor:
       dining_room_window_2:
         friendly_name: "Dining Room Window 2"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Dining Room Window 2 is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Dining Room Window 2 is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Dining Room Window 2 is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Dining Room Window 2 is Open') %}
             mdi:window-open
           {% else %}
             mdi:window-closed
@@ -239,13 +239,13 @@ binary_sensor:
       dining_room_window_3:
         friendly_name: "Dining Room Window 3"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Dining Room Window 3 is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Dining Room Window 3 is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Dining Room Window 3 is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Dining Room Window 3 is Open') %}
             mdi:window-open
           {% else %}
             mdi:window-closed
@@ -253,13 +253,13 @@ binary_sensor:
       dining_room_window_4:
         friendly_name: "Dining Room Window 4"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Dining Room Window 4 is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Dining Room Window 4 is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Dining Room Window 4 is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Dining Room Window 4 is Open') %}
             mdi:window-open
           {% else %}
             mdi:window-closed
@@ -267,13 +267,13 @@ binary_sensor:
       patio_door:
         friendly_name: "Patio Door"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Patio Door is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Patio Door is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Patio Door is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Patio Door is Open') %}
             mdi:door-open
           {% else %}
             mdi:door-closed
@@ -281,13 +281,13 @@ binary_sensor:
       family_room_window_1:
         friendly_name: "Family Room Window 1"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Family Room Window 1 is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Family Room Window 1 is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Family Room Window 1 is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Family Room Window 1 is Open') %}
             mdi:window-open
           {% else %}
             mdi:window-closed
@@ -295,13 +295,13 @@ binary_sensor:
       family_room_window_2:
         friendly_name: "Family Room Window 2"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Family Room Window 2 is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Family Room Window 2 is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Family Room Window 2 is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Family Room Window 2 is Open') %}
             mdi:window-open
           {% else %}
             mdi:window-closed
@@ -309,13 +309,13 @@ binary_sensor:
       family_glass_break:
         friendly_name: "Family Glass Break"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Family Glass Break is Open', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Family Glass Break is Open') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Family Glass Break is Open', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Family Glass Break is Open') %}
             mdi:motion-sensor
           {% else %}
             mdi:stamper
@@ -323,13 +323,13 @@ binary_sensor:
       motion_detector:
         friendly_name: "Motion Detector"
         value_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Motion Detector is Activated', ignorecase=TRUE) %}
-            True
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Motion Detector is Activated') %}
+            true
           {% else %}
-            False
+            false
           {% endif %} 
         icon_template: >-
-          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Motion Detector is Activated', ignorecase=TRUE) %}
+          {% if state_attr('alarm_control_panel.alarm_com', 'sensor_status')|regex_search('Motion Detector is Activated') %}
             mdi:motion-sensor
           {% else %}
             mdi:stamper
@@ -405,7 +405,6 @@ sensor:
   - platform: template
     sensors:
       binary_sensor_count:
-        entity_id: []
         value_template: >-
            {{ states.binary_sensor|count }}
       sensor_count:
