@@ -127,6 +127,11 @@ media_source:
 #    homeassistant.components.darksky: debug
 #    homeassistant.components.alarmdotcom: debug   
 
+logger:
+  default: warning
+  logs:
+    custom_components.wyzeapi: debug
+
 # Example configuration.yaml entry
 speedtestdotnet:
   scan_interval:
