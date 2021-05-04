@@ -150,8 +150,8 @@ deebot:
     - !secret ecovacs_serial
 
   
-rachio:
-  api_key: !secret rachio_key
+# rachio:
+#   api_key: !secret rachio_key
 
 
 # Example configuration.yaml entry
@@ -159,10 +159,10 @@ device_tracker:
   - platform: bluetooth_le_tracker
   
 # Example configuration.yaml entry
-cover:
-  - platform: myq
-    username: !secret myq_username
-    password: !secret myq_password
+# cover:
+#   - platform: myq
+#     username: !secret myq_username
+#     password: !secret myq_password
 
 
 # Example configuration.yaml entry
