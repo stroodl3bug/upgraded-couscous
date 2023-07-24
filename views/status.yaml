@@ -44,7 +44,7 @@ cards:
                       top: 9%
                       left: 8%
                     type: state-icon
-                    entity: sensor.kk_battery
+                    entity: sensor.iphone_kk_battery_state
     
                   - style: 
                       color: green
@@ -55,7 +55,7 @@ cards:
                       text-transform: capitalize
                       font-variant: small-caps
                     type: state-label
-                    entity: sensor.kk_battery
+                    entity: sensor.iphone_kk_battery_level
     
                   - style:
                       color: yellow
@@ -65,35 +65,35 @@ cards:
                       font-variant: small-caps
                       font-weight: bold
                     type: state-label
-                    entity: sensor.kk_location
+                    entity: device_tracker.iphone_kk
     
-                  - style:
-                      color: yellow
-                      top: 80%
-                      left: 50%
-                      font-family: Quicksand
-                      font-variant: small-caps
-                      font-weight: bold
-                    type: state-label
-                    entity: sensor.kk_loc_since_time
-                    prefix: 'since '
+                #   - style:
+                #       color: yellow
+                #       top: 80%
+                #       left: 50%
+                #       font-family: Quicksand
+                #       font-variant: small-caps
+                #       font-weight: bold
+                #     type: state-label
+                #     entity: sensor.kk_loc_since_time
+                #     prefix: 'since '
                     
-                  - style:
-                      color: yellow
-                      top: 85%
-                      left: 50%
-                      font-family: Quicksand
-                      font-variant: small-caps
-                      font-weight: bold
-                    type: state-label
-                    prefix: ' on '
-                    entity: sensor.kk_loc_since_date                
+                #   - style:
+                #       color: yellow
+                #       top: 85%
+                #       left: 50%
+                #       font-family: Quicksand
+                #       font-variant: small-caps
+                #       font-weight: bold
+                #     type: state-label
+                #     prefix: ' on '
+                #     entity: sensor.kk_loc_since_date                
     
     
           - type: vertical-stack
             cards:
               - type: alarm-panel
-                entity: alarm_control_panel.alarm_com
+                entity: alarm_control_panel.panel
                 name: Status
     
               - type: entities
