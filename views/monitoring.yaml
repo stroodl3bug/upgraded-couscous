@@ -37,7 +37,7 @@ cards:
                       - type: divider
                           
                       - type: custom:multiple-entity-row
-                        entity: sensor.installed_version
+                        entity: sensor.current_version
                         name: HA Installed Version
                         icon: mdi:home-assistant
                         state_header: Current
