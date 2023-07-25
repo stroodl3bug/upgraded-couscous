@@ -1,12 +1,13 @@
 {
-  "domain": "alarmdotcom",
-  "name": "Alarm.com",
-  "documentation": "https://www.github.com/uvjustin/alarmdotcom",
-  "requirements": [
-    "beautifulsoup4==4.9.3",
-    "pyalarmdotcomajax==0.1.10"
-  ],
-  "dependencies": [],
-  "version": "0.1.9",
-  "codeowners": ["@uvjustin"]
+    "domain": "alarmdotcom",
+    "name": "Alarm.com",
+    "codeowners": ["@uvjustin", "@elahd"],
+    "config_flow": true,
+    "dependencies": [],
+    "documentation": "https://github.com/pyalarmdotcom/alarmdotcom",
+    "integration_type": "hub",
+    "iot_class": "cloud_polling",
+    "issue_tracker": "https://github.com/pyalarmdotcom/alarmdotcom/issues",
+    "requirements": ["beautifulsoup4>=4.10.0", "pyalarmdotcomajax==0.5.3"],
+    "version": "3.0.4"
 }

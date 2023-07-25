@@ -1,7 +1,9 @@
 config: #show config wrench as default_config removed to hide map & history
+my:
 logbook: #show logbook as default_config removed to hide map & history
 history: #add history back to see graphs :(
 homeassistant:
+  country: 'US'
   name: Home 
   temperature_unit: F
   latitude: !secret home_latitude
@@ -57,12 +59,12 @@ spotify:
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
-hacs:
-  token: !secret hacs_token
+# hacs:
+#   token: !secret hacs_token
 
-hue:
-  bridges:
-    - host: !secret hue_ip  
+#hue:
+#  bridges:
+#    - host: !secret hue_ip  
 
 roku:
 - host: !secret roku_ip
