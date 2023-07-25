@@ -69,12 +69,12 @@ script: !include scripts.yaml
 roku:
 - host: !secret roku_ip
 
-alarm_control_panel:
-  platform: alarmdotcom
+#alarm_control_panel:
+#  platform: alarmdotcom
 #  platform: alarmdotcomajax
-  username: !secret alarm_user
-  password: !secret alarm_pass
-  two_factor_cookie: !secret alarm_cookie
+#  username: !secret alarm_user
+#  password: !secret alarm_pass
+#  two_factor_cookie: !secret alarm_cookie
 
 
 # Example configuration.yaml entry
@@ -183,7 +183,3 @@ panel_custom:
     sidebar_icon: mdi:access-point-network
     url_path: zwave
     
-clean_up_snapshots_service:
-  host: !secret hassio_url_ip
-  token: !secret backup_longlivedtoken
-  number_of_snapshots_to_keep: 10
