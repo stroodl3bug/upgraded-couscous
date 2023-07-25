@@ -43,11 +43,6 @@ readme:
 
 tts:
   - platform: google_translate
-alexa_media:
-  accounts:
-    - email: !secret amazon_user
-      password: !secret amazon_password
-      url: amazon.com
 
 
 spotify:
