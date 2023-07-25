@@ -68,7 +68,7 @@ cards:
                     name: Database
                     icon: mdi:database
                     
-                  - entity: sensor.github_commit
+                  - entity: sensor.stroodl3bug_upgraded_couscous_latest_commit
                     name: Github
 
                   - type: divider
