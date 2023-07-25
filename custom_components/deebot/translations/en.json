@@ -1,0 +1,64 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Already configured",
+      "no_supported_devices_found": "No supported devices found",
+      "reauth_successful": "Re-authentication was successful"
+    },
+    "error": {
+      "cannot_connect": "Can't connect to the ecovacs API. Please check the logs",
+      "invalid_auth": "Invalid username or password",
+      "invalid_continent": "Continent code should be two letter code",
+      "invalid_country": "Country code should be two letter code",
+      "select_robots": "Please select at least 1 robot",
+      "unknown": "Unknown error. Please check the logs"
+    },
+    "step": {
+      "options": {
+        "data": {
+          "devices": "Devices"
+        },
+        "data_description": {
+          "devices": "Please select all devices, which you want use in HA."
+        }
+      },
+      "user": {
+        "data": {
+          "continent": "Continent",
+          "country": "Country",
+          "password": "Password",
+          "username": "E-mail or ShortID"
+        },
+        "data_description": {
+          "continent": "The two letter continent code. Ex.: ww, eu. If your country code is not working try ww",
+          "country": "The two letter country code. Ex.: us, uk"
+        }
+      },
+      "user_advanced": {
+        "description": "Please select \"Bumper\" ONLY if you have a working bumper instance already. Otherwise, select \"Cloud\" please."
+      }
+    }
+  },
+  "options": {
+    "abort": {
+      "cannot_connect": "Can't connect to the ecovacs API. Please check the logs",
+      "invalid_auth": "Authentication failed. Please reauthenticate first",
+      "no_supported_devices_found": "No supported devices found",
+      "unknown_get_devices": "Unknown error on getting all devices. Please check the logs"
+    },
+    "error": {
+      "select_robots": "Please select at least 1 robot",
+      "unknown": "Unknown error. Please check the logs"
+    },
+    "step": {
+      "init": {
+        "data": {
+          "devices": "Devices"
+        },
+        "data_description": {
+          "devices": "Please select all devices, which you want use in HA."
+        }
+      }
+    }
+  }
+}

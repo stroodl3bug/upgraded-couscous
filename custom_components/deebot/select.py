@@ -1,12 +1,10 @@
-"""Binary sensor module."""
+"""Select module."""
 import logging
 
-from deebot_client.events import WaterInfoEvent
+from deebot_client.commands import SetWaterInfo
+from deebot_client.events import WaterAmount, WaterInfoEvent
 from deebot_client.events.event_bus import EventListener
-from homeassistant.components.binary_sensor import (
-    BinarySensorEntity,
-    BinarySensorEntityDescription,
-)
+from homeassistant.components.select import SelectEntity, SelectEntityDescription
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import EntityCategory
@@ -29,35 +27,38 @@ async def async_setup_entry(
 
     new_devices = []
     for vacbot in hub.vacuum_bots:
-        new_devices.append(DeebotMopAttachedBinarySensor(vacbot))
+        new_devices.append(WaterInfoSelect(vacbot))
 
     if new_devices:
         async_add_entities(new_devices)
 
 
-class DeebotMopAttachedBinarySensor(DeebotEntity, BinarySensorEntity):  # type: ignore
-    """Deebot mop attached binary sensor."""
+class WaterInfoSelect(DeebotEntity, SelectEntity):  # type: ignore
+    """Water info select entity."""
 
-    entity_description = BinarySensorEntityDescription(
-        key="mop_attached",
+    entity_description = SelectEntityDescription(
+        key="water_amount",
         entity_registry_enabled_default=False,
-        entity_category=EntityCategory.DIAGNOSTIC,
+        icon="mdi:water",
+        entity_category=EntityCategory.CONFIG,
     )
 
-    @property
-    def icon(self) -> str | None:
-        """Return the icon to use in the frontend, if any."""
-        return "mdi:water" if self.is_on else "mdi:water-off"
+    _attr_options = [amount.display_name for amount in WaterAmount]
+    _attr_current_option: str | None = None
 
     async def async_added_to_hass(self) -> None:
         """Set up the event listeners now that hass is ready."""
         await super().async_added_to_hass()
 
-        async def on_event(event: WaterInfoEvent) -> None:
-            self._attr_is_on = event.mop_attached
+        async def on_water_info(event: WaterInfoEvent) -> None:
+            self._attr_current_option = event.amount.display_name
             self.async_write_ha_state()
 
         listener: EventListener = self._vacuum_bot.events.subscribe(
-            WaterInfoEvent, on_event
+            WaterInfoEvent, on_water_info
         )
         self.async_on_remove(listener.unsubscribe)
+
+    async def async_select_option(self, option: str) -> None:
+        """Change the selected option."""
+        await self._vacuum_bot.execute_command(SetWaterInfo(option))

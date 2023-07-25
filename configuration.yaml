@@ -136,15 +136,7 @@ speedtestdotnet:
     - download
     - upload
 
-deebot:
-  username: !secret ecovacs_user
-  password: !secret ecovacs_pass
-  country: US
-  continent: NA
-  deviceid: 
-    - !secret ecovacs_serial
 
-  
 rachio:
   api_key: !secret rachio_key
 

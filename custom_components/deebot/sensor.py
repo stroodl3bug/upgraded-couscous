@@ -1,179 +1,258 @@
-"""Support for Deebot Sensor."""
-from typing import Optional
+"""Sensor module."""
+import logging
+from collections.abc import Callable
+from math import floor
+from typing import TypeVar
 
-from deebotozmo import *
-from homeassistant.const import (STATE_UNKNOWN)
-from homeassistant.helpers.entity import Entity
+from deebot_client.events import (
+    CleanLogEvent,
+    ErrorEvent,
+    Event,
+    LifeSpan,
+    LifeSpanEvent,
+    StatsEvent,
+    TotalStatsEvent,
+)
+from deebot_client.events.event_bus import EventListener
+from deebot_client.vacuum_bot import VacuumBot
+from homeassistant.components.sensor import (
+    SensorEntity,
+    SensorEntityDescription,
+    SensorStateClass,
+)
+from homeassistant.config_entries import ConfigEntry
+from homeassistant.const import (
+    AREA_SQUARE_METERS,
+    CONF_DESCRIPTION,
+    TIME_HOURS,
+    TIME_MINUTES,
+)
+from homeassistant.core import HomeAssistant
+from homeassistant.helpers.entity import EntityCategory
+from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.helpers.typing import StateType
 
-from . import HUB as hub
+from .const import DOMAIN, LAST_ERROR
+from .entity import DeebotEntity
+from .hub import DeebotHub
 
 _LOGGER = logging.getLogger(__name__)
 
-from homeassistant.components.vacuum import (
-    STATE_CLEANING,
-    STATE_DOCKED,
-    STATE_ERROR,
-    STATE_IDLE,
-    STATE_PAUSED,
-    STATE_RETURNING,
-)
 
-STATE_CODE_TO_STATE = {
-    'STATE_IDLE': STATE_IDLE,
-    'STATE_CLEANING': STATE_CLEANING,
-    'STATE_RETURNING': STATE_RETURNING,
-    'STATE_DOCKED': STATE_DOCKED,
-    'STATE_ERROR': STATE_ERROR,
-    'STATE_PAUSED': STATE_PAUSED,
-}
+async def async_setup_entry(
+    hass: HomeAssistant,
+    config_entry: ConfigEntry,
+    async_add_entities: AddEntitiesCallback,
+) -> None:
+    """Add entities for passed config_entry in HA."""
+    hub: DeebotHub = hass.data[DOMAIN][config_entry.entry_id]
+
+    new_devices = []
+    for vacbot in hub.vacuum_bots:
+        for component in LifeSpan:
+            new_devices.append(LifeSpanSensor(vacbot, component))
+
+        new_devices.extend(
+            [
+                LastCleaningJobSensor(vacbot),
+                LastErrorSensor(vacbot),
+                # Stats
+                DeebotGenericSensor(
+                    vacbot,
+                    SensorEntityDescription(
+                        key="stats_area",
+                        icon="mdi:floor-plan",
+                        native_unit_of_measurement=AREA_SQUARE_METERS,
+                        entity_registry_enabled_default=False,
+                    ),
+                    StatsEvent,
+                    lambda e: e.area,
+                ),
+                DeebotGenericSensor(
+                    vacbot,
+                    SensorEntityDescription(
+                        key="stats_time",
+                        icon="mdi:timer-outline",
+                        native_unit_of_measurement=TIME_MINUTES,
+                        entity_registry_enabled_default=False,
+                    ),
+                    StatsEvent,
+                    lambda e: round(e.time / 60) if e.time else None,
+                ),
+                DeebotGenericSensor(
+                    vacbot,
+                    SensorEntityDescription(
+                        key="stats_type",
+                        icon="mdi:cog",
+                        entity_registry_enabled_default=False,
+                    ),
+                    StatsEvent,
+                    lambda e: e.type,
+                ),
+                # TotalStats
+                DeebotGenericSensor(
+                    vacbot,
+                    SensorEntityDescription(
+                        key="stats_total_area",
+                        icon="mdi:floor-plan",
+                        native_unit_of_measurement=AREA_SQUARE_METERS,
+                        entity_registry_enabled_default=False,
+                        state_class=SensorStateClass.TOTAL_INCREASING,
+                    ),
+                    TotalStatsEvent,
+                    lambda e: e.area,
+                ),
+                DeebotGenericSensor(
+                    vacbot,
+                    SensorEntityDescription(
+                        key="stats_total_time",
+                        icon="mdi:timer-outline",
+                        native_unit_of_measurement=TIME_HOURS,
+                        entity_registry_enabled_default=False,
+                        state_class=SensorStateClass.TOTAL_INCREASING,
+                    ),
+                    TotalStatsEvent,
+                    lambda e: round(e.time / 3600),
+                ),
+                DeebotGenericSensor(
+                    vacbot,
+                    SensorEntityDescription(
+                        key="stats_total_cleanings",
+                        icon="mdi:counter",
+                        entity_registry_enabled_default=False,
+                        state_class=SensorStateClass.TOTAL_INCREASING,
+                    ),
+                    TotalStatsEvent,
+                    lambda e: e.cleanings,
+                ),
+            ]
+        )
+
+    if new_devices:
+        async_add_entities(new_devices)
 
 
-def setup_platform(hass, config, add_devices, discovery_info=None):
-    """Set up the Deebot sensor."""
-    hub.update()
-
-    for vacbot in hub.vacbots:
-        # General
-        add_devices([DeebotLastCleanImageSensor(vacbot, "last_clean_image")], True)
-        add_devices([DeebotWaterLevelSensor(vacbot, "water_level")], True)
-
-        # Components
-        add_devices([DeebotComponentSensor(vacbot, COMPONENT_MAIN_BRUSH)], True)
-        add_devices([DeebotComponentSensor(vacbot, COMPONENT_SIDE_BRUSH)], True)
-        add_devices([DeebotComponentSensor(vacbot, COMPONENT_FILTER)], True)
-
-        # Stats
-        add_devices([DeebotStatsSensor(vacbot, "stats_area")], True)
-        add_devices([DeebotStatsSensor(vacbot, "stats_time")], True)
-        add_devices([DeebotStatsSensor(vacbot, "stats_type")], True)
+T = TypeVar("T", bound=Event)
 
 
-class DeebotBaseSensor(Entity):
-    """Deebot base sensor"""
+class DeebotGenericSensor(DeebotEntity, SensorEntity):  # type: ignore
+    """Deebot generic sensor."""
 
-    def __init__(self, vacbot, device_id):
+    def __init__(
+        self,
+        vacuum_bot: VacuumBot,
+        entity_descrption: SensorEntityDescription,
+        event_type: type[T],
+        extract_value: Callable[[T], StateType],
+    ):
         """Initialize the Sensor."""
+        super().__init__(vacuum_bot, entity_descrption)
+        self._event_type = event_type
+        self._extract_value = extract_value
 
-        self._state = STATE_UNKNOWN
-        self._vacbot = vacbot
-        self._id = device_id
+    async def async_added_to_hass(self) -> None:
+        """Set up the event listeners now that hass is ready."""
+        await super().async_added_to_hass()
 
-        if self._vacbot.vacuum.get("nick", None) is not None:
-            self._vacbot_name = "{}".format(self._vacbot.vacuum["nick"])
-        else:
-            # In case there is no nickname defined, use the device id
-            self._vacbot_name = "{}".format(self._vacbot.vacuum["did"])
+        async def on_event(event: T) -> None:
+            value = self._extract_value(event)
+            if value is not None:
+                self._attr_native_value = value
+                self.async_write_ha_state()
 
-        self._name = self._vacbot_name + "_" + device_id
-
-    @property
-    def name(self):
-        """Return the name of the device."""
-        return self._name
+        listener: EventListener = self._vacuum_bot.events.subscribe(
+            self._event_type, on_event
+        )
+        self.async_on_remove(listener.unsubscribe)
 
 
-class DeebotLastCleanImageSensor(DeebotBaseSensor):
-    """Deebot Sensor"""
+class LastErrorSensor(DeebotEntity, SensorEntity):  # type: ignore
+    """Last error sensor."""
 
-    def __init__(self, vacbot, device_id):
+    _always_available = True
+    entity_description = SensorEntityDescription(
+        key=LAST_ERROR,
+        icon="mdi:alert-circle",
+        entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
+    )
+
+    async def async_added_to_hass(self) -> None:
+        """Set up the event listeners now that hass is ready."""
+        await super().async_added_to_hass()
+
+        async def on_event(event: ErrorEvent) -> None:
+            self._attr_native_value = event.code
+            self._attr_extra_state_attributes = {CONF_DESCRIPTION: event.description}
+            self.async_write_ha_state()
+
+        listener: EventListener = self._vacuum_bot.events.subscribe(
+            ErrorEvent, on_event
+        )
+        self.async_on_remove(listener.unsubscribe)
+
+
+class LifeSpanSensor(DeebotEntity, SensorEntity):  # type: ignore
+    """Life span sensor."""
+
+    def __init__(self, vacuum_bot: VacuumBot, component: LifeSpan):
         """Initialize the Sensor."""
-        super(DeebotLastCleanImageSensor, self).__init__(vacbot, device_id)
+        entity_description = SensorEntityDescription(
+            key=f"life_span_{component.name.lower()}",
+            icon="mdi:air-filter" if component == LifeSpan.FILTER else "mdi:broom",
+            entity_registry_enabled_default=False,
+            native_unit_of_measurement="%",
+            entity_category=EntityCategory.DIAGNOSTIC,
+        )
+        super().__init__(vacuum_bot, entity_description)
+        self._component = component
 
-    @property
-    def state(self):
-        """Return the state of the vacuum cleaner."""
-        if self._vacbot.last_clean_image is not None:
-            return self._vacbot.last_clean_image
+    async def async_added_to_hass(self) -> None:
+        """Set up the event listeners now that hass is ready."""
+        await super().async_added_to_hass()
 
-    @property
-    def icon(self) -> Optional[str]:
-        """Return the icon to use in the frontend, if any."""
-        return "mdi:image-search"
+        async def on_event(event: LifeSpanEvent) -> None:
+            if event.type == self._component:
+                self._attr_native_value = event.percent
+                self._attr_extra_state_attributes = {
+                    "remaining": floor(event.remaining / 60)
+                }
+                self.async_write_ha_state()
 
-
-class DeebotWaterLevelSensor(DeebotBaseSensor):
-    """Deebot Sensor"""
-
-    def __init__(self, vacbot, device_id):
-        """Initialize the Sensor."""
-        super(DeebotWaterLevelSensor, self).__init__(vacbot, device_id)
-
-    @property
-    def state(self):
-        """Return the state of the vacuum cleaner."""
-
-        if self._vacbot.water_level is not None:
-            return self._vacbot.water_level
-
-    @property
-    def icon(self) -> Optional[str]:
-        """Return the icon to use in the frontend, if any."""
-        return "mdi:water"
+        listener: EventListener = self._vacuum_bot.events.subscribe(
+            LifeSpanEvent, on_event
+        )
+        self.async_on_remove(listener.unsubscribe)
 
 
-class DeebotComponentSensor(DeebotBaseSensor):
-    """Deebot Sensor"""
+class LastCleaningJobSensor(DeebotEntity, SensorEntity):  # type: ignore
+    """Last cleaning job sensor."""
 
-    def __init__(self, vacbot, device_id):
-        """Initialize the Sensor."""
-        super(DeebotComponentSensor, self).__init__(vacbot, device_id)
+    _always_available = True
+    entity_description = SensorEntityDescription(
+        key="last_cleaning",
+        icon="mdi:history",
+        entity_registry_enabled_default=False,
+    )
 
-    @property
-    def unit_of_measurement(self):
-        """Return the unit of measurement."""
-        return '%'
+    async def async_added_to_hass(self) -> None:
+        """Set up the event listeners now that hass is ready."""
+        await super().async_added_to_hass()
 
-    @property
-    def state(self):
-        """Return the state of the vacuum cleaner."""
+        async def on_event(event: CleanLogEvent) -> None:
+            if event.logs:
+                log = event.logs[0]
+                self._attr_native_value = log.stop_reason.display_name
+                self._attr_extra_state_attributes = {
+                    "timestamp": log.timestamp,
+                    "image_url": log.image_url,
+                    "type": log.type,
+                    "area": log.area,
+                    "duration": log.duration / 60,
+                }
+                self.async_write_ha_state()
 
-        for key, val in self._vacbot.components.items():
-            if key == self._id:
-                return int(val)
-
-    @property
-    def icon(self) -> Optional[str]:
-        """Return the icon to use in the frontend, if any."""
-        if self._id == COMPONENT_MAIN_BRUSH or self._id == COMPONENT_SIDE_BRUSH:
-            return "mdi:broom"
-        elif self._id == COMPONENT_FILTER:
-            return "mdi:air-filter"
-
-
-class DeebotStatsSensor(DeebotBaseSensor):
-    """Deebot Sensor"""
-
-    def __init__(self, vacbot, device_id):
-        """Initialize the Sensor."""
-        super(DeebotStatsSensor, self).__init__(vacbot, device_id)
-
-    @property
-    def unit_of_measurement(self):
-        """Return the unit of measurement."""
-        if self._id == 'stats_area':
-            return "mq"
-        elif self._id == 'stats_time':
-            return "min"
-
-    @property
-    def state(self):
-        """Return the state of the vacuum cleaner."""
-
-        if self._id == 'stats_area' and self._vacbot.stats_area is not None:
-            return int(self._vacbot.stats_area)
-        elif self._id == 'stats_time'  and self._vacbot.stats_time is not None:
-            return int(self._vacbot.stats_time/60)
-        elif self._id == 'stats_type':
-            return self._vacbot.stats_type
-        else:
-            return STATE_UNKNOWN
-
-    @property
-    def icon(self) -> Optional[str]:
-        """Return the icon to use in the frontend, if any."""
-        if self._id == 'stats_area':
-            return "mdi:floor-plan"
-        elif self._id == 'stats_time':
-            return "mdi:timer-outline"
-        elif self._id == 'stats_type':
-            return "mdi:cog"
+        listener: EventListener = self._vacuum_bot.events.subscribe(
+            CleanLogEvent, on_event
+        )
+        self.async_on_remove(listener.unsubscribe)
