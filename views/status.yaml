@@ -59,24 +59,24 @@ cards:
     
                   - style:
                       color: yellow
-                      top: 75%
-                      left: 50%
+                      top: 90%
+                      left: 88%
                       font-family: Quicksand
                       font-variant: small-caps
                       font-weight: bold
                     type: state-label
                     entity: device_tracker.iphone_kk
     
-                #   - style:
-                #       color: yellow
-                #       top: 80%
-                #       left: 50%
-                #       font-family: Quicksand
-                #       font-variant: small-caps
-                #       font-weight: bold
-                #     type: state-label
-                #     entity: sensor.kk_loc_since_time
-                #     prefix: 'since '
+                  - style:
+                      color: green
+                      top: 90%
+                      left: 12%
+                      font-family: Quicksand
+                      font-variant: small-caps
+                      font-weight: bold
+                    type: state-label
+                    entity: sensor.iphone_kk_ssid
+#                    prefix: ''
                     
                 #   - style:
                 #       color: yellow
