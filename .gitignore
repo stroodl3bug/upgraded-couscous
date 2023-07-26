@@ -42,7 +42,7 @@ harmony_harmony.conf
 pyozw.sqlite
 .shopping_list.json
 *.conf
-
+home-assistant.log*
 #Others
 *.mp3
 
