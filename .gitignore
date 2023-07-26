@@ -4,6 +4,7 @@ logs
 *.db
 OZW_Log.txt
 home-assistant_v2.db*
+home-assistant.log*
 
 #Folders
 .storage
@@ -42,7 +43,7 @@ harmony_harmony.conf
 pyozw.sqlite
 .shopping_list.json
 *.conf
-home-assistant.log*
+
 #Others
 *.mp3
 
