@@ -139,6 +139,10 @@ rachio:
 # Example configuration.yaml entry
 device_tracker:
   - platform: bluetooth_le_tracker
+  - platform: unifi_direct
+    host: !secret unifi_router
+    username: !secret unifi_user
+    password: !secret unifi_pass
   
 # Example configuration.yaml entry
 cover:

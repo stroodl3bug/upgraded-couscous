@@ -121,26 +121,26 @@ cards:
               - type: custom:hui-glance-card
                 columns: 4
                 entities:
-                  - entity: sensor.glances_cpu_used
+                  - entity: sensor.192_168_0_81_cpu_used
                     name: CPU
                     icon: mdi:cpu-64-bit
-                  - entity: sensor.glances_ram_used_percent
+                  - entity: sensor.192_168_0_81_ram_used_percent
                     name: Memory
-                  - entity: sensor.glances_containers_active
-                    name: Docker
-                  - entity: sensor.glances_temp     
+                #   - entity: sensor.192_168_0_81_containers_active
+                #     name: Docker
+                  - entity: sensor.192_168_0_81_k10temp_0_temperature     
                     name: Temp
 
               - type: custom:hui-glance-card
                 columns: 4
                 entities:
-                  - entity: sensor.glances_mnt_disk1_used_percent    
+                  - entity: sensor.192_168_0_81_mnt_disk1_used_percent    
                     name: 'Disk 1'
-                  - entity: sensor.glances_mnt_disk2_used_percent    
+                  - entity: sensor.192_168_0_81_mnt_disk1_used_percent    
                     name: 'Disk 2'
-                  - entity: sensor.glances_mnt_disk3_used_percent    
+                  - entity: sensor.192_168_0_81_mnt_disk1_used_percent    
                     name: 'Disk 3'
-                  - entity: sensor.glances_mnt_disk4_used_percent    
+                  - entity: sensor.192_168_0_81_mnt_disk1_used_percent    
                     name: 'Disk 4'
 
 
@@ -203,10 +203,11 @@ cards:
 
               - type: divider
 
-              - entity: sensor.myip
+              - entity: device_tracker.usg_3p
                 name: IP Address
                 icon: mdi:network
-
+                type: attribute
+                attribute: ip
             #   - type: custom:hui-glance-card
             #     title: DD-WRT
             #     columns: 3
