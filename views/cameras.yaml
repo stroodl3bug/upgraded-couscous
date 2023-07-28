@@ -19,11 +19,23 @@ cards:
             camera_image: camera.front_door
 
           - type: picture-glance
-            title: Front Door
+            title: driveway
             entities: 
-              - sensor.blink_front_door_wifi_signal
-              - sensor.blink_front_door_temperature
-            camera_image: camera.blink_front_door
+              - camera.driveway_sub
+            camera_image: camera.driveway_sub
+
+          - type: picture-glance
+            title: yard
+            entities: 
+              - camera.yard_sub
+            camera_image: camera.yard_sub
+            
+        #   - type: picture-glance
+        #     title: Front Door
+        #     entities: 
+        #       - sensor.blink_front_door_wifi_signal
+        #       - sensor.blink_front_door_temperature
+        #     camera_image: camera.blink_front_door
 
         #   - type: picture-glance
         #     title: Driveway
@@ -32,39 +44,29 @@ cards:
         #     camera_image: camera.driveway
 
 
-  - type: vertical-stack
-    cards:
+#   - type: vertical-stack
+#     cards:
     
-          - type: picture-glance
-            title: Driveway 
-            entities:
-              - sensor.blink_driveway_wifi_signal
-              - sensor.blink_driveway_temperature
-            camera_image: camera.blink_driveway
+#           - type: picture-glance
+#             title: Driveway 
+#             entities:
+#               - sensor.blink_driveway_wifi_signal
+#               - sensor.blink_driveway_temperature
+#             camera_image: camera.blink_driveway
         
-          - type: picture-glance
-            title: utility room
-            entities: 
-              - sensor.blink_utility_room_wifi_signal
-              - sensor.blink_utility_room_temperature
-            camera_image: camera.blink_utility_room
+#           - type: picture-glance
+#             title: utility room
+#             entities: 
+#               - sensor.blink_utility_room_wifi_signal
+#               - sensor.blink_utility_room_temperature
+#             camera_image: camera.blink_utility_room
 
 
 
-  - type: vertical-stack
-    cards:
+#   - type: vertical-stack
+#     cards:
 
-          - type: picture-glance
-            title: driveway
-            entities: 
-              - camera.driveway
-            camera_image: camera.driveway
 
-          - type: picture-glance
-            title: garage
-            entities: 
-              - camera.garage
-            camera_image: camera.garage
 
 
             
