@@ -168,9 +168,9 @@ sensor:
         value_template: '{{ states("sensor.ender_3_estimated_print_time") | int | timestamp_custom("%H:%M", false)}}'
 
  
-camera:
-  - platform: mjpeg
-    name: OctoPrint
-    still_image_url: !secret octopi_still_image_url
-    mjpeg_url: !secret octopi_stream_url 
+# camera:
+#   - platform: mjpeg
+#     name: OctoPrint
+#     still_image_url: !secret octopi_still_image_url
+#     mjpeg_url: !secret octopi_stream_url 
 

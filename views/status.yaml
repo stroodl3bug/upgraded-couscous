@@ -154,10 +154,10 @@ cards:
         cards:
           - type: weather-forecast
             entity: weather.thermostat            
-          - type: glance
-            entities:
-              - sensor.trash
-              - sensor.recycle
+        #   - type: glance
+        #     entities:
+        #       - sensor.trash
+        #       - sensor.recycle
 
           - type: thermostat
             entity: climate.thermostat

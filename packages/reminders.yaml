@@ -1,13 +1,13 @@
-sensor:
-  - platform: date_reminder
-    name: Audi Registration
-    start_date_input: input_datetime.audi_vehicle_registration
-    days_in_future: 0
+# sensor:
+#   - platform: date_reminder
+#     name: Audi Registration
+#     start_date_input: input_datetime.audi_vehicle_registration
+#     days_in_future: 0
 
-  - platform: date_reminder
-    name: Acura Vehicle Registration
-    start_date_input: input_datetime.acura_vehicle_registration
-    days_in_future: 0
+#   - platform: date_reminder
+#     name: Acura Vehicle Registration
+#     start_date_input: input_datetime.acura_vehicle_registration
+#     days_in_future: 0
 
 
 input_datetime:

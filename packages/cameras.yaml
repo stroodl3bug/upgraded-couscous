@@ -1,13 +1,13 @@
 
 # # Example configuration.yaml entry
 # Example configuration.yaml entry
-camera:
-  - platform: generic
-    name: driveway
-    still_image_url: !secret driveway_snapshot
-    stream_source: !secret driveway_rtsp
+# camera:
+#   - platform: generic
+#     name: driveway
+#     still_image_url: !secret driveway_snapshot
+#     stream_source: !secret driveway_rtsp
     
-  - platform: generic
-    name: garage
-    still_image_url: !secret garage_snapshot
-    stream_source: !secret garage_rtsp
+#   - platform: generic
+#     name: garage
+#     still_image_url: !secret garage_snapshot
+#     stream_source: !secret garage_rtsp

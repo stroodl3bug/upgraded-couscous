@@ -154,10 +154,10 @@ cards:
           - type: custom:hui-glance-card
             columns: 2
             entities:
-              - entity: sensor.washing_machine_status
+              - entity: sensor.washer_washer_completion_time
                 name: Washing Machine
                 icon: mdi:washing-machine
-              - entity: sensor.washing_machine_status
+              - entity: sensor.dryer_dryer_completion_time
                 name: Washing Machine
                 icon: mdi:washing-machine
 

@@ -29,10 +29,12 @@ frontend:
   themes: !include_dir_merge_named themes/
 # Example configuration.yaml entry
 
-discovery:
+# discovery:
 mobile_app:
 ios:
 
+# Example configuration.yaml entry
+assist_pipeline:
 
 # Text to speech
 lovelace:
@@ -45,10 +47,17 @@ tts:
   - platform: google_translate
 
 
-spotify:
-  client_id: !secret client_id_spotify
-  client_secret: !secret client_secret_spotify
+# spotify:
+#   client_id: !secret client_id_spotify
+#   client_secret: !secret client_secret_spotify
 
+# Example configuration.yaml entry with optional parameters
+feedreader:
+  urls:
+    - https://rss.nytimes.com/services/xml/rss/nyt/PersonalTech.xml
+  scan_interval:
+    minutes: 1
+  max_entries: 5
 
 
 group: !include groups.yaml
@@ -90,16 +99,16 @@ sensor:
 #     scan_interval: 120
 # Example configuration.yaml entry
 
-###Github
-  - platform: github
-    access_token: !secret githubtoken
-    repositories:
-      - path: !secret github_path
+# ###Github
+#   - platform: github
+#     access_token: !secret githubtoken
+#     repositories:
+#       - path: !secret github_path
       
       
 ###Travis CI
-  - platform: travisci
-    api_key: !secret travisci_token
+#   - platform: travisci
+#     api_key: !secret travisci_token
     # repository:
     #   - upgraded-couscous
     # monitored_conditions:
@@ -145,10 +154,10 @@ device_tracker:
     password: !secret unifi_pass
   
 # Example configuration.yaml entry
-cover:
-  - platform: myq
-    username: !secret myq_username
-    password: !secret myq_password
+# cover:
+#   - platform: myq
+#     username: !secret myq_username
+#     password: !secret myq_password
 
 
 # Example configuration.yaml entry

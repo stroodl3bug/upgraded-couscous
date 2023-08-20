@@ -1,57 +1,57 @@
 ##Uses https://siftrss.com/ to pull relavant fields from RSS feeds##
 
-sensor:
-  - platform: feedparser
-    name: fs-ft
-    feed_url: !secret rss_fsft
-    date_format: '%a, %b %d %I:%M %p'
-    inclusions:
-      - title
-      - link
-      - pubDate
-
-  - platform: feedparser
-    name: tech-news
-    feed_url: !secret rss_technews
-    date_format: '%a, %b %d %I:%M %p'
-    inclusions:
-      - title
-      - link
-      - pubDate  
-
-  - platform: feedparser
-    name: bbc-top-news
-    feed_url: !secret rss_bbcnews
-    date_format: '%a, %b %d %I:%M %p'
-    inclusions:
-      - title
-      - link
-      - pubDate  
-
-  - platform: feedparser
-    name: reddit-home-automation
-    feed_url: !secret rss_reddit
-    date_format: '%a, %b %d %I:%M %p'
-    inclusions:
-      - title
-      - link
-      - pubDate 
-
-  - platform: feedparser
-    name: rss-lifehacker
-    feed_url: !secret rss_lifehacker
-    date_format: '%a, %b %d %I:%M %p'
-    inclusions:
-      - title
-      - link
-      - pubDate
+# sensor:
+#   - platform: feedparser
+#     name: fs-ft
+#     feed_url: !secret rss_fsft
+#     date_format: '%a, %b %d %I:%M %p'
+#     inclusions:
+#       - title
+#       - link
+#       - pubDate
 
 #   - platform: feedparser
-#     name: Watchlist
-#     feed_url: !secret rss_trakt_ondeck
+#     name: tech-news
+#     feed_url: !secret rss_technews
 #     date_format: '%a, %b %d %I:%M %p'
-#     # inclusions:
-#     #   - title
-#     #   - link
-#     #   - summary
-#     #   - image
+#     inclusions:
+#       - title
+#       - link
+#       - pubDate  
+
+#   - platform: feedparser
+#     name: bbc-top-news
+#     feed_url: !secret rss_bbcnews
+#     date_format: '%a, %b %d %I:%M %p'
+#     inclusions:
+#       - title
+#       - link
+#       - pubDate  
+
+#   - platform: feedparser
+#     name: reddit-home-automation
+#     feed_url: !secret rss_reddit
+#     date_format: '%a, %b %d %I:%M %p'
+#     inclusions:
+#       - title
+#       - link
+#       - pubDate 
+
+#   - platform: feedparser
+#     name: rss-lifehacker
+#     feed_url: !secret rss_lifehacker
+#     date_format: '%a, %b %d %I:%M %p'
+#     inclusions:
+#       - title
+#       - link
+#       - pubDate
+
+# #   - platform: feedparser
+# #     name: Watchlist
+# #     feed_url: !secret rss_trakt_ondeck
+# #     date_format: '%a, %b %d %I:%M %p'
+# #     # inclusions:
+# #     #   - title
+# #     #   - link
+# #     #   - summary
+# #     #   - image
