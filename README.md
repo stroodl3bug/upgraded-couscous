@@ -1,8 +1,8 @@
 ### Home Assistant
 
 [![GitHub Last Commit][last-commit-shield]][last-commit]
-[![GitHub Activity](https://img.shields.io/github/commit-activity/m/stroodl3bug/upgraded-couscous)](https://github.com/stroodl3bug/upgraded-couscous/commits/master)
-[![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-2023.8.4%20(Latest)-brightgreen)](https://github.com/home-assistant/home-assistant/releases/latest)
+[![GitHub Activity][activity-shield]][activity]
+[![HA Version][ha-shield]][ha]
 
 **Statistics**
 
@@ -60,3 +60,7 @@ Groups | 3
 
 [last-commit]: https://github.com/stroodl3bug/upgraded-couscous/commits/master
 [last-commit-shield]: https://img.shields.io/github/last-commit/stroodl3bug/upgraded-couscous
+[activity-shield]: https://img.shields.io/github/commit-activity/m/stroodl3bug/upgraded-couscous
+[activity]: https://github.com/stroodl3bug/upgraded-couscous/commits/master
+[ha-shield]: https://img.shields.io/badge/Running%20Home%20Assistant-2023.8.4%20(Latest)-brightgreen
+[ha]: https://github.com/home-assistant/home-assistant/releases/latest
