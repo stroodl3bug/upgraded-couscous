@@ -69,7 +69,7 @@ Groups | 3
 [activity]: https://github.com/stroodl3bug/upgraded-couscous/commits/master
 [ha-shield]: https://img.shields.io/badge/Home%20Assistant-2023.8.4-brightgreen?style=for-the-badge
 [ha]: https://github.com/home-assistant/home-assistant/releases/latest
-[github-shield]: https://img.shields.io/github/stars/stroodl3bug/upgraded-couscous?label=STARS&amp;logo=Github&amp;style=for-the-badge
+[github-shield]: https://img.shields.io/github/stars/stroodl3bug/upgraded-couscous?label=STARS&amp;logo=Github&amp?style=for-the-badge
 [github]: https://github.com/stroodl3bug/upgraded-couscous
-[actions-shield]:https://github.com/stroodl3bug/upgraded-couscous/actions/workflows/home-assistant.yml/badge.svg?branch=master?style=for-the-badge
+[actions-shield]: https://github.com/stroodl3bug/upgraded-couscous/actions/workflows/home-assistant.yml/badge.svg?style=for-the-badge
 [actions]: https://github.com/stroodl3bug/upgraded-couscous/actions/workflows/home-assistant.yml
