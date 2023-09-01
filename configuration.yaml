@@ -135,13 +135,13 @@ media_player:
 #    homeassistant.components.alarmdotcom: debug   
 
 # Example configuration.yaml entry
-speedtestdotnet:
-  scan_interval:
-    minutes: 30
-  monitored_conditions:
-    - ping
-    - download
-    - upload
+# speedtestdotnet:
+#   scan_interval:
+#     minutes: 30
+#   monitored_conditions:
+#     - ping
+#     - download
+#     - upload
 
 
 rachio:

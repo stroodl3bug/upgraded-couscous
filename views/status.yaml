@@ -106,49 +106,36 @@ cards:
         cards:
           - type: vertical-stack
             cards:
+
               - type: custom:auto-entities
                 card:
                   type: entities
+                show_empty: false
                 filter:
                   include:
-                    - domain: binary_sensor
-                      attributes:
-                       device_class: motion
+                    - domain: media_player
+                      state: /playing|on/
                 sort:
-                  method: name
-                  ignore_case: true
+                  method: last_changed
                   count: 10
         
               - type: custom:auto-entities
                 card:
                   type: entities
+                show_empty: false
                 filter:
                   include:
                     - domain: binary_sensor
                       state: "on"
                       attributes:
-                       device_class: window
-                sort:
-                  method: last_changed
-                  count: 100
-        
-              - type: custom:auto-entities
-                card:
-                  type: entities
-                filter:
-                  include:
-                    - domain: binary_sensor
-                      state: "on"
-                      attributes:
-                       device_class: door
+                       device_class: /window|door/
                     - domain: cover
                       state: open
                       attributes:
-                       device_class: garage
+                       device_class: garage                       
                 sort:
                   method: last_changed
                   count: 10
-        
         
       - type: vertical-stack
         cards:
