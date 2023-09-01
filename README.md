@@ -10,7 +10,7 @@
 
 Description | Count
 -- | --
-Entities | 700
+Entities | 702
 Alarm Panel | 1
 Sensors | 354
 Binary sensors | 102
@@ -18,7 +18,8 @@ Cameras | 4
 Media Players | 7
 Device Trackers  | 71
 Switches | 52
-Lights | 6
+Lights | 7
+Fans | 1
 Remotes | 2
 Groups | 3
 
@@ -28,7 +29,7 @@ Groups | 3
 - Grafana (9.0.3)
 - InfluxDB (4.7.0)
 - Log Viewer (0.15.1)
-- Mosquitto broker (6.2.1)
+- Mosquitto broker (6.3.0)
 - Node-RED (14.4.5)
 - Piper (1.3.2)
 - TasmoAdmin (0.25.0)
@@ -52,6 +53,7 @@ Groups | 3
 - [Auto Entities](https://github.com/thomasloven/lovelace-auto-entities)
 - [Button Card](https://github.com/custom-cards/button-card)
 - [Multiple Entity Row](https://github.com/benct/lovelace-multiple-entity-row)
+- [Mushroom](https://github.com/piitaya/lovelace-mushroom)
 - [Template Entity Row](https://github.com/thomasloven/lovelace-template-entity-row)
 - [Vertical Stack In Card](https://github.com/ofekashery/vertical-stack-in-card)
 
