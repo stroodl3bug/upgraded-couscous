@@ -7,13 +7,6 @@
 [![GitHub Activity](https://img.shields.io/github/commit-activity/m/stroodl3bug/upgraded-couscous)](https://github.com/stroodl3bug/upgraded-couscous/commits/master)
 [![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-2023.8.4%20(Latest)-brightgreen)](https://github.com/home-assistant/home-assistant/releases/latest)
 
-## Some statistics about my installation:
-
-Description | value
--- | --
-Number of entities | 700
-Number of sensors | 354
-
 **Statistics:**
 
 Description | Count
@@ -31,41 +24,20 @@ Lights | 6
 Remotes | 2
 Groups | 3
 
-**Custom Components:**
-
-
-[HACS](https://hacs.xyz/docs/configuration/start)
-
-[Deebot 4 Home Assistant](https://deebot.readthedocs.io/integrations/home-assistant)
-
-[Auto Backup](https://github.com/jcwillox/hass-auto-backup)
-
-[Generate readme](https://github.com/custom-components/readme)
-
-[SmartThinQ LGE Sensors](https://github.com/ollo69/ha-smartthinq-sensors)
-
-[Alarm.com](https://github.com/pyalarmdotcom/alarmdotcom)
-
-[Node-RED Companion](https://zachowj.github.io/node-red-contrib-home-assistant-websocket/guide/custom_integration/)
-
-***
-
-## My installed extensions:
-
 ## Add-ons
-- Advanced SSH & Web Terminal (15.0.7) - a0d7b954
-- File editor (5.6.0) - core
-- Grafana (9.0.3) - a0d7b954
-- InfluxDB (4.7.0) - a0d7b954
-- Log Viewer (0.15.1) - a0d7b954
-- Mosquitto broker (6.2.1) - core
-- Node-RED (14.4.5) - a0d7b954
-- Piper (1.3.2) - core
-- TasmoAdmin (0.25.0) - a0d7b954
-- Whisper (1.0.0) - core
-- Xbox One (2.0.2) - 840189d6
-- Z-Wave JS (0.1.88) - core
-- Z-Wave JS UI (1.15.8) - a0d7b954
+- Advanced SSH & Web Terminal (15.0.7)
+- File editor (5.6.0)
+- Grafana (9.0.3)
+- InfluxDB (4.7.0)
+- Log Viewer (0.15.1)
+- Mosquitto broker (6.2.1)
+- Node-RED (14.4.5)
+- Piper (1.3.2)
+- TasmoAdmin (0.25.0)
+- Whisper (1.0.0)
+- Xbox One (2.0.2)
+- Z-Wave JS (0.1.88)
+- Z-Wave JS UI (1.15.8)
 
 ### Custom integrations
 - [Alarm.Com](https://github.com/pyalarmdotcom/alarmdotcom)
