@@ -1,6 +1,7 @@
 # Home Assistant
 
 [![GitHub Actions][actions-shield]][actions]
+
 [![GitHub Last Commit][last-commit-shield]][last-commit]
 [![GitHub Activity][activity-shield]][activity]
 [![HA Version][ha-shield]][ha]
