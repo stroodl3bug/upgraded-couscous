@@ -427,7 +427,7 @@ sensor:
       zwave_count:
         entity_id: []
         value_template: >-
-           {{ states.zwave|count }}
+           {{ states|selectattr('object_id', 'search', 'node_status')|list|count }}
       switch_count:
         entity_id: []
         value_template: >-
@@ -437,59 +437,19 @@ sensor:
         value_template: >-
            {{ states.light|count }}           
       door_count:
-        entity_id:
-          - binary_sensor.garage_door
-          - binary_sensor.front_door
-          - binary_sensor.patio_door
+        entity_id: []
         value_template: >-
            {{ states | selectattr('entity_id','in',state_attr('group.doors','entity_id')) | list | count }}
       window_count:
-        entity_id:
-          - binary_sensor.basement_window
-          - binary_sensor.second_bedroom_window_1
-          - binary_sensor.second_bedroom_window_2
-          - binary_sensor.third_bedroom_window_1
-          - binary_sensor.third_bedroom_window_2
-          - binary_sensor.third_bedroom_window_3
-          - binary_sensor.living_room_window_1
-          - binary_sensor.living_room_window_2
-          - binary_sensor.living_room_window_3
-          - binary_sensor.dining_room_window_1
-          - binary_sensor.dining_room_window_2
-          - binary_sensor.dining_room_window_3
-          - binary_sensor.dining_room_window_4
-          - binary_sensor.family_room_window_1
-          - binary_sensor.family_room_window_2
-          - binary_sensor.breakfast_room_window_1
-          - binary_sensor.breakfast_room_window_2
+        entity_id: []
         value_template: >-
            {{ states | selectattr('entity_id','in',state_attr('group.windows','entity_id')) | list | count }}
       open_door_count:
-        entity_id:
-          - binary_sensor.garage_door
-          - binary_sensor.front_door
-          - binary_sensor.patio_door
+        entity_id: []
         value_template: >-
            {{ states | selectattr('entity_id','in',state_attr('group.doors','entity_id')) | selectattr('state','eq','on') | list | count }}
       open_window_count:
-        entity_id:
-          - binary_sensor.basement_window
-          - binary_sensor.second_bedroom_window_1
-          - binary_sensor.second_bedroom_window_2
-          - binary_sensor.third_bedroom_window_1
-          - binary_sensor.third_bedroom_window_2
-          - binary_sensor.third_bedroom_window_3
-          - binary_sensor.living_room_window_1
-          - binary_sensor.living_room_window_2
-          - binary_sensor.living_room_window_3
-          - binary_sensor.dining_room_window_1
-          - binary_sensor.dining_room_window_2
-          - binary_sensor.dining_room_window_3
-          - binary_sensor.dining_room_window_4
-          - binary_sensor.family_room_window_1
-          - binary_sensor.family_room_window_2
-          - binary_sensor.breakfast_room_window_1
-          - binary_sensor.breakfast_room_window_2
+        entity_id: []
         value_template: >-
            {{ states | selectattr('entity_id','in',state_attr('group.windows','entity_id')) | selectattr('state','eq','on') | list | count }}
 
