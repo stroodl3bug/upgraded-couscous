@@ -1,4 +1,4 @@
-###`Home Assistant`
+***Home Assistant***
 
 [![GitHub Last Commit][last-commit-shield]][last-commit]
 [![GitHub Activity][activity-shield]][activity]
