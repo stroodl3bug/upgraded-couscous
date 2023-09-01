@@ -1,5 +1,6 @@
 # Home Assistant
 
+[![GitHub Actions][actions-shield]][actions]
 [![GitHub Last Commit][last-commit-shield]][last-commit]
 [![GitHub Activity][activity-shield]][activity]
 [![HA Version][ha-shield]][ha]
@@ -70,3 +71,5 @@ Groups | 3
 [ha]: https://github.com/home-assistant/home-assistant/releases/latest
 [github-shield]: https://img.shields.io/github/stars/stroodl3bug/upgraded-couscous?label=STARS&amp;logo=Github&amp;style=for-the-badge
 [github]: https://github.com/stroodl3bug/upgraded-couscous
+[actions-shield]:https://github.com/stroodl3bug/upgraded-couscous/actions/workflows/main.yml?style=for-the-badge
+[actions]: https://github.com/stroodl3bug/upgraded-couscous/actions
