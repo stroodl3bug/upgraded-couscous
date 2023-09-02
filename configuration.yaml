@@ -63,21 +63,6 @@ feedreader:
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
-# hacs:
-#   token: !secret hacs_token
-
-#hue:
-#  bridges:
-#    - host: !secret hue_ip  
-
-
-#alarm_control_panel:
-#  platform: alarmdotcom
-#  platform: alarmdotcomajax
-#  username: !secret alarm_user
-#  password: !secret alarm_pass
-#  two_factor_cookie: !secret alarm_cookie
-
 
 # Example configuration.yaml entry
 input_number:
@@ -90,33 +75,6 @@ input_number:
 
 
 
-sensor:  
-#   - platform: airthings_wave
-#     mac: "98:07:2D:4A:97:5C"
-# #    name: 'Basement Airthings Wave'
-#     scan_interval: 120
-# Example configuration.yaml entry
-
-# ###Github
-#   - platform: github
-#     access_token: !secret githubtoken
-#     repositories:
-#       - path: !secret github_path
-      
-      
-###Travis CI
-#   - platform: travisci
-#     api_key: !secret travisci_token
-    # repository:
-    #   - upgraded-couscous
-    # monitored_conditions:
-    #   - last_build_id
-    #   - last_build_duration
-    #   - last_build_finished_at
-    #   - last_build_started_at
-    #   - last_build_state
-    #   - state
-      
 
 pi_hole:
   host: !secret pi_hole_ip
@@ -132,17 +90,6 @@ media_player:
 #   default: debug
 #  logs:
 #    homeassistant.components.darksky: debug
-#    homeassistant.components.alarmdotcom: debug   
-
-# Example configuration.yaml entry
-# speedtestdotnet:
-#   scan_interval:
-#     minutes: 30
-#   monitored_conditions:
-#     - ping
-#     - download
-#     - upload
-
 
 rachio:
   api_key: !secret rachio_key
@@ -155,12 +102,6 @@ device_tracker:
     host: !secret unifi_router
     username: !secret unifi_user
     password: !secret unifi_pass
-  
-# Example configuration.yaml entry
-# cover:
-#   - platform: myq
-#     username: !secret myq_username
-#     password: !secret myq_password
 
 
 # Example configuration.yaml entry
@@ -187,10 +128,3 @@ panel_iframe:
     title: TasmoAdmin
     icon: mdi:lightbulb-on
     url: !secret tasmoadmin_url
-
-panel_custom:
-  - name: zwavegraph2
-    sidebar_title: Z-Wave Graph
-    sidebar_icon: mdi:access-point-network
-    url_path: zwave
-    
