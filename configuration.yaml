@@ -73,9 +73,6 @@ input_number:
     max: 120
     step: 1
 
-
-
-
 pi_hole:
   host: !secret pi_hole_ip
 
@@ -93,7 +90,6 @@ media_player:
 
 rachio:
   api_key: !secret rachio_key
-
 
 # Example configuration.yaml entry
 device_tracker:
@@ -116,12 +112,6 @@ zone:
     longitude: !secret home_longitude
     radius: 100
     icon: mdi:account-multiple
-
-# panel_iframe:
-#   unraid:
-#     title: 'unRAID'
-#     url: !secret unraid
-#     icon: 'mdi:alpha-u-box-outline'
 
 panel_iframe:
   tasmoadmin:
