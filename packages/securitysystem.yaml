@@ -405,51 +405,51 @@ sensor:
   - platform: template
     sensors:
       binary_sensor_count:
-        entity_id: []
+#        entity_id: []
         value_template: >-
            {{ states.binary_sensor|count }}
       sensor_count:
-        entity_id: []
+#        entity_id: []
         value_template: >-
            {{ states.sensor|count }}
       automation_count:
-        entity_id: []
+#        entity_id: []
         value_template: >-
            {{ states.automation|count }}
       media_player_count:
-        entity_id: []
+#        entity_id: []
         value_template: >-
            {{ states.media_player|count }}
       camera_count:
-        entity_id: []
+#        entity_id: []
         value_template: >-
            {{ states.camera|count }}
       zwave_count:
-        entity_id: []
+#        entity_id: []
         value_template: >-
            {{ states|selectattr('object_id', 'search', 'node_status')|list|count }}
       switch_count:
-        entity_id: []
+#        entity_id: []
         value_template: >-
            {{ states.switch|count }}    
       light_count:
-        entity_id: []
+#        entity_id: []
         value_template: >-
            {{ states.light|count }}           
       door_count:
-        entity_id: []
+#        entity_id: []
         value_template: >-
            {{ states | selectattr('entity_id','in',state_attr('group.doors','entity_id')) | list | count }}
       window_count:
-        entity_id: []
+#        entity_id: []
         value_template: >-
            {{ states | selectattr('entity_id','in',state_attr('group.windows','entity_id')) | list | count }}
       open_door_count:
-        entity_id: []
+#        entity_id: []
         value_template: >-
            {{ states | selectattr('entity_id','in',state_attr('group.doors','entity_id')) | selectattr('state','eq','on') | list | count }}
       open_window_count:
-        entity_id: []
+#        entity_id: []
         value_template: >-
            {{ states | selectattr('entity_id','in',state_attr('group.windows','entity_id')) | selectattr('state','eq','on') | list | count }}
 
