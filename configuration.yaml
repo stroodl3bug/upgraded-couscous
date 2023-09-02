@@ -4,7 +4,7 @@ logbook: #show logbook as default_config removed to hide map & history
 history: #add history back to see graphs :(
 homeassistant:
   country: 'US'
-  name: Home 
+  name: Home
   temperature_unit: F
   latitude: !secret home_latitude
   longitude: !secret home_longitude
@@ -40,7 +40,7 @@ assist_pipeline:
 lovelace:
   mode: yaml
   resources:  !include resources.yaml
-  
+
 readme:
 
 tts:
