@@ -93,12 +93,6 @@ device_tracker:
     username: !secret unifi_user
     password: !secret unifi_pass
 
-
-# Example configuration.yaml entry
-withings:
-  client_id: !secret withingsid
-  client_secret: !secret withingssecret
-
 zone:
   # This will override the default home zone
   - name: Home
