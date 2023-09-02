@@ -73,9 +73,6 @@ input_number:
     max: 120
     step: 1
 
-pi_hole:
-  host: !secret pi_hole_ip
-
 media_source:
 
 # Example configuration.yaml entry
@@ -87,9 +84,6 @@ media_player:
 #   default: debug
 #  logs:
 #    homeassistant.components.darksky: debug
-
-rachio:
-  api_key: !secret rachio_key
 
 # Example configuration.yaml entry
 device_tracker:
