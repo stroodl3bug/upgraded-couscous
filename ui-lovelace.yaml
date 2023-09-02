@@ -13,9 +13,7 @@ views:
 #  - !include '/config/views/system.yaml'
   - !include '/config/views/monitoring.yaml'
   - !include '/config/views/octoprint.yaml'
-
-
-          
+  
 #background: center / cover no-repeat url("/local/blackgrey.jpg") fixed
 button_card_templates:
 
@@ -151,7 +149,6 @@ button_card_templates:
       action: toggle
     hold_action:
       action: more-info
-      
   windows-doors-2:
     layout: icon_label
     color: auto
@@ -184,7 +181,6 @@ button_card_templates:
       label:
         - font-size: 8px
         - font-weight: normal
-
     state:
       - value: "on"
         styles:
@@ -193,7 +189,6 @@ button_card_templates:
             - box-shadow: 0px 0px 10px 3px var(--button-card-light-color)
           name:
             - color: white      
-
   lights_inset:
 #    layout: icon_label
     icon: mdi:fire
