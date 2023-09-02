@@ -11,6 +11,7 @@ rules:
   document-start: disable
   indentation: disable
 
+
 ignore: |
   custom_components/
   .git
