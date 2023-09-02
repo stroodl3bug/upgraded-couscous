@@ -12,7 +12,7 @@
 
 Description | Count
 -- | --
-Entities | 702
+Entities | 703
 Alarm Panel | 1
 Sensors | 354
 Binary sensors | 102
@@ -34,6 +34,7 @@ Groups | 3
 - Mosquitto broker (6.3.0)
 - Node-RED (14.4.5)
 - Piper (1.3.2)
+- Studio Code Server (5.10.1)
 - TasmoAdmin (0.25.0)
 - Whisper (1.0.0)
 - Xbox One (2.0.2)
@@ -54,6 +55,7 @@ Groups | 3
 ### Lovelace plugins
 - [Auto Entities](https://github.com/thomasloven/lovelace-auto-entities)
 - [Button Card](https://github.com/custom-cards/button-card)
+- [Ha Floorplan](https://github.com/ExperienceLovelace/ha-floorplan)
 - [Multiple Entity Row](https://github.com/benct/lovelace-multiple-entity-row)
 - [Mushroom](https://github.com/piitaya/lovelace-mushroom)
 - [Template Entity Row](https://github.com/thomasloven/lovelace-template-entity-row)
