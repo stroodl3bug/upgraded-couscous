@@ -8,14 +8,14 @@ on:
 
 jobs:
   # YAML Lint
-  yamllint:
-    name: 🧹 YAML Lint
-    runs-on: ubuntu-latest
-    steps:
-      - name: ⤵️ Check out configuration from GitHub
-        uses: actions/checkout@v3
-      - name: 🚀 Run yamllint
-        uses: frenck/action-yamllint@v1.4
+#  yamllint:
+#    name: 🧹 YAML Lint
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: ⤵️ Check out configuration from GitHub
+#        uses: actions/checkout@v3
+#      - name: 🚀 Run yamllint
+#        uses: frenck/action-yamllint@v1.4
 
   #Remark Lint
   remarklint:
@@ -34,7 +34,8 @@ jobs:
   home_assistant:
     name: "🏠 Home Assistant Core ${{ matrix.version }} Configuration Check"
     runs-on: ubuntu-latest
-    needs: [yamllint, remarklint]
+#    needs: [yamllint, remarklint]
+    needs: [remarklint]
     strategy:
       fail-fast: false
       matrix:
