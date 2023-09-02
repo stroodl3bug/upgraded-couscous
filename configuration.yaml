@@ -39,7 +39,7 @@ assist_pipeline:
 # Text to speech
 lovelace:
   mode: yaml
-  resources:  !include resources.yaml
+  resources: !include resources.yaml
 
 readme:
 
