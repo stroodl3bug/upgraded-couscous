@@ -59,7 +59,9 @@
     type: module  
   - url: /hacsfiles/lovelace-mushroom/mushroom.js
     type: module
-                
+  - url: /hacsfiles/ha-floorplan/floorplan.js
+    type: module
+                                
                                 
       
 # custom_header:
