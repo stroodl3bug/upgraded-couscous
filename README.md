@@ -12,13 +12,13 @@
 
 Description | Count
 -- | --
-Entities | 706
+Entities | 710
 Alarm Panel | 1
 Sensors | 356
 Binary sensors | 102
 Cameras | 4
 Media Players | 7
-Device Trackers  | 72
+Device Trackers  | 71
 Switches | 52
 Lights | 7
 Fans | 1
@@ -31,15 +31,14 @@ Groups | 3
 - Grafana (9.0.3)
 - InfluxDB (4.7.0)
 - Log Viewer (0.15.1)
-- Mosquitto broker (6.3.0)
+- Mosquitto broker (6.3.1)
 - Node-RED (14.4.5)
 - Piper (1.3.2)
 - Studio Code Server (5.10.1)
 - TasmoAdmin (0.25.0)
 - Whisper (1.0.0)
 - Xbox One (2.0.2)
-- Z-Wave JS (0.1.88)
-- Z-Wave JS UI (1.15.8)
+- Z-Wave JS UI (1.15.9)
 
 ### Custom integrations
 - [Alarm.Com](https://github.com/pyalarmdotcom/alarmdotcom)
@@ -71,8 +70,8 @@ Groups | 3
 [last-commit-shield]: https://img.shields.io/github/last-commit/stroodl3bug/upgraded-couscous?style=for-the-badge
 [activity-shield]: https://img.shields.io/github/commit-activity/m/stroodl3bug/upgraded-couscous?style=for-the-badge
 [activity]: https://github.com/stroodl3bug/upgraded-couscous/commits/master
-[ha-shield]: https://img.shields.io/badge/Home%20Assistant-2023.8.4-brightgreen?style=for-the-badge
-[ha]: https://github.com/home-assistant/home-assistant/releases/tag/2023.8.4
+[ha-shield]: https://img.shields.io/badge/Home%20Assistant-2023.9.0-brightgreen?style=for-the-badge
+[ha]: https://github.com/home-assistant/home-assistant/releases/tag/2023.9.0
 [github-shield]: https://img.shields.io/github/stars/stroodl3bug/upgraded-couscous?label=STARS&amp;logo=Github&amp?style=for-the-badge
 [github]: https://github.com/stroodl3bug/upgraded-couscous
 [actions-shield]: https://github.com/stroodl3bug/upgraded-couscous/actions/workflows/home-assistant.yml/badge.svg?style=for-the-badge
