@@ -12,13 +12,13 @@
 
 Description | Count
 -- | --
-Entities | 703
+Entities | 706
 Alarm Panel | 1
-Sensors | 354
+Sensors | 356
 Binary sensors | 102
 Cameras | 4
 Media Players | 7
-Device Trackers  | 71
+Device Trackers  | 72
 Switches | 52
 Lights | 7
 Fans | 1
@@ -56,6 +56,7 @@ Groups | 3
 - [Auto Entities](https://github.com/thomasloven/lovelace-auto-entities)
 - [Button Card](https://github.com/custom-cards/button-card)
 - [Ha Floorplan](https://github.com/ExperienceLovelace/ha-floorplan)
+- [Home Assistant Swipe Navigation](https://github.com/zanna-37/hass-swipe-navigation)
 - [Multiple Entity Row](https://github.com/benct/lovelace-multiple-entity-row)
 - [Mushroom](https://github.com/piitaya/lovelace-mushroom)
 - [Template Entity Row](https://github.com/thomasloven/lovelace-template-entity-row)
