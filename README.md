@@ -12,9 +12,9 @@
 
 Description | Count
 -- | --
-Entities | 710
+Entities | 711
 Alarm Panel | 1
-Sensors | 356
+Sensors | 357
 Binary sensors | 102
 Cameras | 4
 Media Players | 7
