@@ -100,9 +100,3 @@ zone:
     longitude: !secret home_longitude
     radius: 100
     icon: mdi:account-multiple
-
-panel_iframe:
-  tasmoadmin:
-    title: TasmoAdmin
-    icon: mdi:lightbulb-on
-    url: !secret tasmoadmin_url
