@@ -5,11 +5,16 @@ influxdb:
   default_measurement: state
   include:
     entities:
+#thermostat
       - sensor.thermostat_temperature
       - sensor.thermostat_humidity
+      - sensor.lil_bee_temperature
+      - sensor.basement_temperature
+#speedtest
       - sensor.speedtest_download
       - sensor.speedtest_upload
       - sensor.speedtest_ping
+#pihole
       - sensor.pi_hole_ads_blocked_today
       - sensor.pi_hole_ads_percentage_blocked_today
       - sensor.pi_hole_dns_queries_cached
@@ -19,17 +24,38 @@ influxdb:
       - sensor.pi_hole_dns_unique_domains
       - sensor.pi_hole_domains_blocked
       - sensor.pi_hole_seen_clients
-      - sensor.washer_watts
-      - sensor.washer_total_kwh
-      - sensor.washer_today_kwh
-      - sensor.washer_volts
-      - sensor.washing_machine_status
+#washer      
+      - sensor.washer_washer_machine_state
+      - sensor.washer_deltaenergy
+      - sensor.washer_washer_machine_state
+      - sensor.washer_energy
+      - sensor.washer_powerenergy
+      - sensor.washer_power
+      - sensor.washer_energysaved
+#dryer
+      - sensor.dryer_dryer_machine_state
+      - sensor.dryer_deltaenergy
+      - sensor.dryer_dryer_machine_state
+      - sensor.dryer_energy
+      - sensor.dryer_power
+      - sensor.dryer_powerenergy
+      - sensor.dryer_energysaved
+#microwave
       - sensor.microwave_watts
       - sensor.microwave_volts
       - sensor.microwave_amps
       - sensor.microwave_total_kwh
       - sensor.microwave_today_kwh
-      - sensor.dishwasher_status
-      
-      - sensor.lil_bee_temperature
-      - sensor.basement_temperature
+#refrigerator
+      - climate.refrigerator_fridge
+      - sensor.refrigerator_fridge_temp
+#freezer      
+      - climate.refrigerator_freezer
+      - sensor.refrigerator_freezer_temp
+#radon
+      - sensor.basement_radon
+#unifi
+      - sensor.floornet
+      - sensor.skynet      
+      - sensor.smartnet
+      - sensor.guestnet      
